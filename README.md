@@ -1,14 +1,102 @@
-# ARK Client - Swift
+# ARK Crypto - Swift
 
 <p align="center">
-    <img src="https://github.com/ArkEcosystem/swift-client/blob/master/banner.png" />
+    <img src="https://github.com/ArkEcosystem/swift-crypto/blob/master/banner.png" />
 </p>
 
-> A simple Swift API client for the ARK Blockchain.
+> A simple Swift Cryptography Implementation for the Ark Blockchain.
 
-[![Build Status](https://img.shields.io/travis/ArkEcosystem/swift-client/master.svg?style=flat-square)](https://travis-ci.org/ArkEcosystem/swift-client)
-[![Latest Version](https://img.shields.io/github/release/ArkEcosystem/swift-client.svg?style=flat-square)](https://github.com/ArkEcosystem/swift-client/releases)
+[![Build Status](https://img.shields.io/travis/ArkEcosystem/swift-crypto/master.svg?style=flat-square)](https://travis-ci.org/ArkEcosystem/swift-crypto)
+[![Latest Version](https://img.shields.io/github/release/ArkEcosystem/swift-crypto.svg?style=flat-square)](https://github.com/ArkEcosystem/swift-crypto/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## TO-DO
+
+### AIP11 Serialization
+- [ ] Transfer
+- [ ] Second Signature Registration
+- [ ] Delegate Registration
+- [ ] Vote
+- [ ] Multi Signature Registration
+- [ ] IPFS
+- [ ] Timelock Transfer
+- [ ] Multi Payment
+- [ ] Delegate Resignation
+
+### AIP11 Deserialization
+- [ ] Transfer
+- [ ] Second Signature Registration
+- [ ] Delegate Registration
+- [ ] Vote
+- [ ] Multi Signature Registration
+- [ ] IPFS
+- [ ] Timelock Transfer
+- [ ] Multi Payment
+- [ ] Delegate Resignation
+
+### Transaction Signing
+- [ ] Transfer
+- [ ] Second Signature Registration
+- [ ] Delegate Registration
+- [ ] Vote
+- [ ] Multi Signature Registration
+
+### Transaction Verifying
+- [ ] Transfer
+- [ ] Second Signature Registration
+- [ ] Delegate Registration
+- [ ] Vote
+- [ ] Multi Signature Registration
+
+### Transaction Entity
+- [ ] getId
+- [ ] sign
+- [ ] secondSign
+- [ ] parseSignatures
+- [ ] serialize
+- [ ] deserialize
+- [ ] toBytes
+- [ ] toArray
+- [ ] toJson
+
+### Message
+- [ ] sign
+- [ ] verify
+- [ ] toArray
+- [ ] toJson
+
+### Address Identity
+- [ ] fromPassphrase
+- [ ] fromPublicKey
+- [ ] fromPrivateKey
+- [ ] validate
+
+### Private Key Identity
+- [ ] fromPassphrase
+- [ ] fromHex
+
+### Public Key Identity
+- [ ] fromPassphrase
+- [ ] fromHex
+
+### WIF Identity
+- [ ] fromPassphrase
+
+### Configuration
+- [ ] getNetwork
+- [ ] setNetwork
+- [ ] getFee
+- [ ] setFee
+
+### Slot
+- [ ] time
+- [ ] epoch
+
+### Networks (Mainnet, Devnet & Testnet)
+- [ ] epoch
+- [ ] version
+- [ ] nethash
+- [ ] wif
 
 ## Installation
 
