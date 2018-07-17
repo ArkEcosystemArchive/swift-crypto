@@ -7,6 +7,7 @@
 > A simple Swift Cryptography Implementation for the Ark Blockchain.
 
 [![Build Status](https://img.shields.io/travis/ArkEcosystem/swift-crypto/master.svg?style=flat-square)](https://travis-ci.org/ArkEcosystem/swift-crypto)
+[![Codecov](https://img.shields.io/codecov/c/github/arkecosystem/swift-crypto.svg)](https://codecov.io/gh/arkecosystem/swift-crypto)
 [![Latest Version](https://img.shields.io/github/release/ArkEcosystem/swift-crypto.svg?style=flat-square)](https://github.com/ArkEcosystem/swift-crypto/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -100,19 +101,13 @@
 - [ ] nethash
 - [ ] wif
 
-## Installation
+## Documentation
 
-```bash
-...
-```
+You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://docs.ark.io/v1.0/docs/cryptography-swift).
 
 ## Security
 
 If you discover a security vulnerability within this package, please send an e-mail to security@ark.io. All security vulnerabilities will be promptly addressed.
-
-## Documentation
-
-You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://docs.ark.io/v1.0/docs/cryptography-swift).
 
 ## Credits
 
