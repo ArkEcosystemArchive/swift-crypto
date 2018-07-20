@@ -1,8 +1,28 @@
 language: objective-c
 osx_image: xcode9.4
 
-xcode_project: Crypto.xcodeproj
-xcode_scheme: CryptoTests
+cache:
+  directories:
+  - Carthage
+
+before_install:
+  - brew install carthage || true
+  - brew outdated carthage || brew upgrade carthage
+  - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
+
+install:
+  # Install swiftlint through precompiled .pkg, as that is the fastest approach
+  - wget --output-document /tmp/SwiftLint.pkg https://github.com/realm/SwiftLint/releases/download/0.26.0/SwiftLint.pkg && sudo installer -pkg /tmp/SwiftLint.pkg -target /
+
+before_script:
+  # bootstrap the dependencies for the project
+  - cd Crypto && carthage bootstrap --cache-builds
+
+script:
+  - set -o pipefail && xcodebuild clean test -project Crypto.xcodeproj -scheme CryptoTests CODE_SIGNING_REQUIRED=NO | xcpretty -f `xcpretty-travis-formatter`
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 git:
   depth: 1
