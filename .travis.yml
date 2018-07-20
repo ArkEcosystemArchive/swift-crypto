@@ -1,13 +1,7 @@
 language: objective-c
 osx_image: xcode9.4
 
-cache:
-  directories:
-  - Carthage
-
 before_install:
-  - brew install carthage || true
-  - brew outdated carthage || brew upgrade carthage
   - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
 
 install:
@@ -15,8 +9,7 @@ install:
   - wget --output-document /tmp/SwiftLint.pkg https://github.com/realm/SwiftLint/releases/download/0.26.0/SwiftLint.pkg && sudo installer -pkg /tmp/SwiftLint.pkg -target /
 
 before_script:
-  # bootstrap the dependencies for the project
-  - cd Crypto && carthage bootstrap --cache-builds
+  - cd Crypto
 
 script:
   - set -o pipefail && xcodebuild clean test -project Crypto.xcodeproj -scheme CryptoTests CODE_SIGNING_REQUIRED=NO | xcpretty -f `xcpretty-travis-formatter`
