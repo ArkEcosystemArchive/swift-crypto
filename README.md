@@ -6,10 +6,10 @@
 
 > A simple Swift Cryptography Implementation for the Ark Blockchain.
 
-[![Build Status](https://img.shields.io/travis/ArkEcosystem/swift-crypto/master.svg)](https://travis-ci.org/ArkEcosystem/swift-crypto)
-[![Codecov](https://img.shields.io/codecov/c/github/arkecosystem/swift-crypto.svg)](https://codecov.io/gh/arkecosystem/swift-crypto)
-[![Latest Version](https://img.shields.io/github/release/ArkEcosystem/swift-crypto.svg)](https://github.com/ArkEcosystem/swift-crypto/releases)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://badgen.now.sh/travis/ArkEcosystem/swift-crypto)](https://badgen.now.sh/travis/ArkEcosystem/swift-crypto)
+[![Codecov](https://badgen.now.sh/codecov/c/github/arkecosystem/swift-crypto)](https://codecov.io/gh/arkecosystem/swift-crypto)
+[![Latest Version](https://badgen.now.sh/github/release/ArkEcosystem/swift-crypto)](https://github.com/ArkEcosystem/swift-crypto/releases)
+[![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 
 ## TO-DO
 
