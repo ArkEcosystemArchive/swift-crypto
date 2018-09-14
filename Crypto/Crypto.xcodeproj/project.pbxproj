@@ -10,6 +10,10 @@
 		D03F5E532102566700ED8884 /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D03F5E492102566700ED8884 /* Crypto.framework */; };
 		D03F5E582102566700ED8884 /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F5E572102566700ED8884 /* CryptoTests.swift */; };
 		D03F5E5A2102566700ED8884 /* Crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = D03F5E4C2102566700ED8884 /* Crypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D0B1A5EF214C5EE1001FA4DE /* ProtocolNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A5EE214C5EE1001FA4DE /* ProtocolNetwork.swift */; };
+		D0B1A5F1214C5F9C001FA4DE /* Mainnet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A5F0214C5F9C001FA4DE /* Mainnet.swift */; };
+		D0B1A5F3214C5FA4001FA4DE /* Devnet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A5F2214C5FA4001FA4DE /* Devnet.swift */; };
+		D0B1A5F5214C5FAD001FA4DE /* Testnet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A5F4214C5FAD001FA4DE /* Testnet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		D03F5E522102566700ED8884 /* CryptoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03F5E572102566700ED8884 /* CryptoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoTests.swift; sourceTree = "<group>"; };
 		D03F5E592102566700ED8884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D0B1A5EE214C5EE1001FA4DE /* ProtocolNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolNetwork.swift; sourceTree = "<group>"; };
+		D0B1A5F0214C5F9C001FA4DE /* Mainnet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mainnet.swift; sourceTree = "<group>"; };
+		D0B1A5F2214C5FA4001FA4DE /* Devnet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devnet.swift; sourceTree = "<group>"; };
+		D0B1A5F4214C5FAD001FA4DE /* Testnet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testnet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +79,7 @@
 		D03F5E4B2102566700ED8884 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				D0B1A5ED214C5EC8001FA4DE /* Networks */,
 				D03F5E4C2102566700ED8884 /* Crypto.h */,
 				D03F5E4D2102566700ED8884 /* Info.plist */,
 			);
@@ -84,6 +93,17 @@
 				D03F5E592102566700ED8884 /* Info.plist */,
 			);
 			path = CryptoTests;
+			sourceTree = "<group>";
+		};
+		D0B1A5ED214C5EC8001FA4DE /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+				D0B1A5EE214C5EE1001FA4DE /* ProtocolNetwork.swift */,
+				D0B1A5F0214C5F9C001FA4DE /* Mainnet.swift */,
+				D0B1A5F2214C5FA4001FA4DE /* Devnet.swift */,
+				D0B1A5F4214C5FAD001FA4DE /* Testnet.swift */,
+			);
+			path = Networks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +169,7 @@
 				TargetAttributes = {
 					D03F5E482102566700ED8884 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					D03F5E512102566700ED8884 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -211,6 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0B1A5F1214C5F9C001FA4DE /* Mainnet.swift in Sources */,
+				D0B1A5F3214C5FA4001FA4DE /* Devnet.swift in Sources */,
+				D0B1A5EF214C5EE1001FA4DE /* ProtocolNetwork.swift in Sources */,
+				D0B1A5F5214C5FAD001FA4DE /* Testnet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +380,7 @@
 		D03F5E5E2102566700ED8884 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -373,6 +399,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.ark.Crypto;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -380,6 +407,7 @@
 		D03F5E5F2102566700ED8884 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -405,6 +433,7 @@
 		D03F5E612102566700ED8884 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = CryptoTests/Info.plist;
@@ -422,6 +451,7 @@
 		D03F5E622102566700ED8884 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = CryptoTests/Info.plist;
