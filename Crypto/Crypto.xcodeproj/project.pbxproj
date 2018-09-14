@@ -15,6 +15,8 @@
 		D0B1A5F3214C5FA4001FA4DE /* Devnet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A5F2214C5FA4001FA4DE /* Devnet.swift */; };
 		D0B1A5F5214C5FAD001FA4DE /* Testnet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A5F4214C5FAD001FA4DE /* Testnet.swift */; };
 		D0B1A5F8214C657D001FA4DE /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A5F7214C657D001FA4DE /* Enums.swift */; };
+		D0B1A5FB214C6827001FA4DE /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A5FA214C6827001FA4DE /* NetworkConfiguration.swift */; };
+		D0B1A5FD214C6833001FA4DE /* FeeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A5FC214C6833001FA4DE /* FeeConfiguration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,8 @@
 		D0B1A5F2214C5FA4001FA4DE /* Devnet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Devnet.swift; sourceTree = "<group>"; };
 		D0B1A5F4214C5FAD001FA4DE /* Testnet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testnet.swift; sourceTree = "<group>"; };
 		D0B1A5F7214C657D001FA4DE /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		D0B1A5FA214C6827001FA4DE /* NetworkConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
+		D0B1A5FC214C6833001FA4DE /* FeeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeConfiguration.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		D03F5E4B2102566700ED8884 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				D0B1A5F9214C67F1001FA4DE /* Configuration */,
 				D0B1A5F6214C6568001FA4DE /* Enums */,
 				D0B1A5ED214C5EC8001FA4DE /* Networks */,
 				D03F5E4C2102566700ED8884 /* Crypto.h */,
@@ -115,6 +120,15 @@
 				D0B1A5F7214C657D001FA4DE /* Enums.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		D0B1A5F9214C67F1001FA4DE /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				D0B1A5FA214C6827001FA4DE /* NetworkConfiguration.swift */,
+				D0B1A5FC214C6833001FA4DE /* FeeConfiguration.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +262,8 @@
 				D0B1A5F8214C657D001FA4DE /* Enums.swift in Sources */,
 				D0B1A5EF214C5EE1001FA4DE /* ProtocolNetwork.swift in Sources */,
 				D0B1A5F5214C5FAD001FA4DE /* Testnet.swift in Sources */,
+				D0B1A5FD214C6833001FA4DE /* FeeConfiguration.swift in Sources */,
+				D0B1A5FB214C6827001FA4DE /* NetworkConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

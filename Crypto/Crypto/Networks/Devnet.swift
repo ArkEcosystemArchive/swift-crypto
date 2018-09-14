@@ -9,7 +9,7 @@
 
 import Foundation
 
-class Devnet: Network {
+class Devnet: ProtocolNetwork {
     func epoch() -> String {
         return "2017-03-21T13:00:00.000Z"
     }
