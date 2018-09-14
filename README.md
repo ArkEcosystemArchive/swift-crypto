@@ -86,20 +86,20 @@
 - [ ] fromPassphrase
 
 ### Configuration
-- [ ] getNetwork
-- [ ] setNetwork
-- [ ] getFee
-- [ ] setFee
+- [x] getNetwork
+- [x] setNetwork
+- [x] getFee
+- [x] setFee
 
 ### Slot
 - [ ] time
 - [ ] epoch
 
 ### Networks (Mainnet, Devnet & Testnet)
-- [ ] epoch
-- [ ] version
-- [ ] nethash
-- [ ] wif
+- [x] epoch
+- [x] version
+- [x] nethash
+- [x] wif
 
 ## Documentation
 
