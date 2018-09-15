@@ -19,6 +19,7 @@
 		D0B1A5FD214C6833001FA4DE /* FeeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A5FC214C6833001FA4DE /* FeeConfiguration.swift */; };
 		D0B1A600214C7102001FA4DE /* Slot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A5FF214C7102001FA4DE /* Slot.swift */; };
 		D0B1A604214D1548001FA4DE /* NetworkConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A603214D1548001FA4DE /* NetworkConfigurationTests.swift */; };
+		D0B1A606214D46C5001FA4DE /* FeeConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A605214D46C5001FA4DE /* FeeConfigurationTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D0B1A5FC214C6833001FA4DE /* FeeConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeConfiguration.swift; sourceTree = "<group>"; };
 		D0B1A5FF214C7102001FA4DE /* Slot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slot.swift; sourceTree = "<group>"; };
 		D0B1A603214D1548001FA4DE /* NetworkConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfigurationTests.swift; sourceTree = "<group>"; };
+		D0B1A605214D46C5001FA4DE /* FeeConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeeConfigurationTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				D0B1A603214D1548001FA4DE /* NetworkConfigurationTests.swift */,
+				D0B1A605214D46C5001FA4DE /* FeeConfigurationTests.swift */,
 			);
 			path = Configuration;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D03F5E582102566700ED8884 /* CryptoTests.swift in Sources */,
+				D0B1A606214D46C5001FA4DE /* FeeConfigurationTests.swift in Sources */,
 				D0B1A604214D1548001FA4DE /* NetworkConfigurationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
