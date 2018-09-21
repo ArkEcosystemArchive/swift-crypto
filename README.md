@@ -69,21 +69,21 @@
 - [ ] toJson
 
 ### Address
-- [ ] fromPassphrase
-- [ ] fromPublicKey
-- [ ] fromPrivateKey
-- [ ] validate
+- [x] fromPassphrase
+- [x] fromPublicKey
+- [x] fromPrivateKey
+- [x] validate
 
 ### Private Key
-- [ ] fromPassphrase
-- [ ] fromHex
+- [x] fromPassphrase
+- [x] fromHex
 
 ### Public Key
-- [ ] fromPassphrase
-- [ ] fromHex
+- [x] fromPassphrase
+- [x] fromHex
 
 ### WIF
-- [ ] fromPassphrase
+- [x] fromPassphrase
 
 ### Configuration
 - [x] getNetwork
@@ -92,8 +92,8 @@
 - [x] setFee
 
 ### Slot
-- [ ] time
-- [ ] epoch
+- [x] time
+- [x] epoch
 
 ### Networks (Mainnet, Devnet & Testnet)
 - [x] epoch
@@ -111,7 +111,6 @@ If you discover a security vulnerability within this package, please send an e-m
 
 ## Credits
 
-- [Brian Faust](https://github.com/faustbrian)
 - [ItsANameToo](https://github.com/ItsANameToo)
 - [All Contributors](../../../../contributors)
 
