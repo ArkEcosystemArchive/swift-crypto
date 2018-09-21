@@ -7,7 +7,7 @@
 // file that was distributed with this source code.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <UIKit/UIKit.h>
 
 //! Project version number for Crypto.
 FOUNDATION_EXPORT double CryptoVersionNumber;
