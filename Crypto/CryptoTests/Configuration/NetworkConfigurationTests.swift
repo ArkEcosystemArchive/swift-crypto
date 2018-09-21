@@ -13,15 +13,15 @@ import XCTest
 class NetworkTests: XCTestCase {
 
     func testGetNetwork() {
-        let network = Network.shared.get()
+        let network = ArkNetwork.shared.get()
         XCTAssertEqual(network.version(), 30)
     }
 
     func testSetNetwork() {
-        Network.shared.set(network: Mainnet())
-        let network = Network.shared.get()
+        ArkNetwork.shared.set(network: Mainnet())
+        let network = ArkNetwork.shared.get()
         XCTAssertEqual(network.version(), 23)
 
-        Network.shared.set(network: Devnet()) // Reset
+        ArkNetwork.shared.set(network: Devnet()) // Reset
     }
 }

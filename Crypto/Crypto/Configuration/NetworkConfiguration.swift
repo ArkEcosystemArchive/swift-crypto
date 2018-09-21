@@ -9,9 +9,9 @@
 
 import Foundation
 
-class Network {
+class ArkNetwork {
 
-    static let shared = Network(network: Devnet())
+    static let shared = ArkNetwork(network: Devnet())
 
     var network: ProtocolNetwork
 

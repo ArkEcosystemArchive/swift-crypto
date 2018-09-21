@@ -12,14 +12,14 @@ import Foundation
 class Slot {
 
     static func time() -> Int {
-        let epoch = self.rfc3339().date(from: Network.shared.get().epoch())?.timeIntervalSince1970
+        let epoch = self.rfc3339().date(from: ArkNetwork.shared.get().epoch())?.timeIntervalSince1970
         let now = NSDate().timeIntervalSince1970
 
         return Int(now - epoch!)
     }
 
     static func epoch() -> Int {
-        return Int((self.rfc3339().date(from: Network.shared.get().epoch())?.timeIntervalSince1970)!)
+        return Int((self.rfc3339().date(from: ArkNetwork.shared.get().epoch())?.timeIntervalSince1970)!)
     }
 
     private static func rfc3339() -> DateFormatter {
