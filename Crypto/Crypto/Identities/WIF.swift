@@ -20,12 +20,4 @@ class WIF {
 
         return base58CheckEncode(bytes)
     }
-
-    private static func base58CheckEncode(_ bytes: [UInt8]) -> String {
-        let checksum = Crypto.sha256sha256(Data.init(bytes: bytes)).prefix(4)
-        var checkedBytes = bytes
-        checkedBytes.append(contentsOf: checksum)
-
-        return Base58.encode(Data.init(bytes: checkedBytes))
-    }
 }
