@@ -21,6 +21,8 @@
 		D0B1A6F8215561B8001FA4DE /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6EE215561B8001FA4DE /* NetworkConfiguration.swift */; };
 		D0B1A6FD215561E1001FA4DE /* FeeConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6FB215561E1001FA4DE /* FeeConfigurationTests.swift */; };
 		D0B1A6FE215561E1001FA4DE /* NetworkConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6FC215561E1001FA4DE /* NetworkConfigurationTests.swift */; };
+		D0B1A70121557399001FA4DE /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A70021557399001FA4DE /* PrivateKey.swift */; };
+		D0FA889E21557764008F715C /* PrivateKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA889D21557764008F715C /* PrivateKeyTests.swift */; };
 		D9FBDA7A05D6D9C9CEB35C40 /* Pods_CryptoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B4C1D367D148F9CD8F7DDB /* Pods_CryptoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +57,8 @@
 		D0B1A6EE215561B8001FA4DE /* NetworkConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
 		D0B1A6FB215561E1001FA4DE /* FeeConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeConfigurationTests.swift; sourceTree = "<group>"; };
 		D0B1A6FC215561E1001FA4DE /* NetworkConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfigurationTests.swift; sourceTree = "<group>"; };
+		D0B1A70021557399001FA4DE /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
+		D0FA889D21557764008F715C /* PrivateKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeyTests.swift; sourceTree = "<group>"; };
 		E052D0647EA824D26E7AB6C3 /* Pods-CryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTests/Pods-CryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA79348728A560C5DBDB0C2C /* Pods_Crypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,6 +127,7 @@
 		D0B1A6B221556140001FA4DE /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				D0B1A6FF21557240001FA4DE /* Identities */,
 				D0B1A6EC215561B8001FA4DE /* Configuration */,
 				D0B1A6E5215561B8001FA4DE /* Enums */,
 				D0B1A6E7215561B8001FA4DE /* Networks */,
@@ -136,6 +141,7 @@
 		D0B1A6BD21556141001FA4DE /* CryptoTests */ = {
 			isa = PBXGroup;
 			children = (
+				D0FA889C2155774C008F715C /* Identities */,
 				D0B1A6FA215561E1001FA4DE /* Configuration */,
 				D0B1A6BE21556141001FA4DE /* CryptoTests.swift */,
 				D0B1A6C021556141001FA4DE /* Info.plist */,
@@ -186,6 +192,22 @@
 				D0B1A6FC215561E1001FA4DE /* NetworkConfigurationTests.swift */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		D0B1A6FF21557240001FA4DE /* Identities */ = {
+			isa = PBXGroup;
+			children = (
+				D0B1A70021557399001FA4DE /* PrivateKey.swift */,
+			);
+			path = Identities;
+			sourceTree = "<group>";
+		};
+		D0FA889C2155774C008F715C /* Identities */ = {
+			isa = PBXGroup;
+			children = (
+				D0FA889D21557764008F715C /* PrivateKeyTests.swift */,
+			);
+			path = Identities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,6 +383,7 @@
 				D0B1A6F3215561B8001FA4DE /* Devnet.swift in Sources */,
 				D0B1A6F5215561B8001FA4DE /* ProtocolNetwork.swift in Sources */,
 				D0B1A6F0215561B8001FA4DE /* Slot.swift in Sources */,
+				D0B1A70121557399001FA4DE /* PrivateKey.swift in Sources */,
 				D0B1A6F7215561B8001FA4DE /* FeeConfiguration.swift in Sources */,
 				D0B1A6F6215561B8001FA4DE /* Testnet.swift in Sources */,
 				D0B1A6F8215561B8001FA4DE /* NetworkConfiguration.swift in Sources */,
@@ -374,6 +397,7 @@
 				D0B1A6BF21556141001FA4DE /* CryptoTests.swift in Sources */,
 				D0B1A6FD215561E1001FA4DE /* FeeConfigurationTests.swift in Sources */,
 				D0B1A6FE215561E1001FA4DE /* NetworkConfigurationTests.swift in Sources */,
+				D0FA889E21557764008F715C /* PrivateKeyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
