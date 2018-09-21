@@ -19,7 +19,6 @@
 		D0B1A6F6215561B8001FA4DE /* Testnet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6EB215561B8001FA4DE /* Testnet.swift */; };
 		D0B1A6F7215561B8001FA4DE /* FeeConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6ED215561B8001FA4DE /* FeeConfiguration.swift */; };
 		D0B1A6F8215561B8001FA4DE /* NetworkConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6EE215561B8001FA4DE /* NetworkConfiguration.swift */; };
-		D0B1A6F9215561B8001FA4DE /* Crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B1A6EF215561B8001FA4DE /* Crypto.h */; };
 		D0B1A6FD215561E1001FA4DE /* FeeConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6FB215561E1001FA4DE /* FeeConfigurationTests.swift */; };
 		D0B1A6FE215561E1001FA4DE /* NetworkConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6FC215561E1001FA4DE /* NetworkConfigurationTests.swift */; };
 		D9FBDA7A05D6D9C9CEB35C40 /* Pods_CryptoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B4C1D367D148F9CD8F7DDB /* Pods_CryptoTests.framework */; };
@@ -54,7 +53,6 @@
 		D0B1A6EB215561B8001FA4DE /* Testnet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Testnet.swift; sourceTree = "<group>"; };
 		D0B1A6ED215561B8001FA4DE /* FeeConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeConfiguration.swift; sourceTree = "<group>"; };
 		D0B1A6EE215561B8001FA4DE /* NetworkConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfiguration.swift; sourceTree = "<group>"; };
-		D0B1A6EF215561B8001FA4DE /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Crypto.h; path = "../../../swift-crypto/Crypto/Crypto/Crypto.h"; sourceTree = "<group>"; };
 		D0B1A6FB215561E1001FA4DE /* FeeConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeConfigurationTests.swift; sourceTree = "<group>"; };
 		D0B1A6FC215561E1001FA4DE /* NetworkConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfigurationTests.swift; sourceTree = "<group>"; };
 		E052D0647EA824D26E7AB6C3 /* Pods-CryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTests/Pods-CryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				D0B1A6EC215561B8001FA4DE /* Configuration */,
-				D0B1A6EF215561B8001FA4DE /* Crypto.h */,
 				D0B1A6E5215561B8001FA4DE /* Enums */,
 				D0B1A6E7215561B8001FA4DE /* Networks */,
 				D0B1A6E2215561B8001FA4DE /* Utils */,
@@ -199,7 +196,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0B1A6C121556141001FA4DE /* Crypto.h in Headers */,
-				D0B1A6F9215561B8001FA4DE /* Crypto.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
