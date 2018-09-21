@@ -17,10 +17,10 @@ class PrivateKeyTests: XCTestCase {
         XCTAssertEqual(privateKey.raw.hex, "d8839c2432bfd0a67ef10a804ba991eabba19f154a3d707917681d45822a5712")
     }
 
-//    func testPrivateKeyFromHex() {
-//        let privateKey = ArkPrivateKey.from(hex: "d8839c2432bfd0a67ef10a804ba991eabba19f154a3d707917681d45822a5712")
-//        XCTAssertEqual(privateKey.raw.hex, "d8839c2432bfd0a67ef10a804ba991eabba19f154a3d707917681d45822a5712")
-//    }
+    func testPrivateKeyFromHex() {
+        let privateKey = ArkPrivateKey.from(hex: "d8839c2432bfd0a67ef10a804ba991eabba19f154a3d707917681d45822a5712")
+        XCTAssertEqual(privateKey.raw.hex, "d8839c2432bfd0a67ef10a804ba991eabba19f154a3d707917681d45822a5712")
+    }
 //
 //    func testPrivateKeyFromWIF() {
 //        let privateKey = try? ArkPrivateKey.from(wif: "SGq4xLgZKCGxs7bjmwnBrWcT4C1ADFEermj846KC97FSv1WFD1dA")

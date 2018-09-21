@@ -18,7 +18,7 @@ class ArkPrivateKey {
     }
 
     static func from(hex: String) -> PrivateKey {
-        return PrivateKey.init(data: hex.data(using: .utf8)!)
+        return PrivateKey.init(data: Data.init(hex: hex)!)
     }
 
     static func from(wif: String) throws -> PrivateKey {
