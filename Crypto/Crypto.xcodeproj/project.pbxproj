@@ -30,6 +30,8 @@
 		D0FA88A82155A95F008F715C /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA88A72155A95F008F715C /* Address.swift */; };
 		D0FA88AA2155ABBE008F715C /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA88A92155ABBE008F715C /* Helpers.swift */; };
 		D0FA88AC2155B525008F715C /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA88AB2155B525008F715C /* AddressTests.swift */; };
+		D0FA88AE215680AA008F715C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA88AD215680AA008F715C /* Message.swift */; };
+		D0FA88B121569B24008F715C /* MessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA88B021569B24008F715C /* MessageTests.swift */; };
 		D9FBDA7A05D6D9C9CEB35C40 /* Pods_CryptoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9B4C1D367D148F9CD8F7DDB /* Pods_CryptoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +75,8 @@
 		D0FA88A72155A95F008F715C /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		D0FA88A92155ABBE008F715C /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		D0FA88AB2155B525008F715C /* AddressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
+		D0FA88AD215680AA008F715C /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		D0FA88B021569B24008F715C /* MessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTests.swift; sourceTree = "<group>"; };
 		E052D0647EA824D26E7AB6C3 /* Pods-CryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTests/Pods-CryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA79348728A560C5DBDB0C2C /* Pods_Crypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Crypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -155,6 +159,7 @@
 		D0B1A6BD21556141001FA4DE /* CryptoTests */ = {
 			isa = PBXGroup;
 			children = (
+				D0FA88AF21569B0E008F715C /* Utils */,
 				D0FA889C2155774C008F715C /* Identities */,
 				D0B1A6FA215561E1001FA4DE /* Configuration */,
 				D0B1A6BE21556141001FA4DE /* CryptoTests.swift */,
@@ -168,6 +173,7 @@
 			children = (
 				D0B1A6E3215561B8001FA4DE /* Slot.swift */,
 				D0FA88A92155ABBE008F715C /* Helpers.swift */,
+				D0FA88AD215680AA008F715C /* Message.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -229,6 +235,14 @@
 				D0FA88AB2155B525008F715C /* AddressTests.swift */,
 			);
 			path = Identities;
+			sourceTree = "<group>";
+		};
+		D0FA88AF21569B0E008F715C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D0FA88B021569B24008F715C /* MessageTests.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,6 +426,7 @@
 				D0FA88AA2155ABBE008F715C /* Helpers.swift in Sources */,
 				D0FA88A42155950A008F715C /* WIF.swift in Sources */,
 				D0B1A6F8215561B8001FA4DE /* NetworkConfiguration.swift in Sources */,
+				D0FA88AE215680AA008F715C /* Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +439,7 @@
 				D0FA88A221558DD0008F715C /* PublicKeyTests.swift in Sources */,
 				D0B1A6FD215561E1001FA4DE /* FeeConfigurationTests.swift in Sources */,
 				D0B1A6FE215561E1001FA4DE /* NetworkConfigurationTests.swift in Sources */,
+				D0FA88B121569B24008F715C /* MessageTests.swift in Sources */,
 				D0FA88A62155A0A3008F715C /* WIFTests.swift in Sources */,
 				D0FA889E21557764008F715C /* PrivateKeyTests.swift in Sources */,
 			);
