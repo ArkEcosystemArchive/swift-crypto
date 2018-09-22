@@ -21,7 +21,9 @@ class ArkPrivateKey {
         return PrivateKey.init(data: Data.init(hex: hex)!)
     }
 
-    static func from(wif: String) throws -> PrivateKey {
-        return try PrivateKey.init(wif: wif)
-    }
+    // FIXME: with wif, the network is checked for which BitcoinKit only has BTC/BCH networks
+    // therefore this returns an invalidFormat error for ARK
+//    static func from(wif: String) throws -> PrivateKey {
+//        return try PrivateKey.init(wif: wif)
+//    }
 }

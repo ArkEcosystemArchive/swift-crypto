@@ -145,10 +145,10 @@
 		D0B1A6B221556140001FA4DE /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
-				D0B1A6FF21557240001FA4DE /* Identities */,
 				D0B1A6EC215561B8001FA4DE /* Configuration */,
 				D0B1A6E5215561B8001FA4DE /* Enums */,
 				D0B1A6E7215561B8001FA4DE /* Networks */,
+				D0B1A6FF21557240001FA4DE /* Identities */,
 				D0B1A6E2215561B8001FA4DE /* Utils */,
 				D0B1A6B321556140001FA4DE /* Crypto.h */,
 				D0B1A6B421556140001FA4DE /* Info.plist */,
@@ -159,9 +159,9 @@
 		D0B1A6BD21556141001FA4DE /* CryptoTests */ = {
 			isa = PBXGroup;
 			children = (
-				D0FA88AF21569B0E008F715C /* Utils */,
-				D0FA889C2155774C008F715C /* Identities */,
 				D0B1A6FA215561E1001FA4DE /* Configuration */,
+				D0FA889C2155774C008F715C /* Identities */,
+				D0FA88AF21569B0E008F715C /* Utils */,
 				D0B1A6BE21556141001FA4DE /* CryptoTests.swift */,
 				D0B1A6C021556141001FA4DE /* Info.plist */,
 			);
