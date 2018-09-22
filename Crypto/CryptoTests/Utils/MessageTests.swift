@@ -7,6 +7,8 @@
 // file that was distributed with this source code.
 //
 
+//swiftlint:disable force_try
+
 import XCTest
 @testable import Crypto
 
