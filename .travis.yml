@@ -1,6 +1,10 @@
 language: objective-c
 osx_image: xcode9.4
 
+cache:
+  directories:
+  - Crypto/Pods/BitcoinKit/Libraries
+
 before_install:
   - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
   - pod repo update
