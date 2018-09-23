@@ -3,6 +3,9 @@ osx_image: xcode9.4
 
 before_install:
   - gem install xcpretty-travis-formatter --no-rdoc --no-ri --no-document --quiet
+  - pod repo update
+  - pod install --project-directory=Crypto
+  - sh Crypto/Pods/BitcoinKit/setup/build_libraries.sh # BitcoinKit needs some additional scripts installed
 
 install:
   # Install swiftlint through precompiled .pkg, as that is the fastest approach
@@ -12,7 +15,7 @@ before_script:
   - cd Crypto
 
 script:
-  - set -o pipefail && xcodebuild clean test -project Crypto.xcodeproj -scheme CryptoTests CODE_SIGNING_REQUIRED=NO | xcpretty -f `xcpretty-travis-formatter`
+  - set -o pipefail && xcodebuild clean test -workspace Crypto.xcworkspace -scheme CryptoTests CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,name=iPhone X,OS=11.4' | xcpretty -f `xcpretty-travis-formatter`
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
