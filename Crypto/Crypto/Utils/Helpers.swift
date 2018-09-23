@@ -38,3 +38,19 @@ func base58CheckDecode(_ string: String) -> [UInt8]? {
     }
     return nil
 }
+
+func unpack<T: Any>(_ bytes: [UInt8], to: T.Type) -> T {
+    return bytes.withUnsafeBufferPointer {
+        return $0.baseAddress!.withMemoryRebound(to: T.self, capacity: 1) {
+            $0.pointee
+        }
+    }
+}
+
+func pack<T: Any>(_ value: T) -> [UInt8] {
+    var value = value
+    return withUnsafePointer(to: &value) {
+        Array(UnsafeBufferPointer(start: $0.withMemoryRebound(to: UInt8.self, capacity: 1) {$0}, count:
+            MemoryLayout<T>.size))
+    }
+}

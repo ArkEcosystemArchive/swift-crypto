@@ -63,10 +63,10 @@
 - [ ] toJson
 
 ### Message
-- [ ] sign
+- [x] sign
 - [ ] verify
-- [ ] toArray
-- [ ] toJson
+- [x] toArray
+- [x] toJson
 
 ### Address
 - [x] fromPassphrase

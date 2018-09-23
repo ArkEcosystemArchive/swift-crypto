@@ -22,6 +22,8 @@
 		D0B1A6FD215561E1001FA4DE /* FeeConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6FB215561E1001FA4DE /* FeeConfigurationTests.swift */; };
 		D0B1A6FE215561E1001FA4DE /* NetworkConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6FC215561E1001FA4DE /* NetworkConfigurationTests.swift */; };
 		D0B1A70121557399001FA4DE /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A70021557399001FA4DE /* PrivateKey.swift */; };
+		D0D41C672157CB4F000FF047 /* ArkTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D41C662157CB4F000FF047 /* ArkTransaction.swift */; };
+		D0D41C6921581F20000FF047 /* HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D41C6821581F20000FF047 /* HelpersTests.swift */; };
 		D0FA889E21557764008F715C /* PrivateKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA889D21557764008F715C /* PrivateKeyTests.swift */; };
 		D0FA88A021558C91008F715C /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA889F21558C91008F715C /* PublicKey.swift */; };
 		D0FA88A221558DD0008F715C /* PublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA88A121558DD0008F715C /* PublicKeyTests.swift */; };
@@ -67,6 +69,8 @@
 		D0B1A6FB215561E1001FA4DE /* FeeConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeConfigurationTests.swift; sourceTree = "<group>"; };
 		D0B1A6FC215561E1001FA4DE /* NetworkConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfigurationTests.swift; sourceTree = "<group>"; };
 		D0B1A70021557399001FA4DE /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
+		D0D41C662157CB4F000FF047 /* ArkTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTransaction.swift; sourceTree = "<group>"; };
+		D0D41C6821581F20000FF047 /* HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersTests.swift; sourceTree = "<group>"; };
 		D0FA889D21557764008F715C /* PrivateKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeyTests.swift; sourceTree = "<group>"; };
 		D0FA889F21558C91008F715C /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		D0FA88A121558DD0008F715C /* PublicKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyTests.swift; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 				D0B1A6E5215561B8001FA4DE /* Enums */,
 				D0B1A6E7215561B8001FA4DE /* Networks */,
 				D0B1A6FF21557240001FA4DE /* Identities */,
+				D0D41C652157CB32000FF047 /* Transactions */,
 				D0B1A6E2215561B8001FA4DE /* Utils */,
 				D0B1A6B321556140001FA4DE /* Crypto.h */,
 				D0B1A6B421556140001FA4DE /* Info.plist */,
@@ -226,6 +231,14 @@
 			path = Identities;
 			sourceTree = "<group>";
 		};
+		D0D41C652157CB32000FF047 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				D0D41C662157CB4F000FF047 /* ArkTransaction.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
 		D0FA889C2155774C008F715C /* Identities */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				D0FA88B021569B24008F715C /* MessageTests.swift */,
+				D0D41C6821581F20000FF047 /* HelpersTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -430,6 +444,7 @@
 				D0FA88A021558C91008F715C /* PublicKey.swift in Sources */,
 				D0B1A6F4215561B8001FA4DE /* Mainnet.swift in Sources */,
 				D0B1A6F2215561B8001FA4DE /* Enums.swift in Sources */,
+				D0D41C672157CB4F000FF047 /* ArkTransaction.swift in Sources */,
 				D0B1A6F3215561B8001FA4DE /* Devnet.swift in Sources */,
 				D0B1A6F5215561B8001FA4DE /* ProtocolNetwork.swift in Sources */,
 				D0B1A6F0215561B8001FA4DE /* Slot.swift in Sources */,
@@ -452,6 +467,7 @@
 				D0B1A6BF21556141001FA4DE /* CryptoTests.swift in Sources */,
 				D0FA88A221558DD0008F715C /* PublicKeyTests.swift in Sources */,
 				D0B1A6FD215561E1001FA4DE /* FeeConfigurationTests.swift in Sources */,
+				D0D41C6921581F20000FF047 /* HelpersTests.swift in Sources */,
 				D0B1A6FE215561E1001FA4DE /* NetworkConfigurationTests.swift in Sources */,
 				D0FA88B121569B24008F715C /* MessageTests.swift in Sources */,
 				D0FA88A62155A0A3008F715C /* WIFTests.swift in Sources */,
