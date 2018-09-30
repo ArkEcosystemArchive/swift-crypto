@@ -50,9 +50,9 @@
 - [ ] Multi Signature Registration
 
 ### Transaction
-- [ ] getId
-- [ ] sign
-- [ ] secondSign
+- [x] getId
+- [x] sign
+- [x] secondSign
 - [ ] verify
 - [ ] secondverify
 - [ ] parseSignatures

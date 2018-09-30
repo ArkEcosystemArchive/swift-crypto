@@ -7,8 +7,11 @@
 // file that was distributed with this source code.
 //
 
+//swiftlint:disable force_try
+
 import Foundation
 import BitcoinKit
+
 
 class ArkTransaction {
 
@@ -37,9 +40,30 @@ class ArkTransaction {
         self.asset = asset
     }
 
-    func getId() {
-        // TODO: implement
+    func getId() -> String {
+        return Crypto.sha256(Data(bytes: self.toBytes())).hex
     }
+
+    // TODO: proper try statement
+    func sign(_ keys: PrivateKey) -> ArkTransaction {
+        let transaction = Crypto.sha256(Data(bytes: self.toBytes()))
+        self.signature = try! Crypto.sign(transaction, privateKey: keys).hex
+        return self
+    }
+
+    // TODO: proper try statement
+    func secondSign(_ keys: PrivateKey) -> ArkTransaction {
+        let transaction = Crypto.sha256(Data(bytes: self.toBytes(skipSignature: false)))
+        self.signature = try! Crypto.sign(transaction, privateKey: keys).hex
+        return self
+    }
+
+    func verify() -> Bool {
+        let publicKey = ArkPublicKey.from(hex: self.senderPublicKey)
+        // TODO: verify data
+        return false
+    }
+    // secondVerify()
 
     func toBytes(skipSignature: Bool = true, skipSecondSignature: Bool = true) -> [UInt8] {
         var bytes = [UInt8]()
@@ -48,7 +72,8 @@ class ArkTransaction {
         bytes.append(contentsOf: [UInt8](Data.init(hex: self.senderPublicKey)!))
         // bytes.append(contentsOf: pack(self.senderPublicKey)) // Or this one for public key?
 
-        if recipientId != nil {
+        let skipRecipient = self.type == .secondSignatureRegistration || self.type == .multiSignatureRegistration
+        if !skipRecipient && recipientId != nil {
             bytes.append(contentsOf: base58CheckDecode(recipientId!)!)
         } else {
             bytes.append(contentsOf: [UInt8](repeating: 0, count: 21))
