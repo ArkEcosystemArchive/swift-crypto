@@ -92,11 +92,14 @@ class ArkSerializer {
     }
 
     private static func serializeDelegateResignation(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-
+        // TODO: no specs yet
     }
 
     private static func serializeIpfs(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-
+        let ipfs = transaction.asset["ipfs"] as! [String: String]
+        let dag = ipfs["dag"]!
+        bytes.append(contentsOf: pack(dag.count))
+        bytes.append(contentsOf: [UInt8](Data.init(hex: dag)!))
     }
 
     private static func serializeMultiPayment(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
