@@ -94,7 +94,8 @@ class ArkSerializer {
     }
 
     private static func serializeSecondSignatureRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-
+        let signature = transaction.asset["signature"] as! [String: String]
+        bytes.append(contentsOf: [UInt8](Data.init(hex: signature["publicKey"]!)!))
     }
 
     private static func serializeTimelockTransfer(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
