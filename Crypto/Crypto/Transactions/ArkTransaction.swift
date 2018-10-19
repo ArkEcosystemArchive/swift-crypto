@@ -43,7 +43,7 @@ class ArkTransaction {
         self.asset = asset
         self.version = version
         self.network = network
-        self.expiration = UInt32
+        self.expiration = expiration
     }
 
     func getId() -> String {
