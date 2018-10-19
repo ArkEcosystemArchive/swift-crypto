@@ -32,16 +32,12 @@ class ArkSerializer {
 
     private static func serializeVendorField(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
         if let vendorField = transaction.vendorField {
-            if vendorField.count > 0 {
-                let length = vendorField.count
-                bytes.append(contentsOf: pack(length))
-            }
+            let length = vendorField.count
+            bytes.append(contentsOf: pack(length))
         } else if let vendorFieldHex = transaction.vendorFieldHex {
-            if vendorFieldHex.count > 0 {
-                let length = vendorFieldHex.count / 2
-                bytes.append(contentsOf: pack(length))
-                bytes.append(contentsOf: [UInt8](Data.init(hex: vendorFieldHex)!))
-            }
+            let length = vendorFieldHex.count / 2
+            bytes.append(contentsOf: pack(length))
+            bytes.append(contentsOf: [UInt8](Data.init(hex: vendorFieldHex)!))
         } else {
             bytes.append(0x00)
         }
@@ -71,7 +67,20 @@ class ArkSerializer {
     }
 
     private static func serializeSignatures(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
+        if let signature = transaction.signature {
+            bytes.append(contentsOf: [UInt8](Data.init(hex: signature)!))
+        }
 
+        if let secondSignature = transaction.secondSignature {
+            bytes.append(contentsOf: [UInt8](Data.init(hex: secondSignature)!))
+        } else if let signSignature = transaction.signSignature {
+            bytes.append(contentsOf: [UInt8](Data.init(hex: signSignature)!))
+        }
+
+        if transaction.signatures.count > 0 {
+            bytes.append(0xff)
+            bytes.append(contentsOf: [UInt8](Data.init(hex: transaction.signatures.joined())!))
+        }
     }
 
     // MARK: - Type serializers

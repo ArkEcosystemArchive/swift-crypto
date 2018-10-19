@@ -25,6 +25,8 @@ class ArkTransaction {
     let fee: UInt64
     var signature: String?
     var secondSignature: String?
+    var signSignature: String?
+    var signatures: [String]
     let type: TransactionType
     let version: UInt8
     let network: UInt8
@@ -44,6 +46,7 @@ class ArkTransaction {
         self.version = version
         self.network = network
         self.expiration = expiration
+        self.signatures = [String]()
     }
 
     func getId() -> String {
