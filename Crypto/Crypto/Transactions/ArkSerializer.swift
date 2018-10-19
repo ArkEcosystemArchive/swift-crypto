@@ -74,7 +74,10 @@ class ArkSerializer {
 
     // MARK: - Type serializers
     private static func serializeDelegateRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-
+        let delegate = transaction.asset["delegate"] as! [String: String]
+        let username = delegate["username"]!
+        bytes.append(contentsOf: pack(username.count))
+        bytes.append(contentsOf: [UInt8](username.data(using: .utf8)!))
     }
 
     private static func serializeDelegateResignation(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
