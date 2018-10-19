@@ -12,7 +12,6 @@
 import Foundation
 import BitcoinKit
 
-
 class ArkTransaction {
 
     // TODO: add remaining props
@@ -20,17 +19,21 @@ class ArkTransaction {
     let timestamp: UInt32
     let senderPublicKey: String
     var recipientId: String?
-    var vendorfield: String?
+    var vendorField: String?
+    var vendorFieldHex: String?
     let amount: UInt64
     let fee: UInt64
     var signature: String?
     var secondSignature: String?
     let type: TransactionType
+    let version: UInt8
+    let network: UInt8
+    let expiration: UInt32
 
     let asset: [String: Any]
 
     // TODO: recheck initializer
-    init(_ id: String, _ timestamp: UInt32, _ senderPublicKey: String, _ amount: UInt64, _ fee: UInt64, _ type: TransactionType, _ asset: [String: Any]) {
+    init(_ id: String, _ timestamp: UInt32, _ senderPublicKey: String, _ amount: UInt64, _ fee: UInt64, _ type: TransactionType, _ asset: [String: Any], _ version: UInt8, _ network: UInt8, _ expiration: UInt32) {
         self.id = id
         self.timestamp = timestamp
         self.senderPublicKey = senderPublicKey
@@ -38,6 +41,9 @@ class ArkTransaction {
         self.fee = fee
         self.type = type
         self.asset = asset
+        self.version = version
+        self.network = network
+        self.expiration = UInt32
     }
 
     func getId() -> String {
@@ -79,9 +85,9 @@ class ArkTransaction {
             bytes.append(contentsOf: [UInt8](repeating: 0, count: 21))
         }
 
-        if vendorfield != nil && (vendorfield?.count)! < 64 {
-            bytes.append(contentsOf: pack(self.vendorfield))
-            bytes.append(contentsOf: [UInt8](repeating: 0, count: (64 - (vendorfield?.count)!)))
+        if vendorField != nil && (vendorField?.count)! < 64 {
+            bytes.append(contentsOf: pack(self.vendorField))
+            bytes.append(contentsOf: [UInt8](repeating: 0, count: (64 - (vendorField?.count)!)))
         } else {
             bytes.append(contentsOf: [UInt8](repeating: 0, count: 64))
         }
