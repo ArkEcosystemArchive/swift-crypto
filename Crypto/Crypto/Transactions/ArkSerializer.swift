@@ -7,6 +7,8 @@
 // file that was distributed with this source code.
 //
 
+//swiftlint:disable force_cast
+
 import Foundation
 
 class ArkSerializer {
@@ -113,6 +115,17 @@ class ArkSerializer {
     }
 
     private static func serializeVote(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
+        let votes = transaction.asset["votes"] as! [String]
 
+        var voteBytes = [String]()
+
+        for vote in votes {
+            let prefix = vote.prefix(1) == "+" ? "01" : "00"
+            let votePK = String(vote.suffix(vote.count - 1))
+            voteBytes.append(String(format: "%@%@", prefix, votePK))
+        }
+
+        bytes.append(contentsOf: pack(votes.count))
+        bytes.append(contentsOf: [UInt8](Data.init(hex: voteBytes.joined())!))
     }
 }
