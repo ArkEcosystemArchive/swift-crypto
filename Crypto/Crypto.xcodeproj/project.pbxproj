@@ -43,6 +43,8 @@
 		D0DC21FE217A84E000C40276 /* second-passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21EB217A84DF00C40276 /* second-passphrase.json */; };
 		D0DC21FF217A84E000C40276 /* passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21ED217A84DF00C40276 /* passphrase.json */; };
 		D0DC2200217A84E000C40276 /* second-passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21EE217A84DF00C40276 /* second-passphrase.json */; };
+		D0DC2202217A866700C40276 /* ArkDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC2201217A866700C40276 /* ArkDeserializer.swift */; };
+		D0DC2206217BA97500C40276 /* VoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC2205217BA97500C40276 /* VoteTests.swift */; };
 		D0FA889E21557764008F715C /* PrivateKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA889D21557764008F715C /* PrivateKeyTests.swift */; };
 		D0FA88A021558C91008F715C /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA889F21558C91008F715C /* PublicKey.swift */; };
 		D0FA88A221558DD0008F715C /* PublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA88A121558DD0008F715C /* PublicKeyTests.swift */; };
@@ -109,6 +111,8 @@
 		D0DC21EB217A84DF00C40276 /* second-passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "second-passphrase.json"; sourceTree = "<group>"; };
 		D0DC21ED217A84DF00C40276 /* passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passphrase.json; sourceTree = "<group>"; };
 		D0DC21EE217A84DF00C40276 /* second-passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "second-passphrase.json"; sourceTree = "<group>"; };
+		D0DC2201217A866700C40276 /* ArkDeserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkDeserializer.swift; sourceTree = "<group>"; };
+		D0DC2205217BA97500C40276 /* VoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTests.swift; sourceTree = "<group>"; };
 		D0FA889D21557764008F715C /* PrivateKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeyTests.swift; sourceTree = "<group>"; };
 		D0FA889F21558C91008F715C /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		D0FA88A121558DD0008F715C /* PublicKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyTests.swift; sourceTree = "<group>"; };
@@ -205,6 +209,7 @@
 				D0DC21D2217A84DF00C40276 /* Fixtures */,
 				D0B1A6FA215561E1001FA4DE /* Configuration */,
 				D0FA889C2155774C008F715C /* Identities */,
+				D0DC2203217BA94B00C40276 /* Transactions */,
 				D0FA88AF21569B0E008F715C /* Utils */,
 				D0B1A6BE21556141001FA4DE /* CryptoTests.swift */,
 				D0B1A6C021556141001FA4DE /* Info.plist */,
@@ -275,6 +280,7 @@
 			children = (
 				D0D41C662157CB4F000FF047 /* ArkTransaction.swift */,
 				D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */,
+				D0DC2201217A866700C40276 /* ArkDeserializer.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -382,6 +388,22 @@
 				D0DC21EE217A84DF00C40276 /* second-passphrase.json */,
 			);
 			path = vote;
+			sourceTree = "<group>";
+		};
+		D0DC2203217BA94B00C40276 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				D0DC2204217BA95A00C40276 /* Deserializers */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		D0DC2204217BA95A00C40276 /* Deserializers */ = {
+			isa = PBXGroup;
+			children = (
+				D0DC2205217BA97500C40276 /* VoteTests.swift */,
+			);
+			path = Deserializers;
 			sourceTree = "<group>";
 		};
 		D0FA889C2155774C008F715C /* Identities */ = {
@@ -604,6 +626,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DC2202217A866700C40276 /* ArkDeserializer.swift in Sources */,
 				D0FA88A021558C91008F715C /* PublicKey.swift in Sources */,
 				D0B1A6F4215561B8001FA4DE /* Mainnet.swift in Sources */,
 				D0B1A6F2215561B8001FA4DE /* Enums.swift in Sources */,
@@ -628,6 +651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0FA88AC2155B525008F715C /* AddressTests.swift in Sources */,
+				D0DC2206217BA97500C40276 /* VoteTests.swift in Sources */,
 				D0B1A6BF21556141001FA4DE /* CryptoTests.swift in Sources */,
 				D0FA88A221558DD0008F715C /* PublicKeyTests.swift in Sources */,
 				D0B1A6FD215561E1001FA4DE /* FeeConfigurationTests.swift in Sources */,

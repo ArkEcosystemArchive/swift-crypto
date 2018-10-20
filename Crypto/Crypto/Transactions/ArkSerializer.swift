@@ -60,7 +60,7 @@ class ArkSerializer {
         case .timelockTransfer:
             serializeTimelockTransfer(transaction: transaction, &bytes)
         case .transfer:
-            serializeType(transaction: transaction, &bytes)
+            serializeTransfer(transaction: transaction, &bytes)
         case .vote:
             serializeVote(transaction: transaction, &bytes)
         }

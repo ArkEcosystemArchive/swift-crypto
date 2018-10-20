@@ -14,28 +14,34 @@ import BitcoinKit
 
 class ArkTransaction {
 
-    // TODO: add remaining props
-    let id: String
+    // Header
+    let header: String
+    let version: UInt8
+    let network: UInt8
+    let type: TransactionType
     let timestamp: UInt32
+
+    // Types
+    let id: String
     let senderPublicKey: String
     var recipientId: String?
     var vendorField: String?
     var vendorFieldHex: String?
     let amount: UInt64
     let fee: UInt64
+
+    // Signatures
     var signature: String?
     var secondSignature: String?
     var signSignature: String?
     var signatures: [String]
-    let type: TransactionType
-    let version: UInt8
-    let network: UInt8
+
     let expiration: UInt32
 
     let asset: [String: Any]
 
     // TODO: recheck initializer
-    init(_ id: String, _ timestamp: UInt32, _ senderPublicKey: String, _ amount: UInt64, _ fee: UInt64, _ type: TransactionType, _ asset: [String: Any], _ version: UInt8, _ network: UInt8, _ expiration: UInt32) {
+    init(_ id: String, _ timestamp: UInt32, _ senderPublicKey: String, _ amount: UInt64, _ fee: UInt64, _ type: TransactionType, _ asset: [String: Any], _ version: UInt8, _ network: UInt8, _ expiration: UInt32, _ header: String) {
         self.id = id
         self.timestamp = timestamp
         self.senderPublicKey = senderPublicKey
@@ -47,6 +53,7 @@ class ArkTransaction {
         self.network = network
         self.expiration = expiration
         self.signatures = [String]()
+        self.header = header
     }
 
     func getId() -> String {
