@@ -75,7 +75,17 @@ class ArkDeserializer {
     }
 
     private static func parseSignatures(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) {
+        let signature = bytes[offset..<bytes.count].map{String(format: "%02x", $0)}.joined()
+        if signature.count > 0 {
+            let start = signature.index(signature.startIndex, offsetBy: 2)
+            let end = signature.index(signature.startIndex, offsetBy: 4)
+            let signatureLength = Int(signature[start..<end], radix: 16)! + 2
 
+            transaction.signature = bytes[offset..<offset+signatureLength].map{String(format: "%02x", $0)}.joined()
+
+            // TODO: second signature
+            // TODO: multisignature
+        }
     }
 
     // MARK: - Type deserializers
@@ -150,7 +160,6 @@ class ArkDeserializer {
         var votes = [String]()
         for idx in 0..<voteLength {
             let voteType = bytes[(offset + 1) + idx * 34]
-            print(voteType)
 
             let startIndex = Int((offset + 2) + idx * 34)
             let voteByteLength = 33 // 34 - voteType (1)
@@ -164,10 +173,9 @@ class ArkDeserializer {
                 vote = "-" + vote
             }
             votes.append(vote)
-            print(vote)
         }
         transaction.asset = ["votes": votes]
 
-        return offset + voteLength * 34
+        return offset + 1 + voteLength * 34
     }
 }

@@ -26,7 +26,8 @@ class VoteTests: XCTestCase {
         XCTAssertEqual(transaction.timestamp, data["timestamp"] as! UInt32)
         XCTAssertEqual(transaction.senderPublicKey, data["senderPublicKey"] as! String)
         XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)
-
+        XCTAssertEqual(transaction.signature, data["signature"] as! String)
+        
         let asset = data["asset"] as! [String: [String]]
         let transactionAsset = transaction.asset as! [String: [String]]
         XCTAssertEqual(transactionAsset["votes"]![0], asset["votes"]![0])
