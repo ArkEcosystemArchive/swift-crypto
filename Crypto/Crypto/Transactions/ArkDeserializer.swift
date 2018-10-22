@@ -57,23 +57,23 @@ class ArkDeserializer {
     private static func deserializeType(type: TransactionType, _ bytes: inout [UInt8], offset: Int) -> Int {
         switch type {
         case .delegateRegistration:
-            deserializeDelegateRegistration(&bytes, offset: offset)
+            return deserializeDelegateRegistration(&bytes, offset: offset)
         case .delegateResignation:
-            deserializeDelegateResignation(&bytes, offset: offset)
+            return deserializeDelegateResignation(&bytes, offset: offset)
         case .ipfs:
-            deserializeIpfs(&bytes, offset: offset)
+            return deserializeIpfs(&bytes, offset: offset)
         case .multiPayment:
-            deserializeMultiPayment(&bytes, offset: offset)
+            return deserializeMultiPayment(&bytes, offset: offset)
         case .multiSignatureRegistration:
-            deserializeMultiSignatureRegistration(&bytes, offset: offset)
+            return deserializeMultiSignatureRegistration(&bytes, offset: offset)
         case .secondSignatureRegistration:
-            deserializeSecondSignatureRegistration(&bytes, offset: offset)
+            return deserializeSecondSignatureRegistration(&bytes, offset: offset)
         case .timelockTransfer:
-            deserializeTimelockTransfer(&bytes, offset: offset)
+            return deserializeTimelockTransfer(&bytes, offset: offset)
         case .transfer:
-            deserializeTransfer(&bytes, offset: offset)
+            return deserializeTransfer(&bytes, offset: offset)
         case .vote:
-            deserializeVote(&bytes, offset: offset)
+            return deserializeVote(&bytes, offset: offset)
         }
         return 0
     }
@@ -112,7 +112,17 @@ class ArkDeserializer {
     }
 
     private static func deserializeTransfer(_ bytes: inout [UInt8], offset: Int) -> Int {
-        return 0
+        var idx = offset
+        let amount: Int64 = Data(bytes[idx..<idx+8]).withUnsafeBytes{$0.pointee}
+        print(amount)
+        idx += 8
+        let expiration: Int32 = Data(bytes[idx..<idx+4]).withUnsafeBytes{$0.pointee}
+        print(expiration)
+        idx += 4
+        let recipientId = bytes[idx..<idx+21].map{String(format: "%02x", $0)}.joined()
+        print(recipientId)
+
+        return idx + 21
     }
 
     private static func deserializeVote(_ bytes: inout [UInt8], offset: Int) -> Int {
