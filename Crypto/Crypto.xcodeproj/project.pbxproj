@@ -45,6 +45,7 @@
 		D0DC2200217A84E000C40276 /* vote_second-passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21EE217A84DF00C40276 /* vote_second-passphrase.json */; };
 		D0DC2202217A866700C40276 /* ArkDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC2201217A866700C40276 /* ArkDeserializer.swift */; };
 		D0DC2206217BA97500C40276 /* VoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC2205217BA97500C40276 /* VoteTests.swift */; };
+		D0DF5F33217E680600E2CC13 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DF5F32217E680600E2CC13 /* TestHelpers.swift */; };
 		D0FA889E21557764008F715C /* PrivateKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA889D21557764008F715C /* PrivateKeyTests.swift */; };
 		D0FA88A021558C91008F715C /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA889F21558C91008F715C /* PublicKey.swift */; };
 		D0FA88A221558DD0008F715C /* PublicKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA88A121558DD0008F715C /* PublicKeyTests.swift */; };
@@ -113,6 +114,7 @@
 		D0DC21EE217A84DF00C40276 /* vote_second-passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "vote_second-passphrase.json"; sourceTree = "<group>"; };
 		D0DC2201217A866700C40276 /* ArkDeserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkDeserializer.swift; sourceTree = "<group>"; };
 		D0DC2205217BA97500C40276 /* VoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTests.swift; sourceTree = "<group>"; };
+		D0DF5F32217E680600E2CC13 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		D0FA889D21557764008F715C /* PrivateKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeyTests.swift; sourceTree = "<group>"; };
 		D0FA889F21558C91008F715C /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		D0FA88A121558DD0008F715C /* PublicKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicKeyTests.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				D0FA88AF21569B0E008F715C /* Utils */,
 				D0B1A6BE21556141001FA4DE /* CryptoTests.swift */,
 				D0B1A6C021556141001FA4DE /* Info.plist */,
+				D0DF5F32217E680600E2CC13 /* TestHelpers.swift */,
 			);
 			path = CryptoTests;
 			sourceTree = "<group>";
@@ -656,6 +659,7 @@
 				D0FA88A221558DD0008F715C /* PublicKeyTests.swift in Sources */,
 				D0B1A6FD215561E1001FA4DE /* FeeConfigurationTests.swift in Sources */,
 				D0D41C6921581F20000FF047 /* HelpersTests.swift in Sources */,
+				D0DF5F33217E680600E2CC13 /* TestHelpers.swift in Sources */,
 				D0B1A6FE215561E1001FA4DE /* NetworkConfigurationTests.swift in Sources */,
 				D0FA88B121569B24008F715C /* MessageTests.swift in Sources */,
 				D0FA88A62155A0A3008F715C /* WIFTests.swift in Sources */,
