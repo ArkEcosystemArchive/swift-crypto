@@ -84,7 +84,12 @@ class ArkDeserializer {
 
     // MARK: - Type deserializers
     private static func deserializeDelegateRegistration(_ bytes: inout [UInt8], offset: Int) -> Int {
-        return 0
+        let usernameLength = Int(bytes[offset])
+        print(usernameLength)
+        let username = bytes[offset+1..<offset+1+usernameLength].map{String(format: "%02x", $0)}.joined()
+        print(username)
+
+        return offset + 1 + usernameLength
     }
 
     private static func deserializeDelegateResignation(_ bytes: inout [UInt8], offset: Int) -> Int {
