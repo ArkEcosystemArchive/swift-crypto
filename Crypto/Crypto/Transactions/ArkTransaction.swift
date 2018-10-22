@@ -15,46 +15,30 @@ import BitcoinKit
 class ArkTransaction {
 
     // Header
-    let header: String
-    let version: UInt8
-    let network: UInt8
-    let type: TransactionType
-    let timestamp: UInt32
+    var header: UInt8?
+    var version: UInt8?
+    var network: UInt8?
+    var type: TransactionType?
+    var timestamp: UInt32?
 
     // Types
-    let id: String
-    let senderPublicKey: String
+    var id: String?
+    var senderPublicKey: String?
     var recipientId: String?
     var vendorField: String?
     var vendorFieldHex: String?
-    let amount: UInt64
-    let fee: UInt64
+    var amount: UInt64?
+    var fee: UInt64?
 
     // Signatures
     var signature: String?
     var secondSignature: String?
     var signSignature: String?
-    var signatures: [String]
+    var signatures: [String]?
 
-    let expiration: UInt32
+    var expiration: UInt32?
 
-    let asset: [String: Any]
-
-    // TODO: recheck initializer
-    init(_ id: String, _ timestamp: UInt32, _ senderPublicKey: String, _ amount: UInt64, _ fee: UInt64, _ type: TransactionType, _ asset: [String: Any], _ version: UInt8, _ network: UInt8, _ expiration: UInt32, _ header: String) {
-        self.id = id
-        self.timestamp = timestamp
-        self.senderPublicKey = senderPublicKey
-        self.amount = amount
-        self.fee = fee
-        self.type = type
-        self.asset = asset
-        self.version = version
-        self.network = network
-        self.expiration = expiration
-        self.signatures = [String]()
-        self.header = header
-    }
+    var asset: [String: Any]?
 
     func getId() -> String {
         return Crypto.sha256(Data(bytes: self.toBytes())).hex
@@ -75,7 +59,7 @@ class ArkTransaction {
     }
 
     func verify() -> Bool {
-        let publicKey = ArkPublicKey.from(hex: self.senderPublicKey)
+        let publicKey = ArkPublicKey.from(hex: self.senderPublicKey!)
         // TODO: verify data
         return false
     }
@@ -83,9 +67,9 @@ class ArkTransaction {
 
     func toBytes(skipSignature: Bool = true, skipSecondSignature: Bool = true) -> [UInt8] {
         var bytes = [UInt8]()
-        bytes.append(UInt8.init(self.type.rawValue))
+        bytes.append(UInt8.init(self.type!.rawValue))
         bytes.append(contentsOf: pack(self.timestamp))
-        bytes.append(contentsOf: [UInt8](Data.init(hex: self.senderPublicKey)!))
+        bytes.append(contentsOf: [UInt8](Data.init(hex: self.senderPublicKey!)!))
         // bytes.append(contentsOf: pack(self.senderPublicKey)) // Or this one for public key?
 
         let skipRecipient = self.type == .secondSignatureRegistration || self.type == .multiSignatureRegistration
@@ -107,17 +91,17 @@ class ArkTransaction {
 
         // TODO: recheck this, handle if cases properly (throw error?)
         if self.type == .secondSignatureRegistration {
-            if let signature = self.asset["signature"] as? [String: String] {
+            if let signature = self.asset!["signature"] as? [String: String] {
                 let publickey = signature["publickey"]
                 bytes.append(contentsOf: [UInt8](Data.init(hex: publickey!)!))
             }
         } else if self.type == .delegateRegistration {
-            if let delegate = self.asset["delegate"] as? [String: String] {
+            if let delegate = self.asset!["delegate"] as? [String: String] {
                 let username = delegate["username"]
                 bytes.append(contentsOf: pack(username!))
             }
         } else if self.type == .vote {
-            if let votes = self.asset["votes"] as? [String] {
+            if let votes = self.asset!["votes"] as? [String] {
                 let voteString = votes.joined()
                 bytes.append(contentsOf: pack(voteString))
             }

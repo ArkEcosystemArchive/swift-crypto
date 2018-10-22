@@ -16,11 +16,11 @@ class ArkSerializer {
     static func serialize(transaction: ArkTransaction) -> String {
         var bytes = [UInt8]()
         bytes.append(0xff)
-        bytes.append(transaction.version > 0 ? transaction.version : 0x01)
-        bytes.append(transaction.network > 0 ? transaction.network : ArkNetwork.shared.get().version())
-        bytes.append(UInt8.init(transaction.type.rawValue))
+        bytes.append(transaction.version! > 0 ? transaction.version! : 0x01)
+        bytes.append(transaction.network! > 0 ? transaction.network! : ArkNetwork.shared.get().version())
+        bytes.append(UInt8.init(transaction.type!.rawValue))
         bytes.append(contentsOf: pack(transaction.timestamp))
-        bytes.append(contentsOf: [UInt8](Data.init(hex: transaction.senderPublicKey)!))
+        bytes.append(contentsOf: [UInt8](Data.init(hex: transaction.senderPublicKey!)!))
         bytes.append(contentsOf: pack(transaction.fee))
 
         serializeVendorField(transaction: transaction, &bytes)
@@ -44,7 +44,7 @@ class ArkSerializer {
     }
 
     private static func serializeType(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        switch transaction.type {
+        switch transaction.type! {
         case .delegateRegistration:
             serializeDelegateRegistration(transaction: transaction, &bytes)
         case .delegateResignation:
@@ -77,15 +77,15 @@ class ArkSerializer {
             bytes.append(contentsOf: [UInt8](Data.init(hex: signSignature)!))
         }
 
-        if transaction.signatures.count > 0 {
+        if transaction.signatures!.count > 0 {
             bytes.append(0xff)
-            bytes.append(contentsOf: [UInt8](Data.init(hex: transaction.signatures.joined())!))
+            bytes.append(contentsOf: [UInt8](Data.init(hex: transaction.signatures!.joined())!))
         }
     }
 
     // MARK: - Type serializers
     private static func serializeDelegateRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        let delegate = transaction.asset["delegate"] as! [String: String]
+        let delegate = transaction.asset!["delegate"] as! [String: String]
         let username = delegate["username"]!
         bytes.append(contentsOf: pack(username.count))
         bytes.append(contentsOf: [UInt8](username.data(using: .utf8)!))
@@ -96,7 +96,7 @@ class ArkSerializer {
     }
 
     private static func serializeIpfs(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        let ipfs = transaction.asset["ipfs"] as! [String: String]
+        let ipfs = transaction.asset!["ipfs"] as! [String: String]
         let dag = ipfs["dag"]!
         bytes.append(contentsOf: pack(dag.count))
         bytes.append(contentsOf: [UInt8](Data.init(hex: dag)!))
@@ -111,7 +111,7 @@ class ArkSerializer {
     }
 
     private static func serializeSecondSignatureRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        let signature = transaction.asset["signature"] as! [String: String]
+        let signature = transaction.asset!["signature"] as! [String: String]
         bytes.append(contentsOf: [UInt8](Data.init(hex: signature["publicKey"]!)!))
     }
 
@@ -127,7 +127,7 @@ class ArkSerializer {
     }
 
     private static func serializeVote(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        let votes = transaction.asset["votes"] as! [String]
+        let votes = transaction.asset!["votes"] as! [String]
 
         var voteBytes = [String]()
 

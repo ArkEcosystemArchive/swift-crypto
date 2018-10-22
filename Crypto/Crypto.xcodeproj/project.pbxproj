@@ -27,22 +27,22 @@
 		D0DC21D1217A50BF00C40276 /* ArkSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */; };
 		D0DC21EF217A84E000C40276 /* identity.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21D3217A84DF00C40276 /* identity.json */; };
 		D0DC21F0217A84E000C40276 /* message.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21D4217A84DF00C40276 /* message.json */; };
-		D0DC21F1217A84E000C40276 /* passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21D7217A84DF00C40276 /* passphrase.json */; };
-		D0DC21F2217A84E000C40276 /* second-passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21D8217A84DF00C40276 /* second-passphrase.json */; };
-		D0DC21F3217A84E000C40276 /* passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21DA217A84DF00C40276 /* passphrase.json */; };
-		D0DC21F4217A84E000C40276 /* passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21DC217A84DF00C40276 /* passphrase.json */; };
-		D0DC21F5217A84E000C40276 /* passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21DE217A84DF00C40276 /* passphrase.json */; };
-		D0DC21F6217A84E000C40276 /* passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E0217A84DF00C40276 /* passphrase.json */; };
-		D0DC21F7217A84E000C40276 /* second-passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E2217A84DF00C40276 /* second-passphrase.json */; };
-		D0DC21F8217A84E000C40276 /* passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E4217A84DF00C40276 /* passphrase.json */; };
-		D0DC21F9217A84E000C40276 /* passphrase-with-vendor-field-hex.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E6217A84DF00C40276 /* passphrase-with-vendor-field-hex.json */; };
-		D0DC21FA217A84E000C40276 /* passphrase-with-vendor-field.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E7217A84DF00C40276 /* passphrase-with-vendor-field.json */; };
-		D0DC21FB217A84E000C40276 /* passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E8217A84DF00C40276 /* passphrase.json */; };
-		D0DC21FC217A84E000C40276 /* second-passphrase-with-vendor-field-hex.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E9217A84DF00C40276 /* second-passphrase-with-vendor-field-hex.json */; };
-		D0DC21FD217A84E000C40276 /* second-passphrase-with-vendor-field.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21EA217A84DF00C40276 /* second-passphrase-with-vendor-field.json */; };
-		D0DC21FE217A84E000C40276 /* second-passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21EB217A84DF00C40276 /* second-passphrase.json */; };
-		D0DC21FF217A84E000C40276 /* passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21ED217A84DF00C40276 /* passphrase.json */; };
-		D0DC2200217A84E000C40276 /* second-passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21EE217A84DF00C40276 /* second-passphrase.json */; };
+		D0DC21F1217A84E000C40276 /* del_reg_passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21D7217A84DF00C40276 /* del_reg_passphrase.json */; };
+		D0DC21F2217A84E000C40276 /* del_reg_second-passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21D8217A84DF00C40276 /* del_reg_second-passphrase.json */; };
+		D0DC21F3217A84E000C40276 /* del_res_passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21DA217A84DF00C40276 /* del_res_passphrase.json */; };
+		D0DC21F4217A84E000C40276 /* ipfs_passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21DC217A84DF00C40276 /* ipfs_passphrase.json */; };
+		D0DC21F5217A84E000C40276 /* mp_passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21DE217A84DF00C40276 /* mp_passphrase.json */; };
+		D0DC21F6217A84E000C40276 /* ms_passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E0217A84DF00C40276 /* ms_passphrase.json */; };
+		D0DC21F7217A84E000C40276 /* ss_second-passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E2217A84DF00C40276 /* ss_second-passphrase.json */; };
+		D0DC21F8217A84E000C40276 /* tt_passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E4217A84DF00C40276 /* tt_passphrase.json */; };
+		D0DC21F9217A84E000C40276 /* transfer_passphrase-with-vendor-field-hex.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E6217A84DF00C40276 /* transfer_passphrase-with-vendor-field-hex.json */; };
+		D0DC21FA217A84E000C40276 /* transfer_passphrase-with-vendor-field.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E7217A84DF00C40276 /* transfer_passphrase-with-vendor-field.json */; };
+		D0DC21FB217A84E000C40276 /* transfer_passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E8217A84DF00C40276 /* transfer_passphrase.json */; };
+		D0DC21FC217A84E000C40276 /* transfer_second-passphrase-with-vendor-field-hex.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21E9217A84DF00C40276 /* transfer_second-passphrase-with-vendor-field-hex.json */; };
+		D0DC21FD217A84E000C40276 /* transfer_second-passphrase-with-vendor-field.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21EA217A84DF00C40276 /* transfer_second-passphrase-with-vendor-field.json */; };
+		D0DC21FE217A84E000C40276 /* transfer_second-passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21EB217A84DF00C40276 /* transfer_second-passphrase.json */; };
+		D0DC21FF217A84E000C40276 /* vote_passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21ED217A84DF00C40276 /* vote_passphrase.json */; };
+		D0DC2200217A84E000C40276 /* vote_second-passphrase.json in Resources */ = {isa = PBXBuildFile; fileRef = D0DC21EE217A84DF00C40276 /* vote_second-passphrase.json */; };
 		D0DC2202217A866700C40276 /* ArkDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC2201217A866700C40276 /* ArkDeserializer.swift */; };
 		D0DC2206217BA97500C40276 /* VoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC2205217BA97500C40276 /* VoteTests.swift */; };
 		D0FA889E21557764008F715C /* PrivateKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FA889D21557764008F715C /* PrivateKeyTests.swift */; };
@@ -95,22 +95,22 @@
 		D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkSerializer.swift; sourceTree = "<group>"; };
 		D0DC21D3217A84DF00C40276 /* identity.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = identity.json; sourceTree = "<group>"; };
 		D0DC21D4217A84DF00C40276 /* message.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = message.json; sourceTree = "<group>"; };
-		D0DC21D7217A84DF00C40276 /* passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passphrase.json; sourceTree = "<group>"; };
-		D0DC21D8217A84DF00C40276 /* second-passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "second-passphrase.json"; sourceTree = "<group>"; };
-		D0DC21DA217A84DF00C40276 /* passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passphrase.json; sourceTree = "<group>"; };
-		D0DC21DC217A84DF00C40276 /* passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passphrase.json; sourceTree = "<group>"; };
-		D0DC21DE217A84DF00C40276 /* passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passphrase.json; sourceTree = "<group>"; };
-		D0DC21E0217A84DF00C40276 /* passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passphrase.json; sourceTree = "<group>"; };
-		D0DC21E2217A84DF00C40276 /* second-passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "second-passphrase.json"; sourceTree = "<group>"; };
-		D0DC21E4217A84DF00C40276 /* passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passphrase.json; sourceTree = "<group>"; };
-		D0DC21E6217A84DF00C40276 /* passphrase-with-vendor-field-hex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "passphrase-with-vendor-field-hex.json"; sourceTree = "<group>"; };
-		D0DC21E7217A84DF00C40276 /* passphrase-with-vendor-field.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "passphrase-with-vendor-field.json"; sourceTree = "<group>"; };
-		D0DC21E8217A84DF00C40276 /* passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passphrase.json; sourceTree = "<group>"; };
-		D0DC21E9217A84DF00C40276 /* second-passphrase-with-vendor-field-hex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "second-passphrase-with-vendor-field-hex.json"; sourceTree = "<group>"; };
-		D0DC21EA217A84DF00C40276 /* second-passphrase-with-vendor-field.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "second-passphrase-with-vendor-field.json"; sourceTree = "<group>"; };
-		D0DC21EB217A84DF00C40276 /* second-passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "second-passphrase.json"; sourceTree = "<group>"; };
-		D0DC21ED217A84DF00C40276 /* passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = passphrase.json; sourceTree = "<group>"; };
-		D0DC21EE217A84DF00C40276 /* second-passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "second-passphrase.json"; sourceTree = "<group>"; };
+		D0DC21D7217A84DF00C40276 /* del_reg_passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = del_reg_passphrase.json; sourceTree = "<group>"; };
+		D0DC21D8217A84DF00C40276 /* del_reg_second-passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "del_reg_second-passphrase.json"; sourceTree = "<group>"; };
+		D0DC21DA217A84DF00C40276 /* del_res_passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = del_res_passphrase.json; sourceTree = "<group>"; };
+		D0DC21DC217A84DF00C40276 /* ipfs_passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ipfs_passphrase.json; sourceTree = "<group>"; };
+		D0DC21DE217A84DF00C40276 /* mp_passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mp_passphrase.json; sourceTree = "<group>"; };
+		D0DC21E0217A84DF00C40276 /* ms_passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ms_passphrase.json; sourceTree = "<group>"; };
+		D0DC21E2217A84DF00C40276 /* ss_second-passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ss_second-passphrase.json"; sourceTree = "<group>"; };
+		D0DC21E4217A84DF00C40276 /* tt_passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tt_passphrase.json; sourceTree = "<group>"; };
+		D0DC21E6217A84DF00C40276 /* transfer_passphrase-with-vendor-field-hex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "transfer_passphrase-with-vendor-field-hex.json"; sourceTree = "<group>"; };
+		D0DC21E7217A84DF00C40276 /* transfer_passphrase-with-vendor-field.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "transfer_passphrase-with-vendor-field.json"; sourceTree = "<group>"; };
+		D0DC21E8217A84DF00C40276 /* transfer_passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = transfer_passphrase.json; sourceTree = "<group>"; };
+		D0DC21E9217A84DF00C40276 /* transfer_second-passphrase-with-vendor-field-hex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "transfer_second-passphrase-with-vendor-field-hex.json"; sourceTree = "<group>"; };
+		D0DC21EA217A84DF00C40276 /* transfer_second-passphrase-with-vendor-field.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "transfer_second-passphrase-with-vendor-field.json"; sourceTree = "<group>"; };
+		D0DC21EB217A84DF00C40276 /* transfer_second-passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "transfer_second-passphrase.json"; sourceTree = "<group>"; };
+		D0DC21ED217A84DF00C40276 /* vote_passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vote_passphrase.json; sourceTree = "<group>"; };
+		D0DC21EE217A84DF00C40276 /* vote_second-passphrase.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "vote_second-passphrase.json"; sourceTree = "<group>"; };
 		D0DC2201217A866700C40276 /* ArkDeserializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkDeserializer.swift; sourceTree = "<group>"; };
 		D0DC2205217BA97500C40276 /* VoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTests.swift; sourceTree = "<group>"; };
 		D0FA889D21557764008F715C /* PrivateKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKeyTests.swift; sourceTree = "<group>"; };
@@ -314,8 +314,8 @@
 		D0DC21D6217A84DF00C40276 /* delegate_registration */ = {
 			isa = PBXGroup;
 			children = (
-				D0DC21D7217A84DF00C40276 /* passphrase.json */,
-				D0DC21D8217A84DF00C40276 /* second-passphrase.json */,
+				D0DC21D7217A84DF00C40276 /* del_reg_passphrase.json */,
+				D0DC21D8217A84DF00C40276 /* del_reg_second-passphrase.json */,
 			);
 			path = delegate_registration;
 			sourceTree = "<group>";
@@ -323,7 +323,7 @@
 		D0DC21D9217A84DF00C40276 /* delegate_resignation */ = {
 			isa = PBXGroup;
 			children = (
-				D0DC21DA217A84DF00C40276 /* passphrase.json */,
+				D0DC21DA217A84DF00C40276 /* del_res_passphrase.json */,
 			);
 			path = delegate_resignation;
 			sourceTree = "<group>";
@@ -331,7 +331,7 @@
 		D0DC21DB217A84DF00C40276 /* ipfs */ = {
 			isa = PBXGroup;
 			children = (
-				D0DC21DC217A84DF00C40276 /* passphrase.json */,
+				D0DC21DC217A84DF00C40276 /* ipfs_passphrase.json */,
 			);
 			path = ipfs;
 			sourceTree = "<group>";
@@ -339,7 +339,7 @@
 		D0DC21DD217A84DF00C40276 /* multi_payment */ = {
 			isa = PBXGroup;
 			children = (
-				D0DC21DE217A84DF00C40276 /* passphrase.json */,
+				D0DC21DE217A84DF00C40276 /* mp_passphrase.json */,
 			);
 			path = multi_payment;
 			sourceTree = "<group>";
@@ -347,7 +347,7 @@
 		D0DC21DF217A84DF00C40276 /* multi_signature_registration */ = {
 			isa = PBXGroup;
 			children = (
-				D0DC21E0217A84DF00C40276 /* passphrase.json */,
+				D0DC21E0217A84DF00C40276 /* ms_passphrase.json */,
 			);
 			path = multi_signature_registration;
 			sourceTree = "<group>";
@@ -355,7 +355,7 @@
 		D0DC21E1217A84DF00C40276 /* second_signature_registration */ = {
 			isa = PBXGroup;
 			children = (
-				D0DC21E2217A84DF00C40276 /* second-passphrase.json */,
+				D0DC21E2217A84DF00C40276 /* ss_second-passphrase.json */,
 			);
 			path = second_signature_registration;
 			sourceTree = "<group>";
@@ -363,7 +363,7 @@
 		D0DC21E3217A84DF00C40276 /* timelock_transfer */ = {
 			isa = PBXGroup;
 			children = (
-				D0DC21E4217A84DF00C40276 /* passphrase.json */,
+				D0DC21E4217A84DF00C40276 /* tt_passphrase.json */,
 			);
 			path = timelock_transfer;
 			sourceTree = "<group>";
@@ -371,12 +371,12 @@
 		D0DC21E5217A84DF00C40276 /* transfer */ = {
 			isa = PBXGroup;
 			children = (
-				D0DC21E6217A84DF00C40276 /* passphrase-with-vendor-field-hex.json */,
-				D0DC21E7217A84DF00C40276 /* passphrase-with-vendor-field.json */,
-				D0DC21E8217A84DF00C40276 /* passphrase.json */,
-				D0DC21E9217A84DF00C40276 /* second-passphrase-with-vendor-field-hex.json */,
-				D0DC21EA217A84DF00C40276 /* second-passphrase-with-vendor-field.json */,
-				D0DC21EB217A84DF00C40276 /* second-passphrase.json */,
+				D0DC21E6217A84DF00C40276 /* transfer_passphrase-with-vendor-field-hex.json */,
+				D0DC21E7217A84DF00C40276 /* transfer_passphrase-with-vendor-field.json */,
+				D0DC21E8217A84DF00C40276 /* transfer_passphrase.json */,
+				D0DC21E9217A84DF00C40276 /* transfer_second-passphrase-with-vendor-field-hex.json */,
+				D0DC21EA217A84DF00C40276 /* transfer_second-passphrase-with-vendor-field.json */,
+				D0DC21EB217A84DF00C40276 /* transfer_second-passphrase.json */,
 			);
 			path = transfer;
 			sourceTree = "<group>";
@@ -384,8 +384,8 @@
 		D0DC21EC217A84DF00C40276 /* vote */ = {
 			isa = PBXGroup;
 			children = (
-				D0DC21ED217A84DF00C40276 /* passphrase.json */,
-				D0DC21EE217A84DF00C40276 /* second-passphrase.json */,
+				D0DC21ED217A84DF00C40276 /* vote_passphrase.json */,
+				D0DC21EE217A84DF00C40276 /* vote_second-passphrase.json */,
 			);
 			path = vote;
 			sourceTree = "<group>";
@@ -528,23 +528,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0DC21FB217A84E000C40276 /* passphrase.json in Resources */,
-				D0DC21FE217A84E000C40276 /* second-passphrase.json in Resources */,
-				D0DC21FA217A84E000C40276 /* passphrase-with-vendor-field.json in Resources */,
-				D0DC21F7217A84E000C40276 /* second-passphrase.json in Resources */,
-				D0DC21F8217A84E000C40276 /* passphrase.json in Resources */,
-				D0DC21F1217A84E000C40276 /* passphrase.json in Resources */,
-				D0DC21F9217A84E000C40276 /* passphrase-with-vendor-field-hex.json in Resources */,
-				D0DC21F6217A84E000C40276 /* passphrase.json in Resources */,
-				D0DC21F3217A84E000C40276 /* passphrase.json in Resources */,
-				D0DC2200217A84E000C40276 /* second-passphrase.json in Resources */,
-				D0DC21F2217A84E000C40276 /* second-passphrase.json in Resources */,
-				D0DC21F4217A84E000C40276 /* passphrase.json in Resources */,
-				D0DC21FC217A84E000C40276 /* second-passphrase-with-vendor-field-hex.json in Resources */,
-				D0DC21FF217A84E000C40276 /* passphrase.json in Resources */,
-				D0DC21FD217A84E000C40276 /* second-passphrase-with-vendor-field.json in Resources */,
+				D0DC21FB217A84E000C40276 /* transfer_passphrase.json in Resources */,
+				D0DC21FE217A84E000C40276 /* transfer_second-passphrase.json in Resources */,
+				D0DC21FA217A84E000C40276 /* transfer_passphrase-with-vendor-field.json in Resources */,
+				D0DC21F7217A84E000C40276 /* ss_second-passphrase.json in Resources */,
+				D0DC21F8217A84E000C40276 /* tt_passphrase.json in Resources */,
+				D0DC21F1217A84E000C40276 /* del_reg_passphrase.json in Resources */,
+				D0DC21F9217A84E000C40276 /* transfer_passphrase-with-vendor-field-hex.json in Resources */,
+				D0DC21F6217A84E000C40276 /* ms_passphrase.json in Resources */,
+				D0DC21F3217A84E000C40276 /* del_res_passphrase.json in Resources */,
+				D0DC2200217A84E000C40276 /* vote_second-passphrase.json in Resources */,
+				D0DC21F2217A84E000C40276 /* del_reg_second-passphrase.json in Resources */,
+				D0DC21F4217A84E000C40276 /* ipfs_passphrase.json in Resources */,
+				D0DC21FC217A84E000C40276 /* transfer_second-passphrase-with-vendor-field-hex.json in Resources */,
+				D0DC21FF217A84E000C40276 /* vote_passphrase.json in Resources */,
+				D0DC21FD217A84E000C40276 /* transfer_second-passphrase-with-vendor-field.json in Resources */,
 				D0DC21EF217A84E000C40276 /* identity.json in Resources */,
-				D0DC21F5217A84E000C40276 /* passphrase.json in Resources */,
+				D0DC21F5217A84E000C40276 /* mp_passphrase.json in Resources */,
 				D0DC21F0217A84E000C40276 /* message.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

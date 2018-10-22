@@ -7,112 +7,103 @@
 // file that was distributed with this source code.
 //
 
+// swiftlint:disable opening_brace
+
 import Foundation
 
 class ArkDeserializer {
 
     static func deserialize(serialized: String) {
         var bytes = [UInt8](Data.init(hex: serialized)!)
+        var transaction = ArkTransaction()
 
-        var offset = deserializeHeader(&bytes)
-        offset = deserializeType(type: TransactionType.vote, &bytes, offset: offset)
-        parseSignatures(&bytes, offset: offset)
+        var offset = deserializeHeader(&transaction, &bytes)
+        offset = deserializeType(&transaction, type: TransactionType.vote, &bytes, offset: offset)
+        parseSignatures(&transaction, &bytes, offset: offset)
 
         // TODO: check some v1 stuff
     }
 
-    private static func deserializeHeader(_ bytes: inout [UInt8]) -> Int {
+    private static func deserializeHeader(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8]) -> Int {
         // Default info
-        let header = bytes[0]
-        print(header)
-        let version = bytes[1]
-        print(version)
-        let network = bytes[2]
-        print(network)
-        let type = bytes[3]
-        print(type)
-        let timestamp: Int32 = Data(bytes[4..<8]).withUnsafeBytes{$0.pointee}
-        print(timestamp)
+        transaction.header = bytes[0]
+        transaction.version = bytes[1]
+        transaction.network = bytes[2]
+        transaction.type = TransactionType(rawValue: Int(bytes[3]))
+        transaction.timestamp = Data(bytes[4..<8]).withUnsafeBytes{$0.pointee}
 
         // Sender public key
         let publicKeyBytes = bytes[8..<41]
-        let publicKey = publicKeyBytes.map{String(format: "%02x", $0)}.joined()
-        print(publicKey)
+        transaction.senderPublicKey = publicKeyBytes.map{String(format: "%02x", $0)}.joined()
 
         // Fee
-        let fee: UInt64 = Data(bytes[41..<49]).withUnsafeBytes {$0.pointee}
-        print(fee)
+        transaction.fee = Data(bytes[41..<49]).withUnsafeBytes {$0.pointee}
 
         // Vendor field
         let vendorFieldLength = bytes[50]
         if vendorFieldLength > 0 {
             let endByte: Int = 50 + Int(vendorFieldLength)
-            let vendorField = bytes[50..<endByte].map{String(format: "%02x", $0)}.joined()
+            transaction.vendorField = bytes[50..<endByte].map{String(format: "%02x", $0)}.joined()
         }
 
         // Byte index up to which we read
         return 50 + Int(vendorFieldLength) - 1
     }
 
-    private static func deserializeType(type: TransactionType, _ bytes: inout [UInt8], offset: Int) -> Int {
+    private static func deserializeType(_ transaction: inout ArkTransaction, type: TransactionType, _ bytes: inout [UInt8], offset: Int) -> Int {
         switch type {
         case .delegateRegistration:
-            return deserializeDelegateRegistration(&bytes, offset: offset)
+            return deserializeDelegateRegistration(&transaction, &bytes, offset: offset)
         case .delegateResignation:
-            return deserializeDelegateResignation(&bytes, offset: offset)
+            return deserializeDelegateResignation(&transaction, &bytes, offset: offset)
         case .ipfs:
-            return deserializeIpfs(&bytes, offset: offset)
+            return deserializeIpfs(&transaction, &bytes, offset: offset)
         case .multiPayment:
-            return deserializeMultiPayment(&bytes, offset: offset)
+            return deserializeMultiPayment(&transaction, &bytes, offset: offset)
         case .multiSignatureRegistration:
-            return deserializeMultiSignatureRegistration(&bytes, offset: offset)
+            return deserializeMultiSignatureRegistration(&transaction, &bytes, offset: offset)
         case .secondSignatureRegistration:
-            return deserializeSecondSignatureRegistration(&bytes, offset: offset)
+            return deserializeSecondSignatureRegistration(&transaction, &bytes, offset: offset)
         case .timelockTransfer:
-            return deserializeTimelockTransfer(&bytes, offset: offset)
+            return deserializeTimelockTransfer(&transaction, &bytes, offset: offset)
         case .transfer:
-            return deserializeTransfer(&bytes, offset: offset)
+            return deserializeTransfer(&transaction, &bytes, offset: offset)
         case .vote:
-            return deserializeVote(&bytes, offset: offset)
+            return deserializeVote(&transaction, &bytes, offset: offset)
         }
     }
 
-    private static func parseSignatures(_ bytes: inout [UInt8], offset: Int) {
+    private static func parseSignatures(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) {
 
     }
 
     // MARK: - Type deserializers
-    private static func deserializeDelegateRegistration(_ bytes: inout [UInt8], offset: Int) -> Int {
+    private static func deserializeDelegateRegistration(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
         let usernameLength = Int(bytes[offset])
-        print(usernameLength)
-        let username = bytes[offset+1..<offset+1+usernameLength].map{String(format: "%02x", $0)}.joined()
-        print(username)
+        transaction.asset = ["username": bytes[offset+1..<offset+1+usernameLength].map{String(format: "%02x", $0)}.joined()]
 
         return offset + 1 + usernameLength
     }
 
-    private static func deserializeDelegateResignation(_ bytes: inout [UInt8], offset: Int) -> Int {
+    private static func deserializeDelegateResignation(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
         return 0
     }
 
-    private static func deserializeIpfs(_ bytes: inout [UInt8], offset: Int) -> Int {
+    private static func deserializeIpfs(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
         return 0
     }
 
-    private static func deserializeMultiPayment(_ bytes: inout [UInt8], offset: Int) -> Int {
+    private static func deserializeMultiPayment(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
         return 0
     }
 
-    private static func deserializeMultiSignatureRegistration(_ bytes: inout [UInt8], offset: Int) -> Int {
+    private static func deserializeMultiSignatureRegistration(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
         let min = bytes[offset]
-        print(min)
         let count = Int(bytes[offset + 1])
-        print(count)
         let lifetime = bytes[offset + 2]
-        print(lifetime)
 
         var keys = [String]()
-        var idx = offset + 2
+        let idx = offset + 2
         for keyIndex in 0..<count {
             let startIndex = idx + keyIndex * 33
             let key = bytes[startIndex..<startIndex + 33].map{String(format: "%02x", $0)}.joined()
@@ -120,37 +111,40 @@ class ArkDeserializer {
             keys.append(key)
         }
 
+        transaction.asset = [
+            "multisignature": [
+                "min": min,
+                "keysgroup": keys,
+                "lifetime": lifetime
+            ]
+        ]
+
         return offset + 2 + count * 33
     }
 
-    private static func deserializeSecondSignatureRegistration(_ bytes: inout [UInt8], offset: Int) -> Int {
-        let recipientId = bytes[offset..<offset+66].map{String(format: "%02x", $0)}.joined()
-        print(recipientId)
+    private static func deserializeSecondSignatureRegistration(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
+        transaction.asset = ["publicKey": bytes[offset..<offset+66].map{String(format: "%02x", $0)}.joined()]
 
         return offset + 66
     }
 
-    private static func deserializeTimelockTransfer(_ bytes: inout [UInt8], offset: Int) -> Int {
+    private static func deserializeTimelockTransfer(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
         return 0
     }
 
-    private static func deserializeTransfer(_ bytes: inout [UInt8], offset: Int) -> Int {
+    private static func deserializeTransfer(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
         var idx = offset
-        let amount: Int64 = Data(bytes[idx..<idx+8]).withUnsafeBytes{$0.pointee}
-        print(amount)
+        transaction.amount = Data(bytes[idx..<idx+8]).withUnsafeBytes{$0.pointee}
         idx += 8
-        let expiration: Int32 = Data(bytes[idx..<idx+4]).withUnsafeBytes{$0.pointee}
-        print(expiration)
+        transaction.expiration = Data(bytes[idx..<idx+4]).withUnsafeBytes{$0.pointee}
         idx += 4
-        let recipientId = bytes[idx..<idx+21].map{String(format: "%02x", $0)}.joined()
-        print(recipientId)
+        transaction.recipientId = bytes[idx..<idx+21].map{String(format: "%02x", $0)}.joined()
 
         return idx + 21
     }
 
-    private static func deserializeVote(_ bytes: inout [UInt8], offset: Int) -> Int {
+    private static func deserializeVote(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
         let voteLength = Int(bytes[offset])
-        print(voteLength)
 
         var votes = [String]()
         for idx in 0..<voteLength {
@@ -171,6 +165,8 @@ class ArkDeserializer {
             votes.append(vote)
             print(vote)
         }
+        transaction.asset = ["votes": votes]
+
         return offset + voteLength * 34
     }
 }
