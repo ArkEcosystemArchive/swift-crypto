@@ -75,7 +75,6 @@ class ArkDeserializer {
         case .vote:
             return deserializeVote(&bytes, offset: offset)
         }
-        return 0
     }
 
     private static func parseSignatures(_ bytes: inout [UInt8], offset: Int) {
@@ -107,7 +106,7 @@ class ArkDeserializer {
     private static func deserializeMultiSignatureRegistration(_ bytes: inout [UInt8], offset: Int) -> Int {
         let min = bytes[offset]
         print(min)
-        let count = Int(bytes[offset+1])
+        let count = Int(bytes[offset + 1])
         print(count)
         let lifetime = bytes[offset + 2]
         print(lifetime)
@@ -121,7 +120,7 @@ class ArkDeserializer {
             keys.append(key)
         }
 
-        return offset + 3 + count * 33
+        return offset + 2 + count * 33
     }
 
     private static func deserializeSecondSignatureRegistration(_ bytes: inout [UInt8], offset: Int) -> Int {
