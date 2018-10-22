@@ -13,7 +13,7 @@ import Foundation
 
 class ArkDeserializer {
 
-    static func deserialize(serialized: String) {
+    static func deserialize(serialized: String) -> ArkTransaction {
         var bytes = [UInt8](Data.init(hex: serialized)!)
         var transaction = ArkTransaction()
 
@@ -22,6 +22,7 @@ class ArkDeserializer {
         parseSignatures(&transaction, &bytes, offset: offset)
 
         // TODO: check some v1 stuff
+        return transaction
     }
 
     private static func deserializeHeader(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8]) -> Int {
@@ -152,7 +153,7 @@ class ArkDeserializer {
             print(voteType)
 
             let startIndex = Int((offset + 2) + idx * 34)
-            let voteByteLength = 32 // 33 - voteType (1)
+            let voteByteLength = 33 // 34 - voteType (1)
 
             let voteBytes = bytes[startIndex..<(startIndex + voteByteLength)]
             var vote = voteBytes.map {String(format: "%02x", $0)}.joined()

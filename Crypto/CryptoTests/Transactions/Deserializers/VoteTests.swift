@@ -7,12 +7,28 @@
 // file that was distributed with this source code.
 //
 
+// swiftlint:disable force_cast
+
 import XCTest
 @testable import Crypto
 
 class VoteTests: XCTestCase {
 
     func testDeserializeDummy() {
-        ArkDeserializer.deserialize(serialized: "ff011e0365b87502034151a3ec46b5670a682b0a63394f863587d1bc97483b1b6c70eb58e7f0aed19200e1f50500000000000101022cca9529ec97a772156c152a00aad155ee6708243e65c9d211a589cb5d43234d3045022100bb39554e077c0cd23ef8376731f6b0457edea0aa04c92a9ef07c84228aa5542c0220648365448a0b19c49ff0bab5cde0bee7999a9cfd5eaefc4a7f03b6f93a2efb51")
+        let json = readJson(file: "vote_passphrase", type: type(of: self))
+        let serialized = json["serialized"] as! String
+        let data = json["data"] as! [String: Any]
+        let transaction = ArkDeserializer.deserialize(serialized: serialized)
+
+        XCTAssertEqual(transaction.version, 1)
+        XCTAssertEqual(transaction.network, 30)
+        XCTAssertEqual(transaction.type, TransactionType.vote)
+        XCTAssertEqual(transaction.timestamp, data["timestamp"] as! UInt32)
+        XCTAssertEqual(transaction.senderPublicKey, data["senderPublicKey"] as! String)
+        XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)
+
+        let asset = data["asset"] as! [String: [String]]
+        let transactionAsset = transaction.asset as! [String: [String]]
+        XCTAssertEqual(transactionAsset["votes"]![0], asset["votes"]![0])
     }
 }
