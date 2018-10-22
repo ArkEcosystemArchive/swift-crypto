@@ -104,7 +104,10 @@ class ArkDeserializer {
     }
 
     private static func deserializeSecondSignatureRegistration(_ bytes: inout [UInt8], offset: Int) -> Int {
-        return 0
+        let recipientId = bytes[offset..<offset+66].map{String(format: "%02x", $0)}.joined()
+        print(recipientId)
+
+        return offset + 66
     }
 
     private static func deserializeTimelockTransfer(_ bytes: inout [UInt8], offset: Int) -> Int {
