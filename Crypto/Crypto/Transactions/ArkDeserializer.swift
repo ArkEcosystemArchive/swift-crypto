@@ -105,7 +105,23 @@ class ArkDeserializer {
     }
 
     private static func deserializeMultiSignatureRegistration(_ bytes: inout [UInt8], offset: Int) -> Int {
-        return 0
+        let min = bytes[offset]
+        print(min)
+        let count = Int(bytes[offset+1])
+        print(count)
+        let lifetime = bytes[offset + 2]
+        print(lifetime)
+
+        var keys = [String]()
+        var idx = offset + 2
+        for keyIndex in 0..<count {
+            let startIndex = idx + keyIndex * 33
+            let key = bytes[startIndex..<startIndex + 33].map{String(format: "%02x", $0)}.joined()
+            print(key)
+            keys.append(key)
+        }
+
+        return offset + 3 + count * 33
     }
 
     private static func deserializeSecondSignatureRegistration(_ bytes: inout [UInt8], offset: Int) -> Int {
