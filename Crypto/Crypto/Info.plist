@@ -19,7 +19,7 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2018 ARK Ecosystem. All rights reserved.</string>
+	<string>Copyright © 2018 ArkEcosystem. All rights reserved.</string>
 	<key>NSPrincipalClass</key>
 	<string></string>
 </dict>
