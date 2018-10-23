@@ -1,7 +1,7 @@
-# ARK Crypto - Swift
+# Ark Crypto - Swift
 
 <p align="center">
-    <img src="https://github.com/ArkEcosystem/swift-crypto/blob/master/banner.png" />
+    <img src="./banner.png" />
 </p>
 
 > A simple Swift Cryptography Implementation for the Ark Blockchain.
