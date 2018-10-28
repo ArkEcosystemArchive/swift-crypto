@@ -48,4 +48,78 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         XCTAssertEqual(transaction.signSignature, data["signSignature"] as! String)
     }
+    
+    func testDeserializeTransferWithVendorField() {
+        let json = readJson(file: "transfer_passphrase-with-vendor-field", type: type(of: self))
+        let serialized = json["serialized"] as! String
+        let data = json["data"] as! [String: Any]
+        let transaction = ArkDeserializer.deserialize(serialized: serialized)
+        
+        XCTAssertEqual(transaction.version, 1)
+        XCTAssertEqual(transaction.network, 30)
+        XCTAssertEqual(transaction.type, TransactionType.transfer)
+        XCTAssertEqual(transaction.timestamp, data["timestamp"] as! UInt32)
+        XCTAssertEqual(transaction.senderPublicKey, data["senderPublicKey"] as! String)
+        XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)
+        XCTAssertEqual(transaction.amount, data["amount"] as! UInt64)
+        XCTAssertEqual(transaction.recipientId, data["recipientId"] as! String)
+        XCTAssertEqual(transaction.signature, data["signature"] as! String)
+        XCTAssertEqual(transaction.vendorField, data["vendorField"] as! String)
+    }
+    
+    func testDeserializeTransferWithVendorFieldSecondSig() {
+        let json = readJson(file: "transfer_second-passphrase-with-vendor-field", type: type(of: self))
+        let serialized = json["serialized"] as! String
+        let data = json["data"] as! [String: Any]
+        let transaction = ArkDeserializer.deserialize(serialized: serialized)
+        
+        XCTAssertEqual(transaction.version, 1)
+        XCTAssertEqual(transaction.network, 30)
+        XCTAssertEqual(transaction.type, TransactionType.transfer)
+        XCTAssertEqual(transaction.timestamp, data["timestamp"] as! UInt32)
+        XCTAssertEqual(transaction.senderPublicKey, data["senderPublicKey"] as! String)
+        XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)
+        XCTAssertEqual(transaction.amount, data["amount"] as! UInt64)
+        XCTAssertEqual(transaction.recipientId, data["recipientId"] as! String)
+        XCTAssertEqual(transaction.signature, data["signature"] as! String)
+        XCTAssertEqual(transaction.signSignature, data["signSignature"] as! String)
+        XCTAssertEqual(transaction.vendorField, data["vendorField"] as! String)
+    }
+    
+    func testDeserializeTransferWithVendorFieldHex() {
+        let json = readJson(file: "transfer_passphrase-with-vendor-field-hex", type: type(of: self))
+        let serialized = json["serialized"] as! String
+        let data = json["data"] as! [String: Any]
+        let transaction = ArkDeserializer.deserialize(serialized: serialized)
+        
+        XCTAssertEqual(transaction.version, 1)
+        XCTAssertEqual(transaction.network, 30)
+        XCTAssertEqual(transaction.type, TransactionType.transfer)
+        XCTAssertEqual(transaction.timestamp, data["timestamp"] as! UInt32)
+        XCTAssertEqual(transaction.senderPublicKey, data["senderPublicKey"] as! String)
+        XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)
+        XCTAssertEqual(transaction.amount, data["amount"] as! UInt64)
+        XCTAssertEqual(transaction.recipientId, data["recipientId"] as! String)
+        XCTAssertEqual(transaction.signature, data["signature"] as! String)
+        XCTAssertEqual(transaction.vendorFieldHex, data["vendorFieldHex"] as! String)
+    }
+    
+    func testDeserializeTransferWithVendorFieldHexSecondSig() {
+        let json = readJson(file: "transfer_second-passphrase-with-vendor-field-hex", type: type(of: self))
+        let serialized = json["serialized"] as! String
+        let data = json["data"] as! [String: Any]
+        let transaction = ArkDeserializer.deserialize(serialized: serialized)
+        
+        XCTAssertEqual(transaction.version, 1)
+        XCTAssertEqual(transaction.network, 30)
+        XCTAssertEqual(transaction.type, TransactionType.transfer)
+        XCTAssertEqual(transaction.timestamp, data["timestamp"] as! UInt32)
+        XCTAssertEqual(transaction.senderPublicKey, data["senderPublicKey"] as! String)
+        XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)
+        XCTAssertEqual(transaction.amount, data["amount"] as! UInt64)
+        XCTAssertEqual(transaction.recipientId, data["recipientId"] as! String)
+        XCTAssertEqual(transaction.signature, data["signature"] as! String)
+        XCTAssertEqual(transaction.signSignature, data["signSignature"] as! String)
+        XCTAssertEqual(transaction.vendorFieldHex, data["vendorFieldHex"] as! String)
+    }
 }

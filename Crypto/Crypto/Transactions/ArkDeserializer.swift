@@ -48,7 +48,7 @@ class ArkDeserializer {
         let vendorFieldLength = bytes[49]
         if vendorFieldLength > 0 {
             let endByte: Int = 50 + Int(vendorFieldLength)
-            transaction.vendorField = bytes[50..<endByte].map{String(format: "%02x", $0)}.joined()
+            transaction.vendorFieldHex = bytes[50..<endByte].map{String(format: "%02x", $0)}.joined()
         }
 
         // Byte index up to which we read
