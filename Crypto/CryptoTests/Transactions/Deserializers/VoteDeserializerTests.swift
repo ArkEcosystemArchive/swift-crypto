@@ -12,7 +12,7 @@
 import XCTest
 @testable import Crypto
 
-class VoteTests: XCTestCase {
+class VoteDeserializerTests: XCTestCase {
 
     func testDeserializeVote() {
         let json = readJson(file: "vote_passphrase", type: type(of: self))

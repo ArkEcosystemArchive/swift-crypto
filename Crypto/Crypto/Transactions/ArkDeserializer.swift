@@ -18,7 +18,7 @@ class ArkDeserializer {
         var transaction = ArkTransaction()
 
         var offset = deserializeHeader(&transaction, &bytes)
-        offset = deserializeType(&transaction, type: TransactionType.vote, &bytes, offset: offset)
+        offset = deserializeType(&transaction, type: transaction.type!, &bytes, offset: offset)
         parseSignatures(&transaction, &bytes, offset: offset)
 
         // Handle v1 stuff
@@ -45,14 +45,14 @@ class ArkDeserializer {
         transaction.fee = Data(bytes[41..<49]).withUnsafeBytes {$0.pointee}
 
         // Vendor field
-        let vendorFieldLength = bytes[50]
+        let vendorFieldLength = bytes[49]
         if vendorFieldLength > 0 {
             let endByte: Int = 50 + Int(vendorFieldLength)
             transaction.vendorField = bytes[50..<endByte].map{String(format: "%02x", $0)}.joined()
         }
 
         // Byte index up to which we read
-        return 50 + Int(vendorFieldLength) - 1
+        return 50 + Int(vendorFieldLength)
     }
 
     private static func deserializeType(_ transaction: inout ArkTransaction, type: TransactionType, _ bytes: inout [UInt8], offset: Int) -> Int {
@@ -109,7 +109,7 @@ class ArkDeserializer {
     // MARK: - Type deserializers
     private static func deserializeDelegateRegistration(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
         let usernameLength = Int(bytes[offset])
-        transaction.asset = ["username": bytes[offset+1..<offset+1+usernameLength].map{String(format: "%02x", $0)}.joined()]
+        transaction.asset = ["username": hexToString(bytes[offset + 1..<offset + 1 + usernameLength].map{String(format: "%02x", $0)}.joined())]
 
         return offset + 1 + usernameLength
     }
@@ -207,6 +207,22 @@ class ArkDeserializer {
             transaction.signSignature = secondSig
         }
         
-        // TODO: other v1 stuff when we get there
+        if let vendorFieldHex = transaction.vendorFieldHex {
+            transaction.vendorField = hexToString(vendorFieldHex)
+        }
+        
+        // TODO: add id if it isn't set
+        
+        if let type = transaction.type {
+            if type == .delegateRegistration {
+                
+            } else if type == .vote {
+                
+            } else if type == .multiSignatureRegistration {
+                
+            } else if type == .secondSignatureRegistration {
+                
+            }
+        }
     }
 }
