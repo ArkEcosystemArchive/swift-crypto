@@ -135,11 +135,10 @@ class ArkDeserializer {
         let lifetime = bytes[offset + 2]
 
         var keys = [String]()
-        let idx = offset + 2
+        let idx = offset + 3
         for keyIndex in 0..<count {
             let startIndex = idx + keyIndex * 33
             let key = bytes[startIndex..<startIndex + 33].map{String(format: "%02x", $0)}.joined()
-            print(key)
             keys.append(key)
         }
 
@@ -151,7 +150,7 @@ class ArkDeserializer {
             ]
         ]
 
-        return offset + 2 + count * 33
+        return offset + 3 + count * 33
     }
 
     private static func deserializeSecondSignatureRegistration(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
@@ -213,7 +212,13 @@ class ArkDeserializer {
                 let publicKey = ArkPublicKey.from(hex: transaction.senderPublicKey!).description
                 transaction.recipientId = ArkAddress.from(publicKey: publicKey)
             } else if type == .multiSignatureRegistration {
-                // TODO
+                var asset = transaction.asset as! [String: [String: Any]]
+                var keysgroup = asset["multisignature"]!["keysgroup"] as! [String]
+                for idx in 0..<keysgroup.count {
+                    keysgroup[idx] = "+" + keysgroup[idx]
+                }
+                asset["multisignature"]!["keysgroup"] = keysgroup
+                transaction.asset = asset
             }
         }
         
