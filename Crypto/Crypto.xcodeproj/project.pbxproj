@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F5DF5362350EAA6D07FA4E2 /* Pods_Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA79348728A560C5DBDB0C2C /* Pods_Crypto.framework */; };
 		D04BE8782186485A005ADD15 /* DelegateDeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04BE8772186485A005ADD15 /* DelegateDeserializerTests.swift */; };
+		D04BE87A218654E5005ADD15 /* SecondSignatureDeserializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04BE879218654E5005ADD15 /* SecondSignatureDeserializerTests.swift */; };
 		D0B1A6BA21556141001FA4DE /* Crypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0B1A6B021556140001FA4DE /* Crypto.framework */; };
 		D0B1A6BF21556141001FA4DE /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6BE21556141001FA4DE /* CryptoTests.swift */; };
 		D0B1A6C121556141001FA4DE /* Crypto.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B1A6B321556140001FA4DE /* Crypto.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -76,6 +77,7 @@
 		B4B69AB6D05AE7165FEFA680 /* Pods-CryptoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoTests/Pods-CryptoTests.release.xcconfig"; sourceTree = "<group>"; };
 		B9B4C1D367D148F9CD8F7DDB /* Pods_CryptoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D04BE8772186485A005ADD15 /* DelegateDeserializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateDeserializerTests.swift; sourceTree = "<group>"; };
+		D04BE879218654E5005ADD15 /* SecondSignatureDeserializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignatureDeserializerTests.swift; sourceTree = "<group>"; };
 		D0B1A6B021556140001FA4DE /* Crypto.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Crypto.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0B1A6B321556140001FA4DE /* Crypto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
 		D0B1A6B421556140001FA4DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -408,6 +410,7 @@
 			children = (
 				D0DC2205217BA97500C40276 /* VoteDeserializerTests.swift */,
 				D04BE8772186485A005ADD15 /* DelegateDeserializerTests.swift */,
+				D04BE879218654E5005ADD15 /* SecondSignatureDeserializerTests.swift */,
 			);
 			path = Deserializers;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				D0DC2206217BA97500C40276 /* VoteDeserializerTests.swift in Sources */,
 				D0B1A6BF21556141001FA4DE /* CryptoTests.swift in Sources */,
 				D04BE8782186485A005ADD15 /* DelegateDeserializerTests.swift in Sources */,
+				D04BE87A218654E5005ADD15 /* SecondSignatureDeserializerTests.swift in Sources */,
 				D0FA88A221558DD0008F715C /* PublicKeyTests.swift in Sources */,
 				D0B1A6FD215561E1001FA4DE /* FeeConfigurationTests.swift in Sources */,
 				D0D41C6921581F20000FF047 /* HelpersTests.swift in Sources */,

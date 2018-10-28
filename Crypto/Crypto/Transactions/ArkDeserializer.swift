@@ -155,9 +155,9 @@ class ArkDeserializer {
     }
 
     private static func deserializeSecondSignatureRegistration(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
-        transaction.asset = ["publicKey": bytes[offset..<offset+66].map{String(format: "%02x", $0)}.joined()]
+        transaction.asset = ["publicKey": bytes[offset..<offset+33].map{String(format: "%02x", $0)}.joined()]
 
-        return offset + 66
+        return offset + 33
     }
 
     private static func deserializeTimelockTransfer(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
