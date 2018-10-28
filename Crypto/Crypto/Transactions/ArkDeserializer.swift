@@ -171,7 +171,8 @@ class ArkDeserializer {
         idx += 8
         transaction.expiration = Data(bytes[idx..<idx+4]).withUnsafeBytes{$0.pointee}
         idx += 4
-        transaction.recipientId = bytes[idx..<idx+21].map{String(format: "%02x", $0)}.joined()
+        let recipientBytes = Array(bytes[idx..<idx+21])
+        transaction.recipientId = base58CheckEncode(recipientBytes)
 
         return idx + 21
     }
@@ -221,7 +222,8 @@ class ArkDeserializer {
         }
         
         if transaction.id == nil {
-            transaction.id = transaction.getId()
+            // TODO: fix toBytes first
+            // transaction.id = transaction.getId()
         }
         
         if let type = transaction.type {
