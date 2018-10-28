@@ -207,20 +207,28 @@ class ArkDeserializer {
             transaction.signSignature = secondSig
         }
         
+        if let type = transaction.type {
+            if type == .vote {
+                let publicKey = ArkPublicKey.from(hex: transaction.senderPublicKey!).description
+                transaction.recipientId = ArkAddress.from(publicKey: publicKey)
+            } else if type == .multiSignatureRegistration {
+                // TODO
+            }
+        }
+        
         if let vendorFieldHex = transaction.vendorFieldHex {
             transaction.vendorField = hexToString(vendorFieldHex)
         }
         
-        // TODO: add id if it isn't set
+        if transaction.id == nil {
+            transaction.id = transaction.getId()
+        }
         
         if let type = transaction.type {
-            if type == .delegateRegistration {
-                // TODO
-            } else if type == .vote {
-                // TODO
+            if type == .secondSignatureRegistration {
+                let publicKey = ArkPublicKey.from(hex: transaction.senderPublicKey!).description
+                transaction.recipientId = ArkAddress.from(publicKey: publicKey)
             } else if type == .multiSignatureRegistration {
-                // TODO
-            } else if type == .secondSignatureRegistration {
                 let publicKey = ArkPublicKey.from(hex: transaction.senderPublicKey!).description
                 transaction.recipientId = ArkAddress.from(publicKey: publicKey)
             }
