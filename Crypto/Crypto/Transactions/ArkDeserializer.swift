@@ -215,13 +215,14 @@ class ArkDeserializer {
         
         if let type = transaction.type {
             if type == .delegateRegistration {
-                
+                // TODO
             } else if type == .vote {
-                
+                // TODO
             } else if type == .multiSignatureRegistration {
-                
+                // TODO
             } else if type == .secondSignatureRegistration {
-                
+                let publicKey = ArkPublicKey.from(hex: transaction.senderPublicKey!).description
+                transaction.recipientId = ArkAddress.from(publicKey: publicKey)
             }
         }
     }
