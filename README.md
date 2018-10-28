@@ -14,10 +14,10 @@
 ## TO-DO
 
 ### AIP11 Serialization
-- [ ] Transfer
-- [ ] Second Signature Registration
-- [ ] Delegate Registration
-- [ ] Vote
+- [x] Transfer
+- [x] Second Signature Registration
+- [x] Delegate Registration
+- [x] Vote
 - [ ] Multi Signature Registration
 - [ ] IPFS
 - [ ] Timelock Transfer
@@ -25,10 +25,10 @@
 - [ ] Delegate Resignation
 
 ### AIP11 Deserialization
-- [ ] Transfer
-- [ ] Second Signature Registration
-- [ ] Delegate Registration
-- [ ] Vote
+- [x] Transfer
+- [x] Second Signature Registration
+- [x] Delegate Registration
+- [x] Vote
 - [ ] Multi Signature Registration
 - [ ] IPFS
 - [ ] Timelock Transfer
@@ -112,7 +112,7 @@ If you discover a security vulnerability within this package, please send an e-m
 ## Credits
 
 - [ItsANameToo](https://github.com/ItsANameToo)
-- [All Contributors](../../../../contributors)
+- [All Contributors](../../contributors)
 
 ## License
 

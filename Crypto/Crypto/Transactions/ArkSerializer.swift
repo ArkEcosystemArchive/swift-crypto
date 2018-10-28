@@ -92,7 +92,7 @@ class ArkSerializer {
     }
 
     private static func serializeDelegateResignation(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        // TODO: no specs yet
+        // TODO
     }
 
     private static func serializeIpfs(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
@@ -103,7 +103,7 @@ class ArkSerializer {
     }
 
     private static func serializeMultiPayment(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-
+        // TODO
     }
 
     private static func serializeMultiSignatureRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
@@ -116,7 +116,7 @@ class ArkSerializer {
     }
 
     private static func serializeTimelockTransfer(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-
+        // TODO
     }
 
     private static func serializeTransfer(transaction: ArkTransaction, _ bytes: inout [UInt8]) {

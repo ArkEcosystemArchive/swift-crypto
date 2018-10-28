@@ -97,14 +97,17 @@ class ArkDeserializer {
     }
 
     private static func deserializeDelegateResignation(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
+        // TODO
         return 0
     }
 
     private static func deserializeIpfs(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
+        // TODO
         return 0
     }
 
     private static func deserializeMultiPayment(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
+        // TODO
         return 0
     }
 
@@ -140,6 +143,7 @@ class ArkDeserializer {
     }
 
     private static func deserializeTimelockTransfer(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
+        // TODO
         return 0
     }
 
