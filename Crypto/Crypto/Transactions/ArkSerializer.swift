@@ -107,7 +107,7 @@ class ArkSerializer {
     }
 
     private static func serializeMultiSignatureRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-
+        
     }
 
     private static func serializeSecondSignatureRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {

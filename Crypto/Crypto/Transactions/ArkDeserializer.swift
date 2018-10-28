@@ -21,7 +21,11 @@ class ArkDeserializer {
         offset = deserializeType(&transaction, type: TransactionType.vote, &bytes, offset: offset)
         parseSignatures(&transaction, &bytes, offset: offset)
 
-        // TODO: check some v1 stuff
+        // Handle v1 stuff
+        if transaction.version == 1 {
+            handleVersionOne(&transaction)
+        }
+        
         return transaction
     }
 
@@ -77,14 +81,28 @@ class ArkDeserializer {
     private static func parseSignatures(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) {
         let signature = bytes[offset..<bytes.count].map{String(format: "%02x", $0)}.joined()
         if signature.count > 0 {
+            // Signature
             let start = signature.index(signature.startIndex, offsetBy: 2)
             let end = signature.index(signature.startIndex, offsetBy: 4)
             let signatureLength = Int(signature[start..<end], radix: 16)! + 2
 
-            transaction.signature = bytes[offset..<offset+signatureLength].map{String(format: "%02x", $0)}.joined()
-
-            // TODO: second signature
-            // TODO: multisignature
+            transaction.signature = bytes[offset..<offset + signatureLength].map{String(format: "%02x", $0)}.joined()
+            
+            // Second Signature
+            let secondSignatureOffset = offset + signatureLength
+            let secondSignature = bytes[secondSignatureOffset..<bytes.count].map{String(format: "%02x", $0)}.joined()
+            
+            if secondSignature.count > 0 && !secondSignature.starts(with: "ff") {
+                let start = secondSignature.index(secondSignature.startIndex, offsetBy: 2)
+                let end = secondSignature.index(secondSignature.startIndex, offsetBy: 4)
+                let secondSignatureLength = Int(secondSignature[start..<end], radix: 16)! + 2
+                
+                transaction.secondSignature = bytes[secondSignatureOffset..<secondSignatureOffset + secondSignatureLength].map{String(format: "%02x", $0)}.joined()
+            }
+            
+            // Multisignature
+            // let multisigOffset = offset + signatureLength // + secondsig
+            // TODO
         }
     }
 
@@ -181,5 +199,14 @@ class ArkDeserializer {
         transaction.asset = ["votes": votes]
 
         return offset + 1 + voteLength * 34
+    }
+    
+    // MARK: - v1
+    private static func handleVersionOne(_ transaction: inout ArkTransaction) {
+        if let secondSig = transaction.secondSignature {
+            transaction.signSignature = secondSig
+        }
+        
+        // TODO: other v1 stuff when we get there
     }
 }
