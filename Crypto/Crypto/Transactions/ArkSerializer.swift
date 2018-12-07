@@ -91,40 +91,6 @@ class ArkSerializer {
     }
 
     // MARK: - Type serializers
-    private static func serializeDelegateRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        let delegate = transaction.asset!["delegate"] as! [String: String]
-        let username = delegate["username"]!
-        bytes.append(contentsOf: pack(UInt8(username.count)))
-        bytes.append(contentsOf: [UInt8](username.data(using: .utf8)!))
-    }
-
-    private static func serializeDelegateResignation(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        // TODO
-    }
-
-    private static func serializeIpfs(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        let ipfs = transaction.asset!["ipfs"] as! [String: String]
-        let dag = ipfs["dag"]!
-        bytes.append(contentsOf: pack(UInt8(dag.count)))
-        bytes.append(contentsOf: [UInt8](Data.init(hex: dag)!))
-    }
-
-    private static func serializeMultiPayment(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        // TODO
-    }
-
-    private static func serializeMultiSignatureRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        
-    }
-
-    private static func serializeSecondSignatureRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        let signature = transaction.asset!["signature"] as! [String: String]
-        bytes.append(contentsOf: [UInt8](Data.init(hex: signature["publicKey"]!)!))
-    }
-
-    private static func serializeTimelockTransfer(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        // TODO
-    }
 
     private static func serializeTransfer(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
         var transactionBytes = pack(transaction.amount)
@@ -137,6 +103,18 @@ class ArkSerializer {
 
         let recipientId = base58CheckDecode(transaction.recipientId!)
         bytes.append(contentsOf: recipientId!)
+    }
+
+    private static func serializeDelegateRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
+        let delegate = transaction.asset!["delegate"] as! [String: String]
+        let username = delegate["username"]!
+        bytes.append(contentsOf: pack(UInt8(username.count)))
+        bytes.append(contentsOf: [UInt8](username.data(using: .utf8)!))
+    }
+
+    private static func serializeSecondSignatureRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
+        let signature = transaction.asset!["signature"] as! [String: String]
+        bytes.append(contentsOf: [UInt8](Data.init(hex: signature["publicKey"]!)!))
     }
 
     private static func serializeVote(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
@@ -152,5 +130,46 @@ class ArkSerializer {
 
         bytes.append(contentsOf: pack(UInt8(votes.count)))
         bytes.append(contentsOf: [UInt8](Data.init(hex: voteBytes.joined())!))
+    }
+
+    private static func serializeMultiSignatureRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
+        let multisigAsset = transaction.asset!["multisignature"] as! [String: Any]
+        let keysgroup = multisigAsset["keysgroup"] as! [String]
+
+        var keyBytes = [String]()
+        for var key in keysgroup {
+            if key.hasPrefix("+") {
+                key.removeFirst()
+            }
+            keyBytes.append(key)
+        }
+
+        let min = multisigAsset["min"] as! UInt8
+        let lifetime = multisigAsset["lifetime"] as! UInt8
+
+        bytes.append(contentsOf: pack(min))
+        bytes.append(contentsOf: pack(UInt8(keyBytes.count)))
+        bytes.append(contentsOf: pack(lifetime))
+
+        bytes.append(contentsOf: [UInt8](Data.init(hex: keyBytes.joined())!))
+    }
+
+    private static func serializeIpfs(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
+        let ipfs = transaction.asset!["ipfs"] as! [String: String]
+        let dag = ipfs["dag"]!
+        bytes.append(contentsOf: pack(UInt8(dag.count)))
+        bytes.append(contentsOf: [UInt8](Data.init(hex: dag)!))
+    }
+
+    private static func serializeMultiPayment(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
+        // TODO
+    }
+
+    private static func serializeTimelockTransfer(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
+        // TODO
+    }
+
+    private static func serializeDelegateResignation(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
+        // TODO
     }
 }
