@@ -10,6 +10,13 @@
 import XCTest
 @testable import Crypto
 
-class SecondSignatureSerializerTests {
+class SecondSignatureSerializerTests: XCTestCase {
     
+    func testSecondSignatureRegistration() {
+        let json = readJson(file: "ss_second-passphrase", type: type(of: self))
+        let serialized = json["serialized"] as! String
+        let transaction = ArkDeserializer.deserialize(serialized: serialized)
+        
+        XCTAssertEqual(serialized, ArkSerializer.serialize(transaction: transaction))
+    }
 }
