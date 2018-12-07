@@ -37,11 +37,11 @@ class ArkSerializer {
     private static func serializeVendorField(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
         if let vendorField = transaction.vendorField {
             let length = vendorField.count
-            bytes.append(contentsOf: pack(length))
-            bytes.append(contentsOf: pack(vendorField))
+            bytes.append(contentsOf: pack(UInt8(length)))
+            bytes.append(contentsOf: [UInt8](vendorField.data(using: .utf8)!))
         } else if let vendorFieldHex = transaction.vendorFieldHex {
             let length = vendorFieldHex.count / 2
-            bytes.append(contentsOf: pack(length))
+            bytes.append(contentsOf: pack(UInt8(length)))
             bytes.append(contentsOf: [UInt8](Data.init(hex: vendorFieldHex)!))
         } else {
             bytes.append(0x00)
@@ -141,7 +141,6 @@ class ArkSerializer {
 
     private static func serializeVote(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
         let votes = transaction.asset!["votes"] as! [String]
-        print(votes)
 
         var voteBytes = [String]()
 
