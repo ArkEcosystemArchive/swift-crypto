@@ -19,9 +19,13 @@ class ArkSerializer {
         bytes.append(transaction.version! > 0 ? transaction.version! : 0x01)
         bytes.append(transaction.network! > 0 ? transaction.network! : ArkNetwork.shared.get().version())
         bytes.append(UInt8.init(transaction.type!.rawValue))
-        bytes.append(contentsOf: pack(transaction.timestamp))
+        var transactionBytes = pack(transaction.timestamp)
+        transactionBytes.removeLast() // Timestamp is 32bits (5 bytes), but only 4 bytes serialized
+        bytes.append(contentsOf: transactionBytes)
         bytes.append(contentsOf: [UInt8](Data.init(hex: transaction.senderPublicKey!)!))
-        bytes.append(contentsOf: pack(transaction.fee))
+        var feeBytes = pack(transaction.fee)
+        feeBytes.removeLast()
+        bytes.append(contentsOf: feeBytes)
 
         serializeVendorField(transaction: transaction, &bytes)
         serializeType(transaction: transaction, &bytes)
@@ -34,6 +38,7 @@ class ArkSerializer {
         if let vendorField = transaction.vendorField {
             let length = vendorField.count
             bytes.append(contentsOf: pack(length))
+            bytes.append(contentsOf: pack(vendorField))
         } else if let vendorFieldHex = transaction.vendorFieldHex {
             let length = vendorFieldHex.count / 2
             bytes.append(contentsOf: pack(length))
@@ -87,7 +92,6 @@ class ArkSerializer {
 
     // MARK: - Type serializers
     private static func serializeDelegateRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        print(transaction.asset)
         let delegate = transaction.asset!["delegate"] as! [String: String]
         let username = delegate["username"]!
         bytes.append(contentsOf: pack(username.count))
@@ -131,6 +135,7 @@ class ArkSerializer {
 
     private static func serializeVote(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
         let votes = transaction.asset!["votes"] as! [String]
+        print(votes)
 
         var voteBytes = [String]()
 
@@ -140,7 +145,7 @@ class ArkSerializer {
             voteBytes.append(String(format: "%@%@", prefix, votePK))
         }
 
-        bytes.append(contentsOf: pack(votes.count))
+        bytes.append(contentsOf: pack(UInt8(votes.count)))
         bytes.append(contentsOf: [UInt8](Data.init(hex: voteBytes.joined())!))
     }
 }
