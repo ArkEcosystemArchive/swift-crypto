@@ -27,7 +27,7 @@ class ArkSerializer {
         serializeType(transaction: transaction, &bytes)
         serializeSignatures(transaction: transaction, &bytes)
 
-        return String(format: "%02X", bytes)
+        return bytes.map { String(format: "%02x", $0) }.joined()
     }
 
     private static func serializeVendorField(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
@@ -77,9 +77,11 @@ class ArkSerializer {
             bytes.append(contentsOf: [UInt8](Data.init(hex: signSignature)!))
         }
 
-        if transaction.signatures!.count > 0 {
-            bytes.append(0xff)
-            bytes.append(contentsOf: [UInt8](Data.init(hex: transaction.signatures!.joined())!))
+        if let signatures = transaction.signatures {
+            if signatures.count > 0 {
+                bytes.append(0xff)
+                bytes.append(contentsOf: [UInt8](Data.init(hex: transaction.signatures!.joined())!))
+            }
         }
     }
 

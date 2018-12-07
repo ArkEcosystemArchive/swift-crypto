@@ -27,6 +27,7 @@
 		D0B1A6FE215561E1001FA4DE /* NetworkConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6FC215561E1001FA4DE /* NetworkConfigurationTests.swift */; };
 		D0B1A70121557399001FA4DE /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A70021557399001FA4DE /* PrivateKey.swift */; };
 		D0C1637521BAAEFD005F3CD0 /* ArkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637421BAAEFD005F3CD0 /* ArkBuilder.swift */; };
+		D0C1637821BACB0F005F3CD0 /* VoteSerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637721BACB0F005F3CD0 /* VoteSerializerTests.swift */; };
 		D0D41C672157CB4F000FF047 /* ArkTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D41C662157CB4F000FF047 /* ArkTransaction.swift */; };
 		D0D41C6921581F20000FF047 /* HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D41C6821581F20000FF047 /* HelpersTests.swift */; };
 		D0DC21D1217A50BF00C40276 /* ArkSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */; };
@@ -101,6 +102,7 @@
 		D0B1A6FC215561E1001FA4DE /* NetworkConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfigurationTests.swift; sourceTree = "<group>"; };
 		D0B1A70021557399001FA4DE /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		D0C1637421BAAEFD005F3CD0 /* ArkBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkBuilder.swift; sourceTree = "<group>"; };
+		D0C1637721BACB0F005F3CD0 /* VoteSerializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteSerializerTests.swift; sourceTree = "<group>"; };
 		D0D41C662157CB4F000FF047 /* ArkTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTransaction.swift; sourceTree = "<group>"; };
 		D0D41C6821581F20000FF047 /* HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersTests.swift; sourceTree = "<group>"; };
 		D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkSerializer.swift; sourceTree = "<group>"; };
@@ -288,6 +290,14 @@
 			path = Identities;
 			sourceTree = "<group>";
 		};
+		D0C1637621BACAFF005F3CD0 /* Serializers */ = {
+			isa = PBXGroup;
+			children = (
+				D0C1637721BACB0F005F3CD0 /* VoteSerializerTests.swift */,
+			);
+			path = Serializers;
+			sourceTree = "<group>";
+		};
 		D0D41C652157CB32000FF047 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +417,7 @@
 		D0DC2203217BA94B00C40276 /* Transactions */ = {
 			isa = PBXGroup;
 			children = (
+				D0C1637621BACAFF005F3CD0 /* Serializers */,
 				D0DC2204217BA95A00C40276 /* Deserializers */,
 			);
 			path = Transactions;
@@ -684,6 +695,7 @@
 				D0FA88A62155A0A3008F715C /* WIFTests.swift in Sources */,
 				D0FA889E21557764008F715C /* PrivateKeyTests.swift in Sources */,
 				D04BE87C218658C4005ADD15 /* TransferDeserializerTests.swift in Sources */,
+				D0C1637821BACB0F005F3CD0 /* VoteSerializerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
