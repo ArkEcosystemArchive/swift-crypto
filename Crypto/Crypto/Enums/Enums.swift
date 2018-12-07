@@ -22,13 +22,13 @@ enum TransactionType: Int {
 }
 
 struct TransactionFee {
-    static let transfer = 10000000
-    static let secondSignatureRegistration = 500000000
-    static let delegateRegistration = 2500000000
-    static let vote = 100000000
-    static let multiSignatureRegistration = 500000000
-    static let ipfs = 0
-    static let timelockTransfer = 0
-    static let multiPayment = 0
-    static let delegateResignation = 0
+    static let transfer: UInt64 = 10000000
+    static let secondSignatureRegistration: UInt64 = 500000000
+    static let delegateRegistration: UInt64 = 2500000000
+    static let vote: UInt64 = 100000000
+    static let multiSignatureRegistration: UInt64 = 500000000
+    static let ipfs: UInt64 = 0
+    static let timelockTransfer: UInt64 = 0
+    static let multiPayment: UInt64 = 0
+    static let delegateResignation: UInt64 = 0
 }

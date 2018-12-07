@@ -13,7 +13,7 @@ class Fee {
 
     static let shared = Fee()
 
-    var fees: [TransactionType: Int]
+    var fees: [TransactionType: UInt64]
 
     private init() {
         self.fees = [
@@ -29,11 +29,11 @@ class Fee {
         ]
     }
 
-    func get(forType: TransactionType) -> Int {
+    func get(forType: TransactionType) -> UInt64 {
         return fees[forType]!
     }
 
-    func set(forType: TransactionType, fee: Int) {
+    func set(forType: TransactionType, fee: UInt64) {
         self.fees[forType] = fee
     }
 }

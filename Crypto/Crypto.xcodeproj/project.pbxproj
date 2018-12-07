@@ -26,6 +26,7 @@
 		D0B1A6FD215561E1001FA4DE /* FeeConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6FB215561E1001FA4DE /* FeeConfigurationTests.swift */; };
 		D0B1A6FE215561E1001FA4DE /* NetworkConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A6FC215561E1001FA4DE /* NetworkConfigurationTests.swift */; };
 		D0B1A70121557399001FA4DE /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A70021557399001FA4DE /* PrivateKey.swift */; };
+		D0C1637521BAAEFD005F3CD0 /* ArkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637421BAAEFD005F3CD0 /* ArkBuilder.swift */; };
 		D0D41C672157CB4F000FF047 /* ArkTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D41C662157CB4F000FF047 /* ArkTransaction.swift */; };
 		D0D41C6921581F20000FF047 /* HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D41C6821581F20000FF047 /* HelpersTests.swift */; };
 		D0DC21D1217A50BF00C40276 /* ArkSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */; };
@@ -99,6 +100,7 @@
 		D0B1A6FB215561E1001FA4DE /* FeeConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeeConfigurationTests.swift; sourceTree = "<group>"; };
 		D0B1A6FC215561E1001FA4DE /* NetworkConfigurationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfigurationTests.swift; sourceTree = "<group>"; };
 		D0B1A70021557399001FA4DE /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
+		D0C1637421BAAEFD005F3CD0 /* ArkBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkBuilder.swift; sourceTree = "<group>"; };
 		D0D41C662157CB4F000FF047 /* ArkTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTransaction.swift; sourceTree = "<group>"; };
 		D0D41C6821581F20000FF047 /* HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersTests.swift; sourceTree = "<group>"; };
 		D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkSerializer.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				D0D41C662157CB4F000FF047 /* ArkTransaction.swift */,
 				D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */,
 				D0DC2201217A866700C40276 /* ArkDeserializer.swift */,
+				D0C1637421BAAEFD005F3CD0 /* ArkBuilder.swift */,
 			);
 			path = Transactions;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0C1637521BAAEFD005F3CD0 /* ArkBuilder.swift in Sources */,
 				D0DC2202217A866700C40276 /* ArkDeserializer.swift in Sources */,
 				D0FA88A021558C91008F715C /* PublicKey.swift in Sources */,
 				D0B1A6F4215561B8001FA4DE /* Mainnet.swift in Sources */,
