@@ -40,7 +40,7 @@ class MultiSignatureDeserializerTests: XCTestCase {
         let txKeysgroup = txAssetMultiSig["keysgroup"] as! [String]
         let keysgroup = assetMultiSig["keysgroup"] as! [String]
         for idx in 0..<txKeysgroup.count {
-            XCTAssertEqual(txKeysgroup[idx], keysgroup[idx] as! String)
+            XCTAssertEqual(txKeysgroup[idx], keysgroup[idx])
         }
     }
 }

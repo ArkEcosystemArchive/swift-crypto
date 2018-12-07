@@ -134,7 +134,9 @@ class ArkDeserializer {
     private static func deserializeDelegateRegistration(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
         let usernameLength = Int(bytes[offset])
         transaction.asset = [
-            "delegate": ["username": hexToString(bytes[offset + 1..<offset + 1 + usernameLength].map{String(format: "%02x", $0)}.joined())]
+            "delegate": [
+                "username": hexToString(bytes[offset + 1..<offset + 1 + usernameLength].map{String(format: "%02x", $0)}.joined())
+            ]
         ]
 
         return offset + 1 + usernameLength
@@ -180,7 +182,11 @@ class ArkDeserializer {
     }
 
     private static func deserializeSecondSignatureRegistration(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
-        transaction.asset = ["publicKey": bytes[offset..<offset+33].map{String(format: "%02x", $0)}.joined()]
+        transaction.asset = [
+            "signature": [
+                "publicKey": bytes[offset..<offset+33].map{String(format: "%02x", $0)}.joined()
+            ]
+        ]
 
         return offset + 33
     }
