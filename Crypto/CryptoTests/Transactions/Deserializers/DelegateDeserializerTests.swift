@@ -29,8 +29,8 @@ class DelegateDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         
         let asset = data["asset"] as! [String: [String: Any]]
-        let transactionAsset = transaction.asset as! [String: String]
-        XCTAssertEqual(transactionAsset["username"]!, asset["delegate"]!["username"]! as! String)
+        let transactionAsset = transaction.asset as! [String: [String: Any]]
+        XCTAssertEqual(transactionAsset["delegate"]!["username"]! as! String, asset["delegate"]!["username"]! as! String)
     }
     
     func testDeserializeDelegateRegistrationSecondSig() {
@@ -49,7 +49,7 @@ class DelegateDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.signSignature, data["signSignature"] as! String)
         
         let asset = data["asset"] as! [String: [String: Any]]
-        let transactionAsset = transaction.asset as! [String: String]
-        XCTAssertEqual(transactionAsset["username"]!, asset["delegate"]!["username"]! as! String)
+        let transactionAsset = transaction.asset as! [String: [String: Any]]
+        XCTAssertEqual(transactionAsset["delegate"]!["username"]! as! String, asset["delegate"]!["username"]! as! String)
     }
 }

@@ -28,6 +28,10 @@
 		D0B1A70121557399001FA4DE /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B1A70021557399001FA4DE /* PrivateKey.swift */; };
 		D0C1637521BAAEFD005F3CD0 /* ArkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637421BAAEFD005F3CD0 /* ArkBuilder.swift */; };
 		D0C1637821BACB0F005F3CD0 /* VoteSerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637721BACB0F005F3CD0 /* VoteSerializerTests.swift */; };
+		D0C1637A21BAF44B005F3CD0 /* DelegateSerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637921BAF44B005F3CD0 /* DelegateSerializerTests.swift */; };
+		D0C1637C21BAF461005F3CD0 /* SecondSignatureSerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637B21BAF461005F3CD0 /* SecondSignatureSerializerTests.swift */; };
+		D0C1637E21BAF611005F3CD0 /* TransferSerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637D21BAF611005F3CD0 /* TransferSerializerTests.swift */; };
+		D0C1638021BAF622005F3CD0 /* MultiSignatureSerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637F21BAF622005F3CD0 /* MultiSignatureSerializerTests.swift */; };
 		D0D41C672157CB4F000FF047 /* ArkTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D41C662157CB4F000FF047 /* ArkTransaction.swift */; };
 		D0D41C6921581F20000FF047 /* HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D41C6821581F20000FF047 /* HelpersTests.swift */; };
 		D0DC21D1217A50BF00C40276 /* ArkSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */; };
@@ -103,6 +107,10 @@
 		D0B1A70021557399001FA4DE /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		D0C1637421BAAEFD005F3CD0 /* ArkBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkBuilder.swift; sourceTree = "<group>"; };
 		D0C1637721BACB0F005F3CD0 /* VoteSerializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteSerializerTests.swift; sourceTree = "<group>"; };
+		D0C1637921BAF44B005F3CD0 /* DelegateSerializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateSerializerTests.swift; sourceTree = "<group>"; };
+		D0C1637B21BAF461005F3CD0 /* SecondSignatureSerializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignatureSerializerTests.swift; sourceTree = "<group>"; };
+		D0C1637D21BAF611005F3CD0 /* TransferSerializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSerializerTests.swift; sourceTree = "<group>"; };
+		D0C1637F21BAF622005F3CD0 /* MultiSignatureSerializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSignatureSerializerTests.swift; sourceTree = "<group>"; };
 		D0D41C662157CB4F000FF047 /* ArkTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTransaction.swift; sourceTree = "<group>"; };
 		D0D41C6821581F20000FF047 /* HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersTests.swift; sourceTree = "<group>"; };
 		D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkSerializer.swift; sourceTree = "<group>"; };
@@ -294,6 +302,10 @@
 			isa = PBXGroup;
 			children = (
 				D0C1637721BACB0F005F3CD0 /* VoteSerializerTests.swift */,
+				D0C1637921BAF44B005F3CD0 /* DelegateSerializerTests.swift */,
+				D0C1637B21BAF461005F3CD0 /* SecondSignatureSerializerTests.swift */,
+				D0C1637D21BAF611005F3CD0 /* TransferSerializerTests.swift */,
+				D0C1637F21BAF622005F3CD0 /* MultiSignatureSerializerTests.swift */,
 			);
 			path = Serializers;
 			sourceTree = "<group>";
@@ -684,9 +696,12 @@
 				D0FA88AC2155B525008F715C /* AddressTests.swift in Sources */,
 				D0DC2206217BA97500C40276 /* VoteDeserializerTests.swift in Sources */,
 				D0B1A6BF21556141001FA4DE /* CryptoTests.swift in Sources */,
+				D0C1637A21BAF44B005F3CD0 /* DelegateSerializerTests.swift in Sources */,
 				D04BE8782186485A005ADD15 /* DelegateDeserializerTests.swift in Sources */,
 				D04BE87A218654E5005ADD15 /* SecondSignatureDeserializerTests.swift in Sources */,
 				D0FA88A221558DD0008F715C /* PublicKeyTests.swift in Sources */,
+				D0C1638021BAF622005F3CD0 /* MultiSignatureSerializerTests.swift in Sources */,
+				D0C1637C21BAF461005F3CD0 /* SecondSignatureSerializerTests.swift in Sources */,
 				D0B1A6FD215561E1001FA4DE /* FeeConfigurationTests.swift in Sources */,
 				D0D41C6921581F20000FF047 /* HelpersTests.swift in Sources */,
 				D0DF5F33217E680600E2CC13 /* TestHelpers.swift in Sources */,
@@ -695,6 +710,7 @@
 				D0FA88A62155A0A3008F715C /* WIFTests.swift in Sources */,
 				D0FA889E21557764008F715C /* PrivateKeyTests.swift in Sources */,
 				D04BE87C218658C4005ADD15 /* TransferDeserializerTests.swift in Sources */,
+				D0C1637E21BAF611005F3CD0 /* TransferSerializerTests.swift in Sources */,
 				D0C1637821BACB0F005F3CD0 /* VoteSerializerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

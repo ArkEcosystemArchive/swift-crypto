@@ -133,7 +133,9 @@ class ArkDeserializer {
     // MARK: - Type deserializers
     private static func deserializeDelegateRegistration(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) -> Int {
         let usernameLength = Int(bytes[offset])
-        transaction.asset = ["username": hexToString(bytes[offset + 1..<offset + 1 + usernameLength].map{String(format: "%02x", $0)}.joined())]
+        transaction.asset = [
+            "delegate": ["username": hexToString(bytes[offset + 1..<offset + 1 + usernameLength].map{String(format: "%02x", $0)}.joined())]
+        ]
 
         return offset + 1 + usernameLength
     }

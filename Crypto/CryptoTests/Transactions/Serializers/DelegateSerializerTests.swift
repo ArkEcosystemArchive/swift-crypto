@@ -7,25 +7,25 @@
 // file that was distributed with this source code.
 //
 
-
 import XCTest
 @testable import Crypto
 
-class VoteSerializerTests: XCTestCase {
-
-    func testSerializeVote() {
-        let json = readJson(file: "vote_passphrase", type: type(of: self))
+class DelegateSerializerTests: XCTestCase {
+    
+    func testSerializeDelegateRegistration() {
+        let json = readJson(file: "del_reg_passphrase", type: type(of: self))
         let serialized = json["serialized"] as! String
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
         
         XCTAssertEqual(serialized, ArkSerializer.serialize(transaction: transaction))
     }
     
-    func testSerializeVoteSecondSig() {
-        let json = readJson(file: "vote_second-passphrase", type: type(of: self))
+    func testSerializeDelegateRegistrationSecondSig() {
+        let json = readJson(file: "del_reg_second-passphrase", type: type(of: self))
         let serialized = json["serialized"] as! String
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
         
         XCTAssertEqual(serialized, ArkSerializer.serialize(transaction: transaction))
     }
+
 }
