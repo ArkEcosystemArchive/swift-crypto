@@ -28,7 +28,7 @@ class MultiSignatureDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         
-        // TODO: transaction.signatures
+        XCTAssertEqual(transaction.signatures?.count, 3)
         
         let asset = data["asset"] as! [String: [String: Any]]
         let transactionAsset = transaction.asset as! [String: [String: Any]]

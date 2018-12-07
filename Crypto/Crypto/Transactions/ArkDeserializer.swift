@@ -80,6 +80,7 @@ class ArkDeserializer {
 
     private static func parseSignatures(_ transaction: inout ArkTransaction, _ bytes: inout [UInt8], offset: Int) {
         let signature = bytes[offset..<bytes.count].map{String(format: "%02x", $0)}.joined()
+        var multiSigOffset = 0
         if signature.count > 0 {
             // Signature
             let start = signature.index(signature.startIndex, offsetBy: 2)
@@ -87,6 +88,7 @@ class ArkDeserializer {
             let signatureLength = Int(signature[start..<end], radix: 16)! + 2
 
             transaction.signature = bytes[offset..<offset + signatureLength].map{String(format: "%02x", $0)}.joined()
+            multiSigOffset += offset + signatureLength
             
             // Second Signature
             let secondSignatureOffset = offset + signatureLength
@@ -98,11 +100,33 @@ class ArkDeserializer {
                 let secondSignatureLength = Int(secondSignature[start..<end], radix: 16)! + 2
                 
                 transaction.secondSignature = bytes[secondSignatureOffset..<secondSignatureOffset + secondSignatureLength].map{String(format: "%02x", $0)}.joined()
+                multiSigOffset += secondSignatureLength
             }
             
-            // Multisignature
-            // let multisigOffset = offset + signatureLength // + secondsig
-            // TODO
+            var multiSigs = bytes[multiSigOffset..<bytes.count].map{String(format: "%02x", $0)}.joined()
+            print(multiSigs)
+            if multiSigs.count > 0 && multiSigs.starts(with: "ff") {
+                transaction.signatures = [String]()
+                var internalOffset = 0 // To keep track of the offset between the different multisigs
+                multiSigOffset += 1 // Remove initial "ff" byte from the String
+                multiSigs.removeFirst(2) // Remove initial "ff" byte from the String
+                while multiSigs.count - 1 > internalOffset {
+                    let start = multiSigs.index(multiSigs.startIndex, offsetBy: 2 + internalOffset)
+                    let end = multiSigs.index(multiSigs.startIndex, offsetBy: 4 + internalOffset)
+                    let multiSigLength = Int(multiSigs[start..<end], radix: 16)! + 2
+                    
+                    if (multiSigLength > 0) {
+                        print(multiSigLength)
+                        let currentOffset = multiSigOffset + (internalOffset / 2)
+                        print(bytes[currentOffset..<currentOffset + multiSigLength].map{String(format: "%02x", $0)}.joined())
+                        transaction.signatures!.append(bytes[currentOffset..<currentOffset + multiSigLength].map{String(format: "%02x", $0)}.joined())
+                    } else {
+                        break;
+                    }
+                    internalOffset += multiSigLength * 2
+                }
+            }
+            
         }
     }
 

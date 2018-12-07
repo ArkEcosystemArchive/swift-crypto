@@ -29,7 +29,7 @@
 - [x] Second Signature Registration
 - [x] Delegate Registration
 - [x] Vote
-- [ ] Multi Signature Registration
+- [x] Multi Signature Registration
 - [ ] IPFS
 - [ ] Timelock Transfer
 - [ ] Multi Payment
@@ -55,9 +55,9 @@
 - [x] secondSign
 - [ ] verify
 - [ ] secondverify
-- [ ] parseSignatures
+- [x] parseSignatures
 - [ ] serialize
-- [ ] deserialize
+- [x] deserialize
 - [ ] toBytes
 - [ ] toArray
 - [ ] toJson
