@@ -28,7 +28,6 @@ class ArkSerializer {
         bytes.append(contentsOf: feeBytes)
 
         serializeVendorField(transaction: transaction, &bytes)
-        print(bytes.map { String(format: "%02x", $0) }.joined())
         serializeType(transaction: transaction, &bytes)
         serializeSignatures(transaction: transaction, &bytes)
 
@@ -128,8 +127,14 @@ class ArkSerializer {
     }
 
     private static func serializeTransfer(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
-        bytes.append(contentsOf: pack(transaction.amount))
-        bytes.append(contentsOf: pack(transaction.expiration))
+        var transactionBytes = pack(transaction.amount)
+        transactionBytes.removeLast()
+        bytes.append(contentsOf: transactionBytes)
+
+        var expirationBytes = pack(transaction.expiration)
+        expirationBytes.removeLast()
+        bytes.append(contentsOf: expirationBytes)
+
         let recipientId = base58CheckDecode(transaction.recipientId!)
         bytes.append(contentsOf: recipientId!)
     }
