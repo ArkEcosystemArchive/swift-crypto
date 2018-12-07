@@ -28,6 +28,7 @@ class ArkSerializer {
         bytes.append(contentsOf: feeBytes)
 
         serializeVendorField(transaction: transaction, &bytes)
+        print(bytes.map { String(format: "%02x", $0) }.joined())
         serializeType(transaction: transaction, &bytes)
         serializeSignatures(transaction: transaction, &bytes)
 
@@ -94,7 +95,7 @@ class ArkSerializer {
     private static func serializeDelegateRegistration(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
         let delegate = transaction.asset!["delegate"] as! [String: String]
         let username = delegate["username"]!
-        bytes.append(contentsOf: pack(username.count))
+        bytes.append(contentsOf: pack(UInt8(username.count)))
         bytes.append(contentsOf: [UInt8](username.data(using: .utf8)!))
     }
 
@@ -105,7 +106,7 @@ class ArkSerializer {
     private static func serializeIpfs(transaction: ArkTransaction, _ bytes: inout [UInt8]) {
         let ipfs = transaction.asset!["ipfs"] as! [String: String]
         let dag = ipfs["dag"]!
-        bytes.append(contentsOf: pack(dag.count))
+        bytes.append(contentsOf: pack(UInt8(dag.count)))
         bytes.append(contentsOf: [UInt8](Data.init(hex: dag)!))
     }
 
