@@ -58,7 +58,7 @@
 - [x] parseSignatures
 - [x] serialize
 - [x] deserialize
-- [ ] toBytes
+- [x] toBytes
 - [ ] toArray
 - [ ] toJson
 
