@@ -12,6 +12,7 @@ import BitcoinKit
 
 class ArkAddress {
 
+    // TODO: pass along the network used?
     static func from(passphrase: String) -> String {
         return from(privateKey: ArkPrivateKey.from(passphrase: passphrase))
     }

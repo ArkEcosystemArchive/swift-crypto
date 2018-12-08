@@ -41,7 +41,7 @@ class ArkTransaction {
     var asset: [String: Any]?
 
     func getId() -> String {
-        return Crypto.sha256(Data(bytes: self.toBytes())).hex
+        return Crypto.sha256(Data(bytes: self.toBytes(skipSignature: false, skipSecondSignature: false))).hex
     }
 
     // TODO: proper try statement
@@ -68,9 +68,10 @@ class ArkTransaction {
     func toBytes(skipSignature: Bool = true, skipSecondSignature: Bool = true) -> [UInt8] {
         var bytes = [UInt8]()
         bytes.append(UInt8.init(self.type!.rawValue))
-        bytes.append(contentsOf: pack(self.timestamp))
+        var timestampBytes = pack(self.timestamp)
+        timestampBytes.removeLast() // Timestamp is 32bits (5 bytes), but only 4 bytes serialized
+        bytes.append(contentsOf: timestampBytes)
         bytes.append(contentsOf: [UInt8](Data.init(hex: self.senderPublicKey!)!))
-        // bytes.append(contentsOf: pack(self.senderPublicKey)) // Or this one for public key?
 
         let skipRecipient = self.type == .secondSignatureRegistration || self.type == .multiSignatureRegistration
         if !skipRecipient && recipientId != nil {
@@ -79,15 +80,20 @@ class ArkTransaction {
             bytes.append(contentsOf: [UInt8](repeating: 0, count: 21))
         }
 
-        if vendorField != nil && (vendorField?.count)! < 64 {
+        if vendorField != nil && (vendorField?.count)! <= 64 {
             bytes.append(contentsOf: pack(self.vendorField))
             bytes.append(contentsOf: [UInt8](repeating: 0, count: (64 - (vendorField?.count)!)))
         } else {
             bytes.append(contentsOf: [UInt8](repeating: 0, count: 64))
         }
 
-        bytes.append(contentsOf: pack(self.amount))
-        bytes.append(contentsOf: pack(self.fee))
+        var transactionBytes = pack(self.amount)
+        transactionBytes.removeLast()
+        bytes.append(contentsOf: transactionBytes)
+
+        var feeBytes = pack(self.fee)
+        feeBytes.removeLast()
+        bytes.append(contentsOf: feeBytes)
 
         // TODO: recheck this, handle if cases properly (throw error?)
         if self.type == .secondSignatureRegistration {
@@ -102,8 +108,7 @@ class ArkTransaction {
             }
         } else if self.type == .vote {
             if let votes = self.asset!["votes"] as? [String] {
-                let voteString = votes.joined()
-                bytes.append(contentsOf: pack(voteString))
+                bytes.append(contentsOf: [UInt8](votes.joined().data(using: .utf8)!))
             }
         } else if self.type == .multiSignatureRegistration {
             // TODO: implement

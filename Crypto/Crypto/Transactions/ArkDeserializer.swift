@@ -241,8 +241,7 @@ class ArkDeserializer {
         
         if let type = transaction.type {
             if type == .vote {
-                let publicKey = ArkPublicKey.from(hex: transaction.senderPublicKey!).description
-                transaction.recipientId = ArkAddress.from(publicKey: publicKey)
+                transaction.recipientId = ArkAddress.from(publicKey: transaction.senderPublicKey!)
             } else if type == .multiSignatureRegistration {
                 var asset = transaction.asset as! [String: [String: Any]]
                 var keysgroup = asset["multisignature"]!["keysgroup"] as! [String]
