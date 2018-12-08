@@ -95,7 +95,6 @@ class ArkTransaction {
         feeBytes.removeLast()
         bytes.append(contentsOf: feeBytes)
 
-        // TODO: recheck this, handle if cases properly (throw error?)
         if self.type == .secondSignatureRegistration {
             if let signature = self.asset!["signature"] as? [String: String] {
                 let publickey = signature["publicKey"]
@@ -111,7 +110,14 @@ class ArkTransaction {
                 bytes.append(contentsOf: [UInt8](votes.joined().data(using: .utf8)!))
             }
         } else if self.type == .multiSignatureRegistration {
-            // TODO: implement
+            if let multisig = self.asset!["multisignature"] as? [String: Any] {
+                let min = multisig["min"] as! UInt8
+                let lifetime = multisig["lifetime"] as! UInt8
+                let keys = multisig["keysgroup"] as! [String]
+                bytes.append(min)
+                bytes.append(lifetime)
+                bytes.append(contentsOf: [UInt8](keys.joined().data(using: .utf8)!))
+            }
         }
 
         if !skipSignature && self.signature != nil {
