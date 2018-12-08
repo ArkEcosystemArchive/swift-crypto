@@ -131,4 +131,56 @@ class ArkTransaction {
         return bytes
     }
 
+    func toDict() -> [String: Any] {
+        var transactionDict: [String: Any] = [:]
+        if let amount = self.amount {
+            transactionDict["amount"] = amount
+        }
+        if let asset = self.asset {
+            transactionDict["asset"] = asset
+        }
+        if let id = self.id {
+            transactionDict["id"] = id
+        }
+        if let network = self.network {
+            transactionDict["network"] = network
+        }
+        if let recipientId = self.recipientId {
+            transactionDict["recipientId"] = recipientId
+        }
+        if let secondSignature = self.secondSignature {
+            transactionDict["secondSignature"] = secondSignature
+        }
+        if let senderPublicKey = self.senderPublicKey {
+            transactionDict["senderPublicKey"] = senderPublicKey
+        }
+        if let signature = self.signature {
+            transactionDict["signature"] = signature
+        }
+        if let signatures = self.signatures {
+            transactionDict["signatures"] = signatures
+        }
+        if let signSignature = self.signSignature {
+            transactionDict["signSignature"] = signSignature
+        }
+        if let timestamp = self.timestamp {
+            transactionDict["timestamp"] = timestamp
+        }
+        if let type = self.type {
+            transactionDict["type"] = type
+        }
+        if let vendorField = self.vendorField {
+            transactionDict["vendorField"] = vendorField
+        }
+        if let vendorFieldHex = self.vendorFieldHex {
+            transactionDict["vendorFieldHex"] = vendorFieldHex
+        }
+        if let version = self.version {
+            transactionDict["version"] = version
+        }
+        
+        return transactionDict
+    }
+    
+    // TODO: func toJson()
 }

@@ -59,7 +59,7 @@
 - [x] serialize
 - [x] deserialize
 - [x] toBytes
-- [ ] toArray
+- [x] toArray
 - [ ] toJson
 
 ### Message
