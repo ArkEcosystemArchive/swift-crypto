@@ -103,8 +103,8 @@ class ArkTransaction {
             }
         } else if self.type == .delegateRegistration {
             if let delegate = self.asset!["delegate"] as? [String: String] {
-                let username = delegate["username"]
-                bytes.append(contentsOf: pack(username!))
+                let username = delegate["username"]!
+                bytes.append(contentsOf: [UInt8](username.data(using: .utf8)!))
             }
         } else if self.type == .vote {
             if let votes = self.asset!["votes"] as? [String] {
