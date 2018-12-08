@@ -23,6 +23,7 @@ class MultiSignatureDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.version, 1)
         XCTAssertEqual(transaction.network, 23)
         XCTAssertEqual(transaction.type, TransactionType.multiSignatureRegistration)
+        XCTAssertEqual(transaction.id, data["id"] as! String)
         XCTAssertEqual(transaction.timestamp, data["timestamp"] as! UInt32)
         XCTAssertEqual(transaction.senderPublicKey, data["senderPublicKey"] as! String)
         XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)

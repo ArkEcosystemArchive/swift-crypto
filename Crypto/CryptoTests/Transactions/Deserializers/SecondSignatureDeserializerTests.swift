@@ -23,6 +23,7 @@ class SecondSignatureDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.version, 1)
         XCTAssertEqual(transaction.network, 30)
         XCTAssertEqual(transaction.type, TransactionType.secondSignatureRegistration)
+        XCTAssertEqual(transaction.id, data["id"] as! String)
         XCTAssertEqual(transaction.timestamp, data["timestamp"] as! UInt32)
         XCTAssertEqual(transaction.senderPublicKey, data["senderPublicKey"] as! String)
         XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)

@@ -259,8 +259,7 @@ class ArkDeserializer {
         }
         
         if transaction.id == nil {
-            // TODO: fix toBytes first
-            // transaction.id = transaction.getId()
+            transaction.id = transaction.getId()
         }
         
         if let type = transaction.type {

@@ -92,7 +92,7 @@ class ArkTransaction {
         // TODO: recheck this, handle if cases properly (throw error?)
         if self.type == .secondSignatureRegistration {
             if let signature = self.asset!["signature"] as? [String: String] {
-                let publickey = signature["publickey"]
+                let publickey = signature["publicKey"]
                 bytes.append(contentsOf: [UInt8](Data.init(hex: publickey!)!))
             }
         } else if self.type == .delegateRegistration {
