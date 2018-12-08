@@ -54,7 +54,7 @@ class ArkTransaction {
     // TODO: proper try statement
     func secondSign(_ keys: PrivateKey) -> ArkTransaction {
         let transaction = Crypto.sha256(Data(bytes: self.toBytes(skipSignature: false)))
-        self.signature = try! Crypto.sign(transaction, privateKey: keys).hex
+        self.signSignature = try! Crypto.sign(transaction, privateKey: keys).hex
         return self
     }
 
