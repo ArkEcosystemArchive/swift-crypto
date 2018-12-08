@@ -13,16 +13,16 @@ import BitcoinKit
 class ArkAddress {
 
     // TODO: pass along the network used?
-    static func from(passphrase: String) -> String {
-        return from(privateKey: ArkPrivateKey.from(passphrase: passphrase))
+    static func from(passphrase: String, network: UInt8? = nil) -> String {
+        return from(privateKey: ArkPrivateKey.from(passphrase: passphrase), network: network)
     }
 
-    static func from(privateKey: PrivateKey) -> String {
-        return from(publicKey: privateKey.publicKey().raw.hex)
+    static func from(privateKey: PrivateKey, network: UInt8? = nil) -> String {
+        return from(publicKey: privateKey.publicKey().raw.hex, network: network)
     }
 
-    static func from(publicKey: String) -> String {
-        let networkVersion = ArkNetwork.shared.get().version()
+    static func from(publicKey: String, network: UInt8? = nil) -> String {
+        let networkVersion = network != nil ? network! : ArkNetwork.shared.get().version()
         let ripemd160 = Crypto.ripemd160(Data.init(hex: publicKey)!)
         var seed = [UInt8]()
         seed.append(networkVersion)

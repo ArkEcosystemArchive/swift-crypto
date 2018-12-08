@@ -104,7 +104,6 @@ class ArkDeserializer {
             }
             
             var multiSigs = bytes[multiSigOffset..<bytes.count].map{String(format: "%02x", $0)}.joined()
-            print(multiSigs)
             if multiSigs.count > 0 && multiSigs.starts(with: "ff") {
                 transaction.signatures = [String]()
                 var internalOffset = 0 // To keep track of the offset between the different multisigs
@@ -116,9 +115,7 @@ class ArkDeserializer {
                     let multiSigLength = Int(multiSigs[start..<end], radix: 16)! + 2
                     
                     if (multiSigLength > 0) {
-                        print(multiSigLength)
                         let currentOffset = multiSigOffset + (internalOffset / 2)
-                        print(bytes[currentOffset..<currentOffset + multiSigLength].map{String(format: "%02x", $0)}.joined())
                         transaction.signatures!.append(bytes[currentOffset..<currentOffset + multiSigLength].map{String(format: "%02x", $0)}.joined())
                     } else {
                         break;
@@ -241,7 +238,7 @@ class ArkDeserializer {
         
         if let type = transaction.type {
             if type == .vote {
-                transaction.recipientId = ArkAddress.from(publicKey: transaction.senderPublicKey!)
+                transaction.recipientId = ArkAddress.from(publicKey: transaction.senderPublicKey!, network: transaction.network!)
             } else if type == .multiSignatureRegistration {
                 var asset = transaction.asset as! [String: [String: Any]]
                 var keysgroup = asset["multisignature"]!["keysgroup"] as! [String]
