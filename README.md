@@ -101,6 +101,12 @@
 - [x] nethash
 - [x] wif
 
+## Installation
+
+TO BE MOVED TO DOCS:
+
+Installing the dependency (BitcointKit) of this SDK will require a lot of time. So after running `pod install` it might take up to 10 minutes to install the BitcoinKit dependency. This is due to the crypto dependencies it relies on, like scpk256, that are compiled from scratch during the install. Don't be alarmed when it looks like the installation got stuck, it's just the underlying dependencies taking their time.
+
 ## Documentation
 
 You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://docs.ark.io/api/sdk/cryptography/swift.html).

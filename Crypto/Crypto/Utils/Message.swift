@@ -10,11 +10,11 @@
 import Foundation
 import BitcoinKit
 
-class ArkMessage: Codable {
+public class ArkMessage: Codable {
 
-    let publicKey: String
-    let signature: String
-    let message: String
+    public let publicKey: String
+    public let signature: String
+    public let message: String
 
     public init(publicKey: String, signature: String, message: String) {
         self.publicKey = publicKey
@@ -23,7 +23,7 @@ class ArkMessage: Codable {
     }
 
     // TODO: throw proper error
-    static func sign(message: String, passphrase: String) -> ArkMessage? {
+    public static func sign(message: String, passphrase: String) -> ArkMessage? {
         let keys = ArkPrivateKey.from(passphrase: passphrase)
         let hash = Crypto.sha256(message.data(using: .utf8)!)
         do {
@@ -37,7 +37,7 @@ class ArkMessage: Codable {
 
     // TODO: throw proper error
     // TODO: fix this
-    func verify() -> Bool {
+    public func verify() -> Bool {
         do {
             return try Crypto.verifySignature(self.signature.data(using: .utf8)!,
                                       message: Crypto.sha256(message.data(using: .utf8)!),
@@ -47,7 +47,7 @@ class ArkMessage: Codable {
         }
     }
 
-    func toDict() -> [String: String] {
+    public func toDict() -> [String: String] {
         return [
             "publickey": self.publicKey,
             "signature": self.signature,
@@ -56,7 +56,7 @@ class ArkMessage: Codable {
     }
 
     // TODO: throw proper error
-    func toJson() -> String {
+    public func toJson() -> String {
         do {
             let jsonEncoder = JSONEncoder()
             let jsonData = try jsonEncoder.encode(self)

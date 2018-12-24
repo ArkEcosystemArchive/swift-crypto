@@ -10,20 +10,20 @@
 import Foundation
 import BitcoinKit
 
-class ArkPrivateKey {
+public class ArkPrivateKey {
 
-    static func from(passphrase: String) -> PrivateKey {
+    public static func from(passphrase: String) -> PrivateKey {
         let hash = Crypto.sha256(passphrase.data(using: .utf8)!)
         return PrivateKey.init(data: hash)
     }
 
-    static func from(hex: String) -> PrivateKey {
+    public static func from(hex: String) -> PrivateKey {
         return PrivateKey.init(data: Data.init(hex: hex)!)
     }
 
     // FIXME: with wif, the network is checked for which BitcoinKit only has BTC/BCH networks
     // therefore this returns an invalidFormat error for ARK
-//    static func from(wif: String) throws -> PrivateKey {
+//    public static func from(wif: String) throws -> PrivateKey {
 //        return try PrivateKey.init(wif: wif)
 //    }
 }

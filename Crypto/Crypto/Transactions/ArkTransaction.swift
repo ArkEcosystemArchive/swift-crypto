@@ -12,7 +12,7 @@
 import Foundation
 import BitcoinKit
 
-class ArkTransaction {
+public class ArkTransaction {
 
     // Header
     var header: UInt8?
@@ -40,32 +40,32 @@ class ArkTransaction {
 
     var asset: [String: Any]?
 
-    func getId() -> String {
+    public func getId() -> String {
         return Crypto.sha256(Data(bytes: self.toBytes(skipSignature: false, skipSecondSignature: false))).hex
     }
 
     // TODO: proper try statement
-    func sign(_ keys: PrivateKey) -> ArkTransaction {
+    public func sign(_ keys: PrivateKey) -> ArkTransaction {
         let transaction = Crypto.sha256(Data(bytes: self.toBytes()))
         self.signature = try! Crypto.sign(transaction, privateKey: keys).hex
         return self
     }
 
     // TODO: proper try statement
-    func secondSign(_ keys: PrivateKey) -> ArkTransaction {
+    public func secondSign(_ keys: PrivateKey) -> ArkTransaction {
         let transaction = Crypto.sha256(Data(bytes: self.toBytes(skipSignature: false)))
         self.signSignature = try! Crypto.sign(transaction, privateKey: keys).hex
         return self
     }
 
-    func verify() -> Bool {
+    public func verify() -> Bool {
         let publicKey = ArkPublicKey.from(hex: self.senderPublicKey!)
         // TODO: verify data
         return false
     }
     // secondVerify()
 
-    func toBytes(skipSignature: Bool = true, skipSecondSignature: Bool = true) -> [UInt8] {
+    public func toBytes(skipSignature: Bool = true, skipSecondSignature: Bool = true) -> [UInt8] {
         var bytes = [UInt8]()
         bytes.append(UInt8.init(self.type!.rawValue))
         var timestampBytes = pack(self.timestamp)
@@ -131,7 +131,7 @@ class ArkTransaction {
         return bytes
     }
 
-    func toDict() -> [String: Any] {
+    public func toDict() -> [String: Any] {
         var transactionDict: [String: Any] = [:]
         if let amount = self.amount {
             transactionDict["amount"] = amount

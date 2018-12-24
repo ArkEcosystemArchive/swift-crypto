@@ -9,20 +9,20 @@
 
 import Foundation
 
-class Testnet: ProtocolNetwork {
-    func epoch() -> String {
+public class Testnet: ProtocolNetwork {
+    public func epoch() -> String {
         return "2017-03-21T13:00:00.000Z"
     }
 
-    func version() -> UInt8 {
+    public func version() -> UInt8 {
         return 0x17
     }
 
-    func nethash() -> String {
+    public func nethash() -> String {
         return "todo"
     }
 
-    func wif() -> UInt8 {
+    public func wif() -> UInt8 {
         return 186
     }
 }

@@ -11,9 +11,9 @@
 
 import Foundation
 
-class ArkSerializer {
+public class ArkSerializer {
 
-    static func serialize(transaction: ArkTransaction) -> String {
+    public static func serialize(transaction: ArkTransaction) -> String {
         var bytes = [UInt8]()
         bytes.append(0xff)
         bytes.append(transaction.version! > 0 ? transaction.version! : 0x01)

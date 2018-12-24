@@ -9,16 +9,16 @@
 
 import Foundation
 
-class Slot {
+public class Slot {
 
-    static func time() -> UInt32 {
+    public static func time() -> UInt32 {
         let epoch = self.rfc3339().date(from: ArkNetwork.shared.get().epoch())?.timeIntervalSince1970
         let now = NSDate().timeIntervalSince1970
 
         return UInt32(now - epoch!)
     }
 
-    static func epoch() -> Int {
+    public static func epoch() -> Int {
         return Int((self.rfc3339().date(from: ArkNetwork.shared.get().epoch())?.timeIntervalSince1970)!)
     }
 

@@ -10,9 +10,9 @@
 import Foundation
 import BitcoinKit
 
-class WIF {
+public class WIF {
 
-    static func from(passphrase: String) -> String {
+    public static func from(passphrase: String) -> String {
         var bytes = [UInt8]()
         bytes.append(ArkNetwork.shared.get().wif())
         bytes.append(contentsOf: Crypto.sha256(passphrase.data(using: .utf8)!))

@@ -9,7 +9,7 @@
 
 import Foundation
 
-protocol ProtocolNetwork {
+public protocol ProtocolNetwork {
     func epoch() -> String
     func version() -> UInt8
     func nethash() -> String

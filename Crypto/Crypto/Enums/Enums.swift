@@ -9,7 +9,7 @@
 
 import Foundation
 
-enum TransactionType: Int {
+public enum TransactionType: Int {
     case transfer = 0
     case secondSignatureRegistration = 1
     case delegateRegistration = 2
@@ -21,7 +21,7 @@ enum TransactionType: Int {
     case delegateResignation = 8
 }
 
-struct TransactionFee {
+public struct TransactionFee {
     static let transfer: UInt64 = 10000000
     static let secondSignatureRegistration: UInt64 = 500000000
     static let delegateRegistration: UInt64 = 2500000000

@@ -9,9 +9,9 @@
 
 import Foundation
 
-class Fee {
+public class Fee {
 
-    static let shared = Fee()
+    public static let shared = Fee()
 
     var fees: [TransactionType: UInt64]
 
@@ -29,11 +29,11 @@ class Fee {
         ]
     }
 
-    func get(forType: TransactionType) -> UInt64 {
+    public func get(forType: TransactionType) -> UInt64 {
         return fees[forType]!
     }
 
-    func set(forType: TransactionType, fee: UInt64) {
+    public func set(forType: TransactionType, fee: UInt64) {
         self.fees[forType] = fee
     }
 }

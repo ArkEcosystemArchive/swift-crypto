@@ -9,7 +9,7 @@
 
 import Foundation
 
-class ArkBuilder {
+public class ArkBuilder {
     
     /// Builds a transaction for a transfer
     ///
@@ -20,7 +20,7 @@ class ArkBuilder {
     ///   - amount: the amount of the transfer
     ///   - vendorField: an optional message included in the transfer
     /// - Returns: a signed ArkTransaction
-    static func buildTransfer(_ passphrase: String, secondPassphrase: String?, to recipient: String, amount: UInt64, vendorField: String?) -> ArkTransaction {
+    public static func buildTransfer(_ passphrase: String, secondPassphrase: String?, to recipient: String, amount: UInt64, vendorField: String?) -> ArkTransaction {
         var transaction = createBaseTransaction(forType: .transfer)
         transaction.recipientId = recipient
         transaction.amount = amount
@@ -35,7 +35,7 @@ class ArkBuilder {
     ///   - passphrase: the passphrase of the wallet initiating the request
     ///   - secondPassphrase: the second passphrase that will be registered for the wallet
     /// - Returns: a signed ArkTransaction
-    static func buildSecondSignature(_ passphrase: String, secondPassphrase: String) -> ArkTransaction {
+    public static func buildSecondSignature(_ passphrase: String, secondPassphrase: String) -> ArkTransaction {
         var transaction = createBaseTransaction(forType: .secondSignatureRegistration)
         transaction.asset = [
             "signature": [
@@ -52,7 +52,7 @@ class ArkBuilder {
     ///   - secondPassphrase: the second passphrase of the wallet, if available
     ///   - username: the username of the delegate
     /// - Returns: a signed ArkTransaction
-    static func buildDelegateRegistration(_ passphrase: String, secondPassphrase: String?, username: String) -> ArkTransaction {
+    public static func buildDelegateRegistration(_ passphrase: String, secondPassphrase: String?, username: String) -> ArkTransaction {
         var transaction = createBaseTransaction(forType: .delegateRegistration)
         transaction.asset = [
             "delegate": [
@@ -70,7 +70,7 @@ class ArkBuilder {
     ///   - secondPassphrase: the second passphrase of the wallet, if available
     ///   - vote: the public key of the delegate that is being voted for
     /// - Returns: a signed ArkTransaction
-    static func buildVote(_ passphrase: String, secondPassphrase: String?, vote: String) -> ArkTransaction {
+    public static func buildVote(_ passphrase: String, secondPassphrase: String?, vote: String) -> ArkTransaction {
         return createVote(passphrase, secondPassphrase: secondPassphrase, vote: vote, voteType: "+")
     }
     
@@ -81,7 +81,7 @@ class ArkBuilder {
     ///   - secondPassphrase: the second passphrase of the wallet, if available
     ///   - vote: the public key of the delegate that is being unvoted
     /// - Returns: a signed ArkTransaction
-    static func buildUnvote(_ passphrase: String, secondPassphrase: String?, vote: String) -> ArkTransaction {
+    public static func buildUnvote(_ passphrase: String, secondPassphrase: String?, vote: String) -> ArkTransaction {
         return createVote(passphrase, secondPassphrase: secondPassphrase, vote: vote, voteType: "-")
     }
     
@@ -91,7 +91,7 @@ class ArkBuilder {
     ///   - passphrase: the passphrase of the wallet initiating the request
     ///   - secondPassphrase: the second passphrase of the wallet, if available
     /// - Returns: a signed ArkTransaction
-    static func buildMultiSignatureRegistration(_ passphrase: String, secondPassphrase: String?, min: UInt8, lifetime: UInt8, keysgroup: [String]) -> ArkTransaction {
+    public static func buildMultiSignatureRegistration(_ passphrase: String, secondPassphrase: String?, min: UInt8, lifetime: UInt8, keysgroup: [String]) -> ArkTransaction {
         var transaction = createBaseTransaction(forType: .multiSignatureRegistration)
         let amount = UInt64(keysgroup.count + 1)
         transaction.fee = amount * Fee.shared.get(forType: .multiSignatureRegistration)

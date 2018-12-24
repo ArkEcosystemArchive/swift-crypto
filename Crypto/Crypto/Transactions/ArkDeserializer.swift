@@ -11,9 +11,9 @@
 
 import Foundation
 
-class ArkDeserializer {
+public class ArkDeserializer {
 
-    static func deserialize(serialized: String) -> ArkTransaction {
+    public static func deserialize(serialized: String) -> ArkTransaction {
         var bytes = [UInt8](Data.init(hex: serialized)!)
         var transaction = ArkTransaction()
 

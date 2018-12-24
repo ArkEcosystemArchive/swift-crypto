@@ -9,9 +9,9 @@
 
 import Foundation
 
-class ArkNetwork {
+public class ArkNetwork {
 
-    static let shared = ArkNetwork(network: Devnet())
+    public static let shared = ArkNetwork(network: Devnet())
 
     var network: ProtocolNetwork
 
@@ -19,11 +19,11 @@ class ArkNetwork {
         self.network = network
     }
 
-    func get() -> ProtocolNetwork {
+    public func get() -> ProtocolNetwork {
         return network
     }
 
-    func set(network: ProtocolNetwork) {
+    public func set(network: ProtocolNetwork) {
         self.network = network
     }
 }

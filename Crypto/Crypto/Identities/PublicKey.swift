@@ -10,13 +10,13 @@
 import Foundation
 import BitcoinKit
 
-class ArkPublicKey {
+public class ArkPublicKey {
 
-    static func from(passphrase: String) -> PublicKey {
+    public static func from(passphrase: String) -> PublicKey {
         return ArkPrivateKey.from(passphrase: passphrase).publicKey()
     }
 
-    static func from(hex: String) -> PublicKey {
+    public static func from(hex: String) -> PublicKey {
         return ArkPrivateKey.from(hex: hex).publicKey()
     }
 }
