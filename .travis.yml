@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9.4
+osx_image: xcode10.1
 
 cache:
   directories:
@@ -19,7 +19,7 @@ before_script:
   - cd Crypto
 
 script:
-  - set -o pipefail && xcodebuild clean test -workspace Crypto.xcworkspace -scheme CryptoTests CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,name=iPhone X,OS=11.4' | xcpretty -f `xcpretty-travis-formatter`
+  - set -o pipefail && xcodebuild clean test -workspace Crypto.xcworkspace -scheme CryptoTests CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' | xcpretty -f `xcpretty-travis-formatter`
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
