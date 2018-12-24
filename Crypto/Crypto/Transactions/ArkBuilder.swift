@@ -123,6 +123,7 @@ public class ArkBuilder {
         transaction.asset = [
             "votes": ["\(voteType)\(vote)"]
         ]
+        transaction.recipientId = ArkAddress.from(passphrase: passphrase)
         return signTransaction(&transaction, passphrase, secondPassphrase)
     }
     

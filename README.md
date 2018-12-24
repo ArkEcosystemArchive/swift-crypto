@@ -39,7 +39,7 @@
 - [x] Transfer
 - [x] Second Signature Registration
 - [x] Delegate Registration
-- [ ] Vote
+- [x] Vote
 - [x] Multi Signature Registration
 
 ### Transaction Verifying
