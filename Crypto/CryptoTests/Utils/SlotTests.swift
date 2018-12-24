@@ -25,13 +25,4 @@ class SlotTests: XCTestCase {
         let epoch = Slot.epoch()
         XCTAssertEqual(epoch, 1490101200)
     }
-    
-    private func rfc3339() -> DateFormatter {
-        let formatter = DateFormatter()
-        formatter.calendar = Calendar(identifier: .iso8601)
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        return formatter
-    }
 }
