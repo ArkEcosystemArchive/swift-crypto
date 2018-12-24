@@ -28,6 +28,7 @@ class MultiSignatureDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.senderPublicKey, data["senderPublicKey"] as! String)
         XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
+        XCTAssertTrue(transaction.verify())
         
         XCTAssertEqual(transaction.signatures?.count, 3)
         

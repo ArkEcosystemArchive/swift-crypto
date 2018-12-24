@@ -61,11 +61,28 @@ public class ArkTransaction {
 
     public func verify() -> Bool {
         let hash = Crypto.sha256(Data(bytes: self.toBytes(skipSignature: true, skipSecondSignature: true)))
-        let publicKey = ArkPublicKey.from(hex: self.senderPublicKey!)
-        // TODO: verify data
-        return false
+        
+        do {
+            return try Crypto.verifySignature(Data.init(hex: self.signature!)!,
+                                          message: hash,
+                                          publicKey: Data.init(hex: self.senderPublicKey!)!)
+        } catch {
+            return false
+        }
     }
-    // secondVerify()
+
+    // Needs to pass along the public key of the second signature
+    public func secondVerify(publicKey: String) -> Bool {
+        let hash = Crypto.sha256(Data(bytes: self.toBytes(skipSignature: false, skipSecondSignature: true)))
+
+        do {
+            return try Crypto.verifySignature(Data.init(hex: self.signSignature!)!,
+                                              message: hash,
+                                              publicKey: Data.init(hex: publicKey)!)
+        } catch {
+            return false
+        }
+    }
 
     public func toBytes(skipSignature: Bool = true, skipSecondSignature: Bool = true) -> [UInt8] {
         var bytes = [UInt8]()

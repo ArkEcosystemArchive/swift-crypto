@@ -28,6 +28,7 @@ class SecondSignatureDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.senderPublicKey, data["senderPublicKey"] as! String)
         XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
+        XCTAssertTrue(transaction.verify())
         
         let asset = data["asset"] as! [String: [String: Any]]
         let transactionAsset = transaction.asset as! [String: [String: Any]]

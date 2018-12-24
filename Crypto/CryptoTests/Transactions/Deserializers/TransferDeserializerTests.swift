@@ -30,6 +30,7 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.amount, data["amount"] as! UInt64)
         XCTAssertEqual(transaction.recipientId, data["recipientId"] as! String)
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
+        XCTAssertTrue(transaction.verify())
     }
     
     func testDeserializeTransferSecondSig() {
@@ -49,6 +50,7 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.recipientId, data["recipientId"] as! String)
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         XCTAssertEqual(transaction.signSignature, data["signSignature"] as! String)
+        XCTAssertTrue(transaction.verify())
     }
     
     func testDeserializeTransferWithVendorField() {
@@ -68,6 +70,7 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.recipientId, data["recipientId"] as! String)
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         XCTAssertEqual(transaction.vendorField, data["vendorField"] as! String)
+        XCTAssertTrue(transaction.verify())
     }
     
     func testDeserializeTransferWithVendorFieldSecondSig() {
@@ -88,6 +91,7 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         XCTAssertEqual(transaction.signSignature, data["signSignature"] as! String)
         XCTAssertEqual(transaction.vendorField, data["vendorField"] as! String)
+        XCTAssertTrue(transaction.verify())
     }
     
     func testDeserializeTransferWithVendorFieldHex() {
@@ -107,6 +111,7 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.recipientId, data["recipientId"] as! String)
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         XCTAssertEqual(transaction.vendorFieldHex, data["vendorFieldHex"] as! String)
+        XCTAssertTrue(transaction.verify())
     }
     
     func testDeserializeTransferWithVendorFieldHexSecondSig() {
@@ -127,5 +132,6 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         XCTAssertEqual(transaction.signSignature, data["signSignature"] as! String)
         XCTAssertEqual(transaction.vendorFieldHex, data["vendorFieldHex"] as! String)
+        XCTAssertTrue(transaction.verify())
     }
 }
