@@ -60,6 +60,7 @@ public class ArkTransaction {
     }
 
     public func verify() -> Bool {
+        let hash = Crypto.sha256(Data(bytes: self.toBytes(skipSignature: true, skipSecondSignature: true)))
         let publicKey = ArkPublicKey.from(hex: self.senderPublicKey!)
         // TODO: verify data
         return false

@@ -36,11 +36,11 @@
 - [ ] Delegate Resignation
 
 ### Transaction Signing
-- [ ] Transfer
-- [ ] Second Signature Registration
-- [ ] Delegate Registration
+- [x] Transfer
+- [x] Second Signature Registration
+- [x] Delegate Registration
 - [ ] Vote
-- [ ] Multi Signature Registration
+- [x] Multi Signature Registration
 
 ### Transaction Verifying
 - [ ] Transfer
@@ -64,7 +64,7 @@
 
 ### Message
 - [x] sign
-- [ ] verify
+- [x] verify
 - [x] toArray
 - [x] toJson
 

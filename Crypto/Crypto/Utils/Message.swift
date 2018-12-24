@@ -36,12 +36,11 @@ public class ArkMessage: Codable {
     }
 
     // TODO: throw proper error
-    // TODO: fix this
     public func verify() -> Bool {
         do {
-            return try Crypto.verifySignature(self.signature.data(using: .utf8)!,
+            return try Crypto.verifySignature(Data.init(hex: self.signature)!,
                                       message: Crypto.sha256(message.data(using: .utf8)!),
-                                      publicKey: ArkPublicKey.from(hex: self.publicKey).raw)
+                                      publicKey: Data.init(hex: self.publicKey)!)
         } catch {
             return false
         }
