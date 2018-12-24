@@ -1,4 +1,4 @@
-// 
+//
 // This file is part of Ark Swift Crypto.
 //
 // (c) Ark Ecosystem <info@ark.io>
@@ -7,22 +7,26 @@
 // file that was distributed with this source code.
 //
 
-import Foundation
+import XCTest
+@testable import Crypto
 
-public class Slot {
+class SlotTests: XCTestCase {
+    
+    func testSlotTime() {
+        let time = Slot.time()
 
-    public static func time() -> UInt32 {
-        let epoch = self.rfc3339().date(from: ArkNetwork.shared.get().epoch())?.timeIntervalSince1970
-        let now = NSDate().timeIntervalSince1970
-
-        return UInt32(now - epoch!)
+        let epoch = UInt32(1490101200) // 21 March 2017 13:00:00
+        let now = UInt32(NSDate().timeIntervalSince1970)
+        
+        XCTAssertGreaterThanOrEqual(now - epoch, time)
     }
-
-    public static func epoch() -> Int {
-        return Int((self.rfc3339().date(from: ArkNetwork.shared.get().epoch())?.timeIntervalSince1970)!)
+    
+    func testSlotEpoch() {
+        let epoch = Slot.epoch()
+        XCTAssertEqual(epoch, 1490101200)
     }
-
-    private static func rfc3339() -> DateFormatter {
+    
+    private func rfc3339() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.calendar = Calendar(identifier: .iso8601)
         formatter.locale = Locale(identifier: "en_US_POSIX")

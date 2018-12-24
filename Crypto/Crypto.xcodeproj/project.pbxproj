@@ -32,6 +32,7 @@
 		D0C1637C21BAF461005F3CD0 /* SecondSignatureSerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637B21BAF461005F3CD0 /* SecondSignatureSerializerTests.swift */; };
 		D0C1637E21BAF611005F3CD0 /* TransferSerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637D21BAF611005F3CD0 /* TransferSerializerTests.swift */; };
 		D0C1638021BAF622005F3CD0 /* MultiSignatureSerializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1637F21BAF622005F3CD0 /* MultiSignatureSerializerTests.swift */; };
+		D0C163F621D170AF005F3CD0 /* SlotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C163F521D170AF005F3CD0 /* SlotTests.swift */; };
 		D0D41C672157CB4F000FF047 /* ArkTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D41C662157CB4F000FF047 /* ArkTransaction.swift */; };
 		D0D41C6921581F20000FF047 /* HelpersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0D41C6821581F20000FF047 /* HelpersTests.swift */; };
 		D0DC21D1217A50BF00C40276 /* ArkSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */; };
@@ -111,6 +112,7 @@
 		D0C1637B21BAF461005F3CD0 /* SecondSignatureSerializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondSignatureSerializerTests.swift; sourceTree = "<group>"; };
 		D0C1637D21BAF611005F3CD0 /* TransferSerializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferSerializerTests.swift; sourceTree = "<group>"; };
 		D0C1637F21BAF622005F3CD0 /* MultiSignatureSerializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSignatureSerializerTests.swift; sourceTree = "<group>"; };
+		D0C163F521D170AF005F3CD0 /* SlotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotTests.swift; sourceTree = "<group>"; };
 		D0D41C662157CB4F000FF047 /* ArkTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkTransaction.swift; sourceTree = "<group>"; };
 		D0D41C6821581F20000FF047 /* HelpersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpersTests.swift; sourceTree = "<group>"; };
 		D0DC21D0217A50BF00C40276 /* ArkSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkSerializer.swift; sourceTree = "<group>"; };
@@ -463,6 +465,7 @@
 			children = (
 				D0FA88B021569B24008F715C /* MessageTests.swift */,
 				D0D41C6821581F20000FF047 /* HelpersTests.swift */,
+				D0C163F521D170AF005F3CD0 /* SlotTests.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -707,6 +710,7 @@
 				D0DF5F33217E680600E2CC13 /* TestHelpers.swift in Sources */,
 				D0B1A6FE215561E1001FA4DE /* NetworkConfigurationTests.swift in Sources */,
 				D0FA88B121569B24008F715C /* MessageTests.swift in Sources */,
+				D0C163F621D170AF005F3CD0 /* SlotTests.swift in Sources */,
 				D0FA88A62155A0A3008F715C /* WIFTests.swift in Sources */,
 				D0FA889E21557764008F715C /* PrivateKeyTests.swift in Sources */,
 				D04BE87C218658C4005ADD15 /* TransferDeserializerTests.swift in Sources */,
