@@ -46,6 +46,7 @@ public class ArkTransaction {
 
     // TODO: proper try statement
     public func sign(_ keys: PrivateKey) -> ArkTransaction {
+        self.senderPublicKey = keys.publicKey().raw.hex
         let transaction = Crypto.sha256(Data(bytes: self.toBytes()))
         self.signature = try! Crypto.sign(transaction, privateKey: keys).hex
         return self
@@ -167,7 +168,7 @@ public class ArkTransaction {
             transactionDict["timestamp"] = timestamp
         }
         if let type = self.type {
-            transactionDict["type"] = type
+            transactionDict["type"] = type.rawValue
         }
         if let vendorField = self.vendorField {
             transactionDict["vendorField"] = vendorField
@@ -182,5 +183,18 @@ public class ArkTransaction {
         return transactionDict
     }
     
-    // TODO: func toJson()
+    public func toJson() -> String? {
+        let txDict = self.toDict()
+        
+        do {
+            // Serialize as json Data
+            let jsonData = try JSONSerialization.data(withJSONObject: txDict, options: [])
+            
+            // Turn it into a String
+            return String(data: jsonData, encoding: .ascii)
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
 }
