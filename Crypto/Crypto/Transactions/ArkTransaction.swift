@@ -137,6 +137,9 @@ public class ArkTransaction {
         if let amount = self.amount {
             transactionDict["amount"] = amount
         }
+        if let fee = self.fee {
+            transactionDict["fee"] = fee
+        }
         if let asset = self.asset {
             transactionDict["asset"] = asset
         }
