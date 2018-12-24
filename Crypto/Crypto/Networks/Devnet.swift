@@ -10,6 +10,9 @@
 import Foundation
 
 public class Devnet: ProtocolNetwork {
+    
+    public init() {}
+    
     public func epoch() -> String {
         return "2017-03-21T13:00:00.000Z"
     }
