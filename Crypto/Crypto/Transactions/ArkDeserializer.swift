@@ -8,6 +8,7 @@
 //
 
 // swiftlint:disable opening_brace
+// swiftlint:disable force_cast
 
 import Foundation
 
@@ -25,7 +26,7 @@ public class ArkDeserializer {
         if transaction.version == 1 {
             handleVersionOne(&transaction)
         }
-        
+
         return transaction
     }
 

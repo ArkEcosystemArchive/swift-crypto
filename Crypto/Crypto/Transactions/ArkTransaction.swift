@@ -7,7 +7,8 @@
 // file that was distributed with this source code.
 //
 
-//swiftlint:disable force_try
+// swiftlint:disable force_try
+// swiftlint:disable force_cast
 
 import Foundation
 import BitcoinKit
