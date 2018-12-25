@@ -1,0 +1,10 @@
+# Ignore macOS .DS_Store
+.DS_Store
+
+# Ignore Xcode user settings
+xcuserdata/
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcworkspace/contents.xcworkspacedata
+/*.gcno

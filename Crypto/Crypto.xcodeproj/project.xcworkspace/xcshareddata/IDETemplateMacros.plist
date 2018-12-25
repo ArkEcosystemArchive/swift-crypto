@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FILEHEADER</key>
+	<string> 
+// This file is part of Ark Swift Crypto.
+//
+// (c) Ark Ecosystem &lt;info@ark.io&gt;
+//
+// For the full copyright and license information, please view the LICENSE
+// file that was distributed with this source code.
+//</string>
+</dict>
+</plist>
