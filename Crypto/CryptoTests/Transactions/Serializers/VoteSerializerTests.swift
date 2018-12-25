@@ -7,6 +7,7 @@
 // file that was distributed with this source code.
 //
 
+// swiftlint:disable force_cast
 
 import XCTest
 @testable import Crypto
