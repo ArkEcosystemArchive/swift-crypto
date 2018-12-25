@@ -10,7 +10,7 @@
 import Foundation
 
 public class ArkBuilder {
-    
+
     /// Builds a transaction for a transfer
     ///
     /// - Parameters:
@@ -25,10 +25,10 @@ public class ArkBuilder {
         transaction.recipientId = recipient
         transaction.amount = amount
         transaction.vendorField = vendorField
-        
+
         return signTransaction(&transaction, passphrase, secondPassphrase)
     }
-    
+
     /// Builds a transaction for a second signature registration
     ///
     /// - Parameters:
@@ -44,7 +44,7 @@ public class ArkBuilder {
         ]
         return signTransaction(&transaction, passphrase, secondPassphrase)
     }
-    
+
     /// Builds a transaction for a delegate registration
     ///
     /// - Parameters:
@@ -62,7 +62,7 @@ public class ArkBuilder {
         ]
         return signTransaction(&transaction, passphrase, secondPassphrase)
     }
-    
+
     /// Builds a transaction for an vote
     ///
     /// - Parameters:
@@ -73,7 +73,7 @@ public class ArkBuilder {
     public static func buildVote(_ passphrase: String, secondPassphrase: String?, vote: String) -> ArkTransaction {
         return createVote(passphrase, secondPassphrase: secondPassphrase, vote: vote, voteType: "+")
     }
-    
+
     /// Builds a transaction for an unvote
     ///
     /// - Parameters:
@@ -84,7 +84,7 @@ public class ArkBuilder {
     public static func buildUnvote(_ passphrase: String, secondPassphrase: String?, vote: String) -> ArkTransaction {
         return createVote(passphrase, secondPassphrase: secondPassphrase, vote: vote, voteType: "-")
     }
-    
+
     /// Builds a transaction for a multi signature registration
     ///
     /// - Parameters:
@@ -104,12 +104,12 @@ public class ArkBuilder {
         ]
         return signTransaction(&transaction, passphrase, secondPassphrase)
     }
-    
+
     // MARK: - AIP11 builders
     // TODO
-    
+
     // MARK: - helper functions
-    
+
     /// Used to build either a vote or unvote transaction
     ///
     /// - Parameters:
@@ -126,7 +126,7 @@ public class ArkBuilder {
         transaction.recipientId = ArkAddress.from(passphrase: passphrase)
         return signTransaction(&transaction, passphrase, secondPassphrase)
     }
-    
+
     /// Signs a transaction
     ///
     /// - Parameters:
@@ -137,15 +137,15 @@ public class ArkBuilder {
     private static func signTransaction(_ transaction: inout ArkTransaction, _ passphrase: String, _ secondPassphrase: String?) -> ArkTransaction {
         transaction.timestamp = Slot.time()
         transaction.sign(ArkPrivateKey.from(passphrase: passphrase))
-        
+
         if let secondPass = secondPassphrase {
             transaction.sign(ArkPrivateKey.from(passphrase: secondPass))
         }
-        
+
         transaction.id = transaction.getId()
         return transaction
     }
-    
+
     /// Helper function to populate default transaction fields
     ///
     /// - Parameter txType: the type of transaction

@@ -58,22 +58,22 @@ func pack<T: Any>(_ value: T) -> [UInt8] {
 func hexToString(_ hex: String) -> String {
     // Based on https://stackoverflow.com/a/46413632, room for improvement
     var chars = [Character]()
-    
+
     for c in hex.characters {
         chars.append(c)
     }
-    
-    let numbers = stride(from: 0, to: chars.count, by: 2).map{
+
+    let numbers = stride(from: 0, to: chars.count, by: 2).map {
         strtoul(String(chars[$0 ..< $0+2]), nil, 16)
     }
-    
+
     var final = ""
     var i = 0
-    
+
     while i < numbers.count {
         final.append(Character(UnicodeScalar(Int(numbers[i]))!))
         i += 1
     }
-    
+
     return final
 }

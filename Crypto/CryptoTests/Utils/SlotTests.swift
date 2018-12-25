@@ -11,16 +11,16 @@ import XCTest
 @testable import Crypto
 
 class SlotTests: XCTestCase {
-    
+
     func testSlotTime() {
         let time = Slot.time()
 
         let epoch = UInt32(1490101200) // 21 March 2017 13:00:00
         let now = UInt32(NSDate().timeIntervalSince1970)
-        
+
         XCTAssertGreaterThanOrEqual(now - epoch, time)
     }
-    
+
     func testSlotEpoch() {
         let epoch = Slot.epoch()
         XCTAssertEqual(epoch, 1490101200)

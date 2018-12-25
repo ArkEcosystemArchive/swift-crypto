@@ -13,13 +13,13 @@ import XCTest
 @testable import Crypto
 
 class MultiSignatureDeserializerTests: XCTestCase {
-    
+
     func testDeserializeMultiSignature() {
         let json = readJson(file: "ms_passphrase", type: type(of: self))
         let serialized = json["serialized"] as! String
         let data = json["data"] as! [String: Any]
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(transaction.version, 1)
         XCTAssertEqual(transaction.network, 23)
         XCTAssertEqual(transaction.type, TransactionType.multiSignatureRegistration)
@@ -29,16 +29,16 @@ class MultiSignatureDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         XCTAssertTrue(transaction.verify())
-        
+
         XCTAssertEqual(transaction.signatures?.count, 3)
-        
+
         let asset = data["asset"] as! [String: [String: Any]]
         let transactionAsset = transaction.asset as! [String: [String: Any]]
         let assetMultiSig = asset["multisignature"]!
         let txAssetMultiSig = transactionAsset["multisignature"]!
         XCTAssertEqual(txAssetMultiSig["min"] as! UInt8, assetMultiSig["min"] as! UInt8)
         XCTAssertEqual(txAssetMultiSig["lifetime"] as! UInt8, assetMultiSig["lifetime"] as! UInt8)
-        
+
         let txKeysgroup = txAssetMultiSig["keysgroup"] as! [String]
         let keysgroup = assetMultiSig["keysgroup"] as! [String]
         for idx in 0..<txKeysgroup.count {

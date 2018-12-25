@@ -62,7 +62,7 @@ public class ArkTransaction {
 
     public func verify() -> Bool {
         let hash = Crypto.sha256(Data(bytes: self.toBytes(skipSignature: true, skipSecondSignature: true)))
-        
+
         do {
             return try Crypto.verifySignature(Data.init(hex: self.signature!)!,
                                           message: hash,
@@ -201,17 +201,17 @@ public class ArkTransaction {
         if let version = self.version {
             transactionDict["version"] = version
         }
-        
+
         return transactionDict
     }
-    
+
     public func toJson() -> String? {
         let txDict = self.toDict()
-        
+
         do {
             // Serialize as json Data
             let jsonData = try JSONSerialization.data(withJSONObject: txDict, options: [])
-            
+
             // Turn it into a String
             return String(data: jsonData, encoding: .ascii)
         } catch {

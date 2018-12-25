@@ -13,13 +13,13 @@ import XCTest
 @testable import Crypto
 
 class DelegateDeserializerTests: XCTestCase {
-    
+
     func testDeserializeDelegateRegistration() {
         let json = readJson(file: "del_reg_passphrase", type: type(of: self))
         let serialized = json["serialized"] as! String
         let data = json["data"] as! [String: Any]
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(transaction.version, 1)
         XCTAssertEqual(transaction.network, 30)
         XCTAssertEqual(transaction.type, TransactionType.delegateRegistration)
@@ -29,18 +29,18 @@ class DelegateDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.fee, data["fee"] as! UInt64)
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         XCTAssertTrue(transaction.verify())
-        
+
         let asset = data["asset"] as! [String: [String: Any]]
         let transactionAsset = transaction.asset as! [String: [String: Any]]
         XCTAssertEqual(transactionAsset["delegate"]!["username"]! as! String, asset["delegate"]!["username"]! as! String)
     }
-    
+
     func testDeserializeDelegateRegistrationSecondSig() {
         let json = readJson(file: "del_reg_second-passphrase", type: type(of: self))
         let serialized = json["serialized"] as! String
         let data = json["data"] as! [String: Any]
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(transaction.version, 1)
         XCTAssertEqual(transaction.network, 30)
         XCTAssertEqual(transaction.type, TransactionType.delegateRegistration)
@@ -51,7 +51,7 @@ class DelegateDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         XCTAssertEqual(transaction.signSignature, data["signSignature"] as! String)
         XCTAssertTrue(transaction.verify())
-        
+
         let asset = data["asset"] as! [String: [String: Any]]
         let transactionAsset = transaction.asset as! [String: [String: Any]]
         XCTAssertEqual(transactionAsset["delegate"]!["username"]! as! String, asset["delegate"]!["username"]! as! String)

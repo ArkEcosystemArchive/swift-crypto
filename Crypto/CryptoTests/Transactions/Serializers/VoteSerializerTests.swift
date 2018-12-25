@@ -18,15 +18,15 @@ class VoteSerializerTests: XCTestCase {
         let json = readJson(file: "vote_passphrase", type: type(of: self))
         let serialized = json["serialized"] as! String
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(serialized, ArkSerializer.serialize(transaction: transaction))
     }
-    
+
     func testSerializeVoteSecondSig() {
         let json = readJson(file: "vote_second-passphrase", type: type(of: self))
         let serialized = json["serialized"] as! String
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(serialized, ArkSerializer.serialize(transaction: transaction))
     }
 }

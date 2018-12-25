@@ -13,13 +13,13 @@ import XCTest
 @testable import Crypto
 
 class TransferDeserializerTests: XCTestCase {
-    
+
     func testDeserializeTransfer() {
         let json = readJson(file: "transfer_passphrase", type: type(of: self))
         let serialized = json["serialized"] as! String
         let data = json["data"] as! [String: Any]
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(transaction.version, 1)
         XCTAssertEqual(transaction.network, 30)
         XCTAssertEqual(transaction.type, TransactionType.transfer)
@@ -32,13 +32,13 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.signature, data["signature"] as! String)
         XCTAssertTrue(transaction.verify())
     }
-    
+
     func testDeserializeTransferSecondSig() {
         let json = readJson(file: "transfer_second-passphrase", type: type(of: self))
         let serialized = json["serialized"] as! String
         let data = json["data"] as! [String: Any]
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(transaction.version, 1)
         XCTAssertEqual(transaction.network, 30)
         XCTAssertEqual(transaction.type, TransactionType.transfer)
@@ -52,13 +52,13 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.signSignature, data["signSignature"] as! String)
         XCTAssertTrue(transaction.verify())
     }
-    
+
     func testDeserializeTransferWithVendorField() {
         let json = readJson(file: "transfer_passphrase-with-vendor-field", type: type(of: self))
         let serialized = json["serialized"] as! String
         let data = json["data"] as! [String: Any]
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(transaction.version, 1)
         XCTAssertEqual(transaction.network, 30)
         XCTAssertEqual(transaction.type, TransactionType.transfer)
@@ -72,13 +72,13 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.vendorField, data["vendorField"] as! String)
         XCTAssertTrue(transaction.verify())
     }
-    
+
     func testDeserializeTransferWithVendorFieldSecondSig() {
         let json = readJson(file: "transfer_second-passphrase-with-vendor-field", type: type(of: self))
         let serialized = json["serialized"] as! String
         let data = json["data"] as! [String: Any]
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(transaction.version, 1)
         XCTAssertEqual(transaction.network, 30)
         XCTAssertEqual(transaction.type, TransactionType.transfer)
@@ -93,13 +93,13 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.vendorField, data["vendorField"] as! String)
         XCTAssertTrue(transaction.verify())
     }
-    
+
     func testDeserializeTransferWithVendorFieldHex() {
         let json = readJson(file: "transfer_passphrase-with-vendor-field-hex", type: type(of: self))
         let serialized = json["serialized"] as! String
         let data = json["data"] as! [String: Any]
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(transaction.version, 1)
         XCTAssertEqual(transaction.network, 30)
         XCTAssertEqual(transaction.type, TransactionType.transfer)
@@ -113,13 +113,13 @@ class TransferDeserializerTests: XCTestCase {
         XCTAssertEqual(transaction.vendorFieldHex, data["vendorFieldHex"] as! String)
         XCTAssertTrue(transaction.verify())
     }
-    
+
     func testDeserializeTransferWithVendorFieldHexSecondSig() {
         let json = readJson(file: "transfer_second-passphrase-with-vendor-field-hex", type: type(of: self))
         let serialized = json["serialized"] as! String
         let data = json["data"] as! [String: Any]
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(transaction.version, 1)
         XCTAssertEqual(transaction.network, 30)
         XCTAssertEqual(transaction.type, TransactionType.transfer)

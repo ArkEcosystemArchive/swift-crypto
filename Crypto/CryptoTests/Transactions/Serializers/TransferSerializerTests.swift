@@ -13,36 +13,36 @@ import XCTest
 @testable import Crypto
 
 class TransferSerializerTests: XCTestCase {
-    
+
     func testSerializeTransfer() {
         let json = readJson(file: "transfer_passphrase", type: type(of: self))
         let serialized = json["serialized"] as! String
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(serialized, ArkSerializer.serialize(transaction: transaction))
     }
-    
+
     func testSerializeTransferSecondSig() {
         let json = readJson(file: "transfer_second-passphrase", type: type(of: self))
         let serialized = json["serialized"] as! String
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(serialized, ArkSerializer.serialize(transaction: transaction))
     }
-    
+
     func testSerializeTransferWithVendorField() {
         let json = readJson(file: "transfer_passphrase-with-vendor-field", type: type(of: self))
         let serialized = json["serialized"] as! String
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(serialized, ArkSerializer.serialize(transaction: transaction))
     }
-    
+
     func testSerializeTransferWithVendorFieldSecondSig() {
         let json = readJson(file: "transfer_second-passphrase-with-vendor-field", type: type(of: self))
         let serialized = json["serialized"] as! String
         let transaction = ArkDeserializer.deserialize(serialized: serialized)
-        
+
         XCTAssertEqual(serialized, ArkSerializer.serialize(transaction: transaction))
     }
 
