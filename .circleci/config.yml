@@ -16,7 +16,10 @@ jobs:
     working_directory: ~/arkecosystem/crypto
     steps:
       - checkout
-
+      - run:
+          name: Install prerequisits for BitcoinKit
+          command: |
+            sudo apt-get install libtool
       - run:
           name: Fetch CocoaPods Specs
           command: |
