@@ -5,7 +5,7 @@ jobs:
       - image: dantoml/swiftlint:latest
     steps:
       - checkout
-      - run: cd Client && swiftlint lint --reporter junit | tee result.xml
+      - run: cd Crypto && swiftlint lint --reporter junit | tee result.xml
       - store_artifacts:
           path: result.xml
       - store_test_results:
@@ -19,14 +19,15 @@ jobs:
       - run:
           name: Install prerequisits
           command: |
-            brew install carthage || true
-            brew outdated carthage || brew upgrade carthage
+            pod repo update
+            pod install --project-directory=Crypto
+            sh Crypto/Pods/BitcoinKit/setup/build_libraries.sh
       - run:
           name: Navigate to correct folder
-          command: cd Client && carthage bootstrap --cache-builds  --platform Mac
+          command: cd Crypto && carthage bootstrap --cache-builds  --platform Mac
       - run:
           name: Build and run tests
-          command: cd Client && set -o pipefail && xcodebuild clean test -project Client.xcodeproj -scheme ClientTests CODE_SIGNING_REQUIRED=NO
+          command: set -o pipefail && xcodebuild clean test -workspace Crypto.xcworkspace -scheme CryptoTests CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1'
       - run:
           name: Codecov
           when: on_success
