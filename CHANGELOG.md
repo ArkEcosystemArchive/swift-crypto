@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## Unreleased
 
+- fix improper signing of transactions with second signature
+
 ## 0.1.0 - 2018-12-29
 
 - initial release
