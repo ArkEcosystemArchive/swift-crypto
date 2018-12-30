@@ -42,7 +42,7 @@ public class ArkBuilder {
                 "publicKey": ArkPublicKey.from(passphrase: secondPassphrase).raw.hex
             ]
         ]
-        return signTransaction(&transaction, passphrase, secondPassphrase)
+        return signTransaction(&transaction, passphrase, nil)
     }
 
     /// Builds a transaction for a delegate registration
@@ -139,7 +139,7 @@ public class ArkBuilder {
         transaction.sign(ArkPrivateKey.from(passphrase: passphrase))
 
         if let secondPass = secondPassphrase {
-            transaction.sign(ArkPrivateKey.from(passphrase: secondPass))
+            transaction.secondSign(ArkPrivateKey.from(passphrase: secondPass))
         }
 
         transaction.id = transaction.getId()
