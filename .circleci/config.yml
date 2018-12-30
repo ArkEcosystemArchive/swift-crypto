@@ -16,11 +16,15 @@ jobs:
     working_directory: ~/arkecosystem/crypto
     steps:
       - checkout
+
       - run:
-          name: Install prerequisits
+          name: Fetch CocoaPods Specs
           command: |
-            pod repo update
-            pod install --project-directory=Crypto
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      - run:
+          name: Install CocoaPods and run additional Bitcoinkit script
+          command: |
+            pod install --project-directory=Crypto --verbose
             sh Crypto/Pods/BitcoinKit/setup/build_libraries.sh
       - run:
           name: Navigate to correct folder
