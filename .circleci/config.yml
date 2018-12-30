@@ -1,24 +1,40 @@
 version: 2
 jobs:
-  build:
+  swiftlint:
+    docker:
+      - image: dantoml/swiftlint:latest
+    steps:
+      - checkout
+      - run: cd Client && swiftlint lint --reporter junit | tee result.xml
+      - store_artifacts:
+          path: result.xml
+      - store_test_results:
+          path: result.xml
+  build-and-test:
     macos:
-      xcode: "8.3.3"
+      xcode: "10.1.0"
+    working_directory: ~/arkecosystem/crypto
     steps:
       - checkout
       - run:
-          name: Install CocoaPods
-          command: pod install
+          name: Install prerequisits
+          command: |
+            brew install carthage || true
+            brew outdated carthage || brew upgrade carthage
+      - run:
+          name: Navigate to correct folder
+          command: cd Client && carthage bootstrap --cache-builds  --platform Mac
       - run:
           name: Build and run tests
-          command: fastlane scan
-          environment:
-            SCAN_DEVICE: iPhone 6
-            SCAN_SCHEME: WebTests
-      - store_test_results:
-          path: test_output/report.xml
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: scan-test-results
-      - store_artifacts:
-          path: ~/Library/Logs/scan
-          destination: scan-logs
+          command: cd Client && set -o pipefail && xcodebuild clean test -project Client.xcodeproj -scheme ClientTests CODE_SIGNING_REQUIRED=NO
+      - run:
+          name: Codecov
+          when: on_success
+          command: bash <(curl -s https://codecov.io/bash)
+
+workflows:
+  version: 2
+  lint-build-test:
+    jobs:
+      - swiftlint
+      - build-and-test
