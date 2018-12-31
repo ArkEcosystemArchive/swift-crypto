@@ -1,0 +1,45 @@
+version: 2
+jobs:
+  swiftlint:
+    docker:
+      - image: dantoml/swiftlint:latest
+    steps:
+      - checkout
+      - run: cd Crypto && swiftlint lint --reporter junit | tee result.xml
+      - store_artifacts:
+          path: result.xml
+      - store_test_results:
+          path: result.xml
+  build-and-test:
+    macos:
+      xcode: "10.1.0"
+    working_directory: ~/arkecosystem/crypto
+    steps:
+      - checkout
+      - run:
+          name: Install prerequisits for BitcoinKit
+          command: |
+            brew install libtool
+      - run:
+          name: Fetch CocoaPods Specs
+          command: |
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+      - run:
+          name: Install CocoaPods and run additional Bitcoinkit script
+          command: |
+            pod install --project-directory=Crypto --verbose
+            sh Crypto/Pods/BitcoinKit/setup/build_libraries.sh
+      - run:
+          name: Build and run tests
+          command: cd Crypto && set -o pipefail && xcodebuild clean test -workspace Crypto.xcworkspace -scheme CryptoTests CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1'
+      - run:
+          name: Codecov
+          when: on_success
+          command: bash <(curl -s https://codecov.io/bash)
+
+workflows:
+  version: 2
+  lint-build-test:
+    jobs:
+      - swiftlint
+      - build-and-test
