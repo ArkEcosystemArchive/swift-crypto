@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'SwiftCrypto'
-  s.version = '0.1.0'
+  s.version = '0.2.0'
   s.license = 'MIT'
   s.summary = 'A simple Cryptography Implementation in Swift for the ARK Blockchain'
   s.homepage = 'https://github.com/ArkEcosystem/swift-crypto'
