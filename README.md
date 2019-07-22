@@ -11,6 +11,8 @@
 [![Latest Version](https://badgen.now.sh/github/release/ArkEcosystem/swift-crypto)](https://github.com/ArkEcosystem/swift-crypto/releases)
 [![License: MIT](https://badgen.now.sh/badge/license/MIT/green)](https://opensource.org/licenses/MIT)
 
+> Lead Maintainer: [Michel Kraaijeveld](https://github.com/ItsANameToo)
+
 ## Documentation
 
 You can find installation instructions and detailed instructions on how to use this package at the [dedicated documentation site](https://docs.ark.io/sdk/cryptography/swift.html).
@@ -21,9 +23,8 @@ If you discover a security vulnerability within this package, please send an e-m
 
 ## Credits
 
-- [ItsANameToo](https://github.com/ItsANameToo)
-- [All Contributors](../../contributors)
+This project exists thanks to all the people who [contribute](../../contributors).
 
 ## License
 
-[MIT](LICENSE) © [ArkEcosystem](https://ark.io)
+[MIT](LICENSE) © [ARK Ecosystem](https://ark.io)
