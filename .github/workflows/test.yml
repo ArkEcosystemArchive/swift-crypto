@@ -1,9 +1,15 @@
 name: Test
 
 on: [push, pull_request]
-
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    types: [published, created]
+    
 jobs:
-    build:
+    latest:
         runs-on: macOS-latest
 
         steps:
