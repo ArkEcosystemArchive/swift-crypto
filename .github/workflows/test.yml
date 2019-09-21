@@ -1,0 +1,21 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+    build:
+        runs-on: macOS-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Install prerequisits for BitcoinKit
+              run: |
+                  brew install libtool
+            - name: Install CocoaPods and run additional Bitcoinkit script
+              run: |
+                  pod install --project-directory=Crypto --verbose
+                  sh Crypto/Pods/BitcoinKit/setup/build_libraries.sh
+            - name: Build and run tests
+              run: cd Crypto && set -o pipefail && xcodebuild clean test -workspace Crypto.xcworkspace -scheme CryptoTests CODE_SIGNING_REQUIRED=NO -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1'
+            - name: Codecov
+              run: bash <(curl -s https://codecov.io/bash) -t ${{ secrets.CODECOV_TOKEN }}
