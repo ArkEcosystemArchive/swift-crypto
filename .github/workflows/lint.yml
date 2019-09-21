@@ -1,0 +1,19 @@
+name: Lint
+
+on:
+    push:
+        branches:
+            - '**'
+    pull_request:
+        types: [opened]
+
+jobs:
+    lint:
+        runs-on: macOS-latest
+
+        steps:
+            - uses: actions/checkout@v1
+            - name: Install
+              run: brew install swiftlint
+            - name: Lint
+              run: cd Crypto && swiftlint lint --reporter junit
