@@ -9,8 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v1
             - name: Install prerequisits for BitcoinKit
-              run: |
-                  brew install libtool
+              run: brew install automake && brew install libtool
             - name: Install CocoaPods and run additional Bitcoinkit script
               run: |
                   pod install --project-directory=Crypto --verbose
