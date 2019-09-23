@@ -8,7 +8,7 @@ on:
         types: [opened]
     
 jobs:
-    latest:
+    unit:
         runs-on: macOS-latest
 
         steps:
